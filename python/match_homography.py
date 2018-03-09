@@ -2,6 +2,7 @@
 import numpy as np
 import cv2
 import matplotlib
+from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
@@ -115,6 +116,9 @@ input("Press Enter to continue...")
 found_homographies = 0
 discarded_homographies = 0
 
+## Initialize rectified objects' images list
+#rectified_images = list()
+
 ## Initialize the buffer of temporary removed matches
 temporary_removed_matches = list()
 
@@ -221,7 +225,7 @@ while not end:
                                                        flags=2)
                                     
                                     ## Draw clustered matches
-                                    matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, in_polygon_pts, None, **draw_params)                
+                                    matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, in_polygon_pts, None, **draw_params)
                                     
                                     ## Set the size of the figure to show
                                     matplotlib.rcParams["figure.figsize"]=(15,12)
@@ -243,6 +247,42 @@ while not end:
                                     ## Put back, inside the good matches list, points temporary removed
                                     good_matches.extend(temporary_removed_matches)
                                     temporary_removed_matches.clear()
+                                    
+                                    ## Apply the inverse of the found homography to the scene image
+                                    ## in order to rectify the object in the polygon and extract the 
+                                    ## bounded image region from the rectified one containing the template instance
+                                    H_inv = inv(H)
+                                    rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
+                                    
+                                    ## Append the rectified image to the proper list
+                                    #rectified_images.append(rect_test_image)
+                                    
+                                    ## Apply the homography to all test_keypoints in order to plot them
+                                    object_test_keypoints_array = [0, 0]
+                                    for keypoint in test_keypoints:
+                                        object_test_keypoints_array = np.vstack((object_test_keypoints_array, [keypoint.pt[0], keypoint.pt[1]]))
+                                    object_test_keypoints_array = np.delete(object_test_keypoints_array, (0), axis=0)
+                                    object_test_keypoints_array = object_test_keypoints_array.reshape(-1, 1, 2)
+                                    object_test_keypoints_array = cv2.perspectiveTransform(object_test_keypoints_array, H_inv)
+                                    
+                                    object_test_keypoints = list()
+                                    for i,keypoint  in enumerate(object_test_keypoints_array):
+                                        object_test_keypoints.append(cv2.KeyPoint(keypoint[0][0], keypoint[0][1], test_keypoints[i].size))
+                                    
+                                    ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
+                                    draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
+                                                       singlePointColor=None,
+                                                       matchesMask=matches_mask,  # draw only inliers
+                                                       flags=2)
+                                    
+                                    ## Draw clustered rectified matches
+                                    matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, in_polygon_pts, None, **draw_params)
+                                    
+                                    ## Show the rectified matches and image
+                                    plt.imshow(matches_image, 'gray'), plt.title('Rectified object matches'), plt.show()
+                                    rect_stacked_image = np.hstack((rect_test_image, template_image))
+                                    rect_stacked_image = np.dstack((rect_stacked_image, rect_stacked_image, rect_stacked_image))
+                                    plt.imshow(rect_stacked_image, 'gray'), plt.title('Rectified object image'), plt.show()
                                     
                                     ## Show the number of good matches left
                                     print('There remains: ' + str(len(good_matches)) + ' features')
@@ -335,3 +375,9 @@ plt.imshow(polygons_image, 'gray'), plt.title('final image'),plt.show()
 
 ## Show the final number of good homographies found
 print("Found " + str(found_homographies) + " homographies")
+
+## Show all the rectified image regions
+#answer = input("Show rectified images? [Y/n]")
+#if answer == "" or answer.lower() == "y":
+#    for i,rectified_image in enumerate(rectified_images):
+#        plt.imshow(np.hstack((rectified_image, template_image)), 'gray'), plt.title('Rectified obect n° ' + str(i)), plt.show()
