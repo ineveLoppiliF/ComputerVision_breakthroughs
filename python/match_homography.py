@@ -17,8 +17,8 @@ LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest mat
 IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
 
 ## Load images
-template_image = cv2.imread('../data/images/template/emirates-logo.png', 0) # template image
-test_image = cv2.imread('../data/images/test/pressAds.png', 0)  # test image
+template_image = cv2.imread('../data/images/template/lipton_front.jpg', 0) # template image
+test_image = cv2.imread('../data/images/test/lipton_front_shuffled.jpg', 0)  # test image
 
 ## Show the loaded images
 plt.imshow(template_image, 'gray'), plt.title('template'),plt.show()
@@ -122,6 +122,9 @@ discarded_homographies = 0
 ## Initialize the buffer of temporary removed matches
 temporary_removed_matches = list()
 
+## Initialize the test image used to draw projected squares
+test_image_squares = test_image.copy()
+
 ## Continue to look for other homographies
 end = False
 while not end:
@@ -216,7 +219,7 @@ while not end:
                                     print('Discarded ' + str(discarded_homographies) + ' homographies until now')
                                     
                                     ## Draw the projected polygon in the test image, in order to visualize the found template in the test image
-                                    polygons_image = cv2.polylines(test_image, [np.int32(dst_vrtx)], True, 255, 3, cv2.LINE_AA)
+                                    polygons_image = cv2.polylines(test_image_squares, [np.int32(dst_vrtx)], True, 255, 3, cv2.LINE_AA)
                                     
                                     ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
                                     draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
