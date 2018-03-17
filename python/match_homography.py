@@ -6,17 +6,19 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from support_functions import indexToEliminate
+from support_functions import *
+
 
 #%% Initial initializations
 
 ## Constant parameters to be tuned
 MIN_MATCH_COUNT = 30 # search for the template whether there are at least MIN_MATCH_CURENT good matches in the scene
-MIN_MATCH_CURRENT = 5 # stop when your matched homography has less than that features
+MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that features
 LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest match is lower than LOWE_THRESHOLD * the distance with the second best match
 IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
+OUT_OF_IMAGE_THRESHOLD = 0.08 # Homography kept only if the square is not too much out from test image
 
-## Load images
+## Load images 
 template_image = cv2.imread('../data/images/template/template_twinings.jpg', 0) # template image
 test_image = cv2.imread('../data/images/test/twinings4.JPG', 0)  # test image
 
@@ -125,6 +127,10 @@ temporary_removed_matches = list()
 ## Initialize the test image used to draw projected squares
 test_image_squares = test_image.copy()
 
+## Create a polygon using image dimension
+## Create a polygon using the projected vertices
+img_polygon = Polygon([(0,0), (0,test_image.shape[0]), (test_image.shape[1],test_image.shape[0]), (test_image.shape[1],0)])
+
 ## Continue to look for other homographies
 end = False
 while not end:
@@ -159,16 +165,9 @@ while not end:
                     
                     ## Create a polygon using the projected vertices
                     polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
-                    
-                    ## Count the number of inliers lying in the projected polygon in the test image
-                    count = 0
-                    for i in range(len(dst_inliers)):
-                        point = Point(dst_inliers[i][0][0], dst_inliers[i][0][1])                    
-                        if polygon.contains(point):
-                            count+=1
-                    
-                    ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon
-                    if count/len(dst_inliers) >= IN_POLYGON_THRESHOLD:
+                            
+                    ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon, if the polygon is valid (no loop) and if is mostly inside the image
+                    if polygon.is_valid and outPointsRatio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD and outAreaRatio(img_polygon, polygon) <= OUT_OF_IMAGE_THRESHOLD:
                         
                         ## Create a mask over the left good matches of the ones that are inliers
                         inliers_mask = np.zeros(len(good_matches))
@@ -205,16 +204,9 @@ while not end:
                                 
                                 ## Create a polygon using the projected vertices
                                 polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
-                                
-                                ## Count the number of inliers lying in the projected polygon in the test image
-                                count = 0
-                                for i in range(len(dst_inliers)):
-                                    point = Point(dst_inliers[i][0][0], dst_inliers[i][0][1])                    
-                                    if polygon.contains(point):
-                                        count+=1
-                                
+                               
                                 ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon
-                                if count/len(dst_inliers) >= IN_POLYGON_THRESHOLD:
+                                if outPointsRatio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
                                     ## Show the number of discarded homographies until now
                                     print('Discarded ' + str(discarded_homographies) + ' homographies until now')
                                     
