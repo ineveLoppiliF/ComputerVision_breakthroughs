@@ -6,7 +6,8 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from support_functions import *
+from out_area_ratio import out_area_ratio
+from out_points_ratio import out_points_ratio 
 from remove_temporarily_matches import remove_temporarily_matches
 
 
@@ -172,7 +173,7 @@ while not end:
                     polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                             
                     ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon, if the polygon is valid (no loop) and if is mostly inside the image
-                    if polygon.is_valid and outPointsRatio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD and outAreaRatio(img_polygon, polygon) <= OUT_OF_IMAGE_THRESHOLD:
+                    if polygon.is_valid and out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD and out_area_ratio(img_polygon, polygon) <= OUT_OF_IMAGE_THRESHOLD:
                         
                         ## Create a mask over the left good matches of the ones that are inliers
                         inliers_mask = np.zeros(len(good_matches))
@@ -211,7 +212,7 @@ while not end:
                                 polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                                
                                 ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon and the polygon area is not too different from previous
-                                if outPointsRatio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
+                                if out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
                                    
                                     ## Area confidence test
                                     if len(areas) < 2 or (polygon.area >= np.mean(areas) - CONFIDENCE_INTERVAL_AREA*np.std(areas) and polygon.area <= np.mean(areas) + CONFIDENCE_INTERVAL_AREA*np.std(areas)): 
