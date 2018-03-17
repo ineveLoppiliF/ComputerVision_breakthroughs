@@ -328,7 +328,7 @@ while not end:
 plt.imshow(polygons_image, 'gray'), plt.title('final image'),plt.show()
 
 ## Show the final number of good homographies found
-print("Found " + str(found_homographies) + " homographies")
+print("Found " + str(len(areas)) + " homographies")
 
 ## Show all the rectified image regions
 #answer = input("Show rectified images? [Y/n]")
