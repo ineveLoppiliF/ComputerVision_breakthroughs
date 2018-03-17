@@ -1,4 +1,4 @@
-from support_functions import indexToEliminate
+from index_to_eliminate import index_to_eliminate
 import numpy as np
 
 def remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers):
@@ -7,7 +7,7 @@ def remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inlier
     ## computed considering inliers of the computed homograpy
     # This is done in order to allow RANSAC algorithm to find other homograpies
     remove_mask = np.ones(len(good_matches))
-    remove_mask[indexToEliminate(dst_inliers, index_inliers)] = 0
+    remove_mask[index_to_eliminate(dst_inliers, index_inliers)] = 0
     
     ## Add the point to a buffer of temporary removed ones
     temporary_removed_matches.extend([good_matches[i] for i in range(len(good_matches)) if not remove_mask[i]])
