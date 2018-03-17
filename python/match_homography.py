@@ -18,7 +18,7 @@ MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that fe
 LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest match is lower than LOWE_THRESHOLD * the distance with the second best match
 IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
 OUT_OF_IMAGE_THRESHOLD = 0.08 # Homography kept only if the square is not too much out from test image
-CONFIDENCE_INTERVAL_AREA = 2 #2 = 0.9545
+CONFIDENCE_INTERVAL_AREA = 20 #2 = 0.9545
 
 ## Load images 
 template_image = cv2.imread('../data/images/template/template_twinings.jpg', 0) # template image
@@ -212,7 +212,7 @@ while not end:
                                
                                 ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon and the polygon area is not too different from previous
                                 if outPointsRatio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
-                                    
+                                   
                                     ## Area confidence test
                                     if len(areas) < 2 or (polygon.area >= np.mean(areas) - CONFIDENCE_INTERVAL_AREA*np.std(areas) and polygon.area <= np.mean(areas) + CONFIDENCE_INTERVAL_AREA*np.std(areas)): 
                                     
@@ -300,61 +300,29 @@ while not end:
                                         input("Press Enter to continue...")
                                     else:
                                         print("Homography too big respect to previous founded")
-                                
-                                        ## Increase the number of discarded homograpies unti now
-                                        discarded_homographies+=1
-                                    
-                                        ## Remove temporary the match whose coordinates in the test image are farthest from the centroid
-                                        ## computed considering inliers of the computed homograpy
-                                        # This is done in order to allow RANSAC algorithm to find other homograpies
-                                        remove_mask = np.ones(len(good_matches))
-                                        remove_mask[indexToEliminate(dst_inliers, index_inliers)] = 0
-                                        
-                                        ## Add the point to a buffer of temporary removed ones
-                                        temporary_removed_matches.extend([good_matches[i] for i in range(len(good_matches)) if not remove_mask[i]])
-                                        
-                                        ## Remove the point from the left good matches
-                                        good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]] 
+                                        good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
-                                    ## Increase the number of discarded homograpies unti now
-                                    discarded_homographies+=1
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                               
                             else:
                                 print("Degenerate homography")
-                                
-                                ## Increase the number of discarded homograpies unti now
-                                discarded_homographies+=1
-                                
                                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                   
-                            
                         else:
                             print("Not possible to find another homography")
                             end = True
                     else:
-                        ## Increase the number of discarded homograpies unti now
-                        discarded_homographies+=1
-                    
                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                   
-                   
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
                 print("Degenerate homography")
-                ## Increase the number of discarded homograpies unti now
-                discarded_homographies+=1
                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                   
         else:
             print("Not possible to find another homography")
             end = True
     else:
         print("Not enough matches are found - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
         end = True
-        
 ## Show the final image, in which all templates found are drawn
 plt.imshow(polygons_image, 'gray'), plt.title('final image'),plt.show()
 
