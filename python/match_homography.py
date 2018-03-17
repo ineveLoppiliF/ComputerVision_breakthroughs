@@ -18,7 +18,7 @@ IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of 
 
 ## Load images
 template_image = cv2.imread('../data/images/template/lipton_front.jpg', 0) # template image
-test_image = cv2.imread('../data/images/test/lipton_front_shuffled.jpg', 0)  # test image
+test_image = cv2.imread('../data/images/test/lipton_front_shuffle.jpg', 0)  # test image
 
 ## Show the loaded images
 plt.imshow(template_image, 'gray'), plt.title('template'),plt.show()
@@ -185,7 +185,7 @@ while not end:
                         new_dst_pts = np.float32([test_keypoints[m.queryIdx].pt for m in in_polygon_pts]).reshape(-1, 1, 2)
                         
                         ## Apply RANSAC algorithm to fit a new homograpy, taking into account all matches in the polygon
-                        H, inliers_mask = cv2.findHomography(new_src_pts, new_dst_pts, cv2.RANSAC, 10.0)
+                        H, inliers_mask = cv2.findHomography(new_src_pts, new_dst_pts,CV_LMEDS, 10.0)
                         
                         ## If no available homograpies exist, the algorithm ends
                         if H is not None:
