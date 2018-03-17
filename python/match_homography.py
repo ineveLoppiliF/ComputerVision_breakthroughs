@@ -7,6 +7,7 @@ from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 from support_functions import *
+from remove_temporarily_matches import remove_temporarily_matches
 
 
 #%% Initial initializations
@@ -36,7 +37,7 @@ template_keypoints,template_descriptors = sift_detector.detectAndCompute(templat
 test_keypoints,test_descriptors  = sift_detector.detectAndCompute(test_image, None)
 
 ## Show the number of keypoints found in the template and test image
-print('found ' + str(len(template_keypoints)) + ' keypoints in the template image')
+print('found ' + str(len(template_keypoints)) + ' keypoints in the image')
 print('found ' + str(len(test_keypoints)) + ' keypoints in the test image')
 
 # kp list of keypoints such that:
@@ -292,35 +293,17 @@ while not end:
                                 else:
                                     ## Increase the number of discarded homograpies unti now
                                     discarded_homographies+=1
-                                
-                                    ## Remove temporary the match whose coordinates in the test image are farthest from the centroid
-                                    ## computed considering inliers of the computed homograpy
-                                    # This is done in order to allow RANSAC algorithm to find other homograpies
-                                    remove_mask = np.ones(len(good_matches))
-                                    remove_mask[indexToEliminate(dst_inliers, index_inliers)] = 0
-                                    
-                                    ## Add the point to a buffer of temporary removed ones
-                                    temporary_removed_matches.extend([good_matches[i] for i in range(len(good_matches)) if not remove_mask[i]])
-                                    
-                                    ## Remove the point from the left good matches
-                                    good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]]                    
+                                    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                               
                             else:
                                 print("Degenerate homography")
                                 
                                 ## Increase the number of discarded homograpies unti now
                                 discarded_homographies+=1
+                                
+                                good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                   
                             
-                                ## Remove temporary the match whose coordinates in the test image are farthest from the centroid
-                                ## computed considering inliers of the computed homograpy
-                                # This is done in order to allow RANSAC algorithm to find other homograpies
-                                remove_mask = np.ones(len(good_matches))
-                                remove_mask[indexToEliminate(dst_inliers, index_inliers)] = 0
-                                
-                                ## Add the point to a buffer of temporary removed ones
-                                temporary_removed_matches.extend([good_matches[i] for i in range(len(good_matches)) if not remove_mask[i]])
-                                
-                                ## Remove the point from the left good matches
-                                good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]]
                         else:
                             print("Not possible to find another homography")
                             end = True
@@ -328,17 +311,9 @@ while not end:
                         ## Increase the number of discarded homograpies unti now
                         discarded_homographies+=1
                     
-                        ## Remove temporary the match whose coordinates in the test image are farthest from the centroid
-                        ## computed considering inliers of the computed homograpy
-                        # This is done in order to allow RANSAC algorithm to find other homograpies
-                        remove_mask = np.ones(len(good_matches))
-                        remove_mask[indexToEliminate(dst_inliers, index_inliers)] = 0
-                        
-                        ## Add the point to a buffer of temporary removed ones
-                        temporary_removed_matches.extend([good_matches[i] for i in range(len(good_matches)) if not remove_mask[i]])
-                        
-                        ## Remove the point from the left good matches
-                        good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]] 
+                        good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                   
+                   
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
@@ -346,18 +321,8 @@ while not end:
                 print("Degenerate homography")
                 ## Increase the number of discarded homograpies unti now
                 discarded_homographies+=1
-            
-                ## Remove temporary the match whose coordinates in the test image are farthest from the centroid
-                ## computed considering inliers of the computed homograpy
-                # This is done in order to allow RANSAC algorithm to find other homograpies
-                remove_mask = np.ones(len(good_matches))
-                remove_mask[indexToEliminate(dst_inliers, index_inliers)] = 0
-                
-                ## Add the point to a buffer of temporary removed ones
-                temporary_removed_matches.extend([good_matches[i] for i in range(len(good_matches)) if not remove_mask[i]])
-                
-                ## Remove the point from the left good matches
-                good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]] 
+                good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                   
         else:
             print("Not possible to find another homography")
             end = True
