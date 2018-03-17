@@ -17,8 +17,8 @@ LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest mat
 IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
 
 ## Load images
-template_image = cv2.imread('../data/images/template/lipton_front.jpg', 0) # template image
-test_image = cv2.imread('../data/images/test/lipton_front_shuffle.jpg', 0)  # test image
+template_image = cv2.imread('../data/images/template/template_twinings.jpg', 0) # template image
+test_image = cv2.imread('../data/images/test/twinings4.JPG', 0)  # test image
 
 ## Show the loaded images
 plt.imshow(template_image, 'gray'), plt.title('template'),plt.show()
@@ -168,24 +168,24 @@ while not end:
                             count+=1
                     
                     ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon
-                    if count/len(dst_inliers) >= IN_POLYGON_THRESHOLD:      
-                        ## Create a mask over the left good matches of the ones that are in the polygon
-                        in_square_mask = np.zeros(len(good_matches))
-                        for i in range(len(dst_pts)):
-                            point = Point(dst_pts[i][0][0], dst_pts[i][0][1])
-                            if polygon.contains(point):
-                                in_square_mask[i] = 1
+                    if count/len(dst_inliers) >= IN_POLYGON_THRESHOLD:
+                        
+                        ## Create a mask over the left good matches of the ones that are inliers
+                        inliers_mask = np.zeros(len(good_matches))
+                        for i in range(len(good_matches)):
+                            if i in index_inliers:
+                                inliers_mask[i] = 1
                         
                         ## Retrieve matches that are in the polygon, and their index wrt the actual good matches list
-                        in_polygon_pts = [good_matches[i] for i in range(len(good_matches)) if in_square_mask[i]]
-                        index_in_polygon_pts = [i for i in range(len(good_matches)) if in_square_mask[i]]
+                        in_polygon_pts = [good_matches[i] for i in range(len(good_matches)) if inliers_mask[i]]
+                        index_in_polygon_pts = [i for i in range(len(good_matches)) if inliers_mask[i]]
                         
                         ## Retrieve coordinates of features keypoints in its image, for ones that are in the polygon
                         new_src_pts = np.float32([template_keypoints[m.trainIdx].pt for m in in_polygon_pts]).reshape(-1, 1, 2)
                         new_dst_pts = np.float32([test_keypoints[m.queryIdx].pt for m in in_polygon_pts]).reshape(-1, 1, 2)
                         
-                        ## Apply RANSAC algorithm to fit a new homograpy, taking into account all matches in the polygon
-                        H, inliers_mask = cv2.findHomography(new_src_pts, new_dst_pts,CV_LMEDS, 10.0)
+                        ## Apply LMEDS algorithm to fit a new homograpy, taking into account all previous inliers
+                        H, inliers_mask = cv2.findHomography(new_src_pts,new_dst_pts,cv2.LMEDS, 10.0)
                         
                         ## If no available homograpies exist, the algorithm ends
                         if H is not None:
