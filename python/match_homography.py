@@ -18,8 +18,8 @@ MIN_MATCH_COUNT = 30 # search for the template whether there are at least MIN_MA
 MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that features
 LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest match is lower than LOWE_THRESHOLD * the distance with the second best match
 IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
-OUT_OF_IMAGE_THRESHOLD = 0.08 # Homography kept only if the square is not too much out from test image
-CONFIDENCE_INTERVAL_AREA = 20 #2 = 0.9545
+OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too much out from test image
+CONFIDENCE_INTERVAL_AREA = 4 #2 = 0.9545
 
 ## Load images 
 template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
@@ -117,8 +117,7 @@ plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All match
 
 input("Press Enter to continue...")
 
-## Initilalize found and discarded homograpies counters
-found_homographies = 0
+## Initilalize discarded homograpies counters
 discarded_homographies = 0
 
 ## Initialize areas of founded homography
@@ -213,7 +212,9 @@ while not end:
                                
                                 ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon and the polygon area is not too different from previous
                                 if out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
-                                   
+                                    
+                                    print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
+                                    print('Fraction of inliers out of the homography:' +  str((len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers)))/len(dst_inliers)))
                                     ## Area confidence test
                                     if len(areas) < 2 or (polygon.area >= np.mean(areas) - CONFIDENCE_INTERVAL_AREA*np.std(areas) and polygon.area <= np.mean(areas) + CONFIDENCE_INTERVAL_AREA*np.std(areas)): 
                                     
@@ -321,22 +322,27 @@ while not end:
                                         input("Press Enter to continue...")
                                     else:
                                         print("Homography too big respect to previous founded")
+                                        discarded_homographies+=1
                                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
+                                    discarded_homographies+=1
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
                                 print("Degenerate homography")
+                                discarded_homographies+=1
                                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                         else:
                             print("Not possible to find another homography")
                             end = True
                     else:
+                        discarded_homographies+=1
                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
                 print("Degenerate homography")
+                discarded_homographies+=1
                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
         else:
             print("Not possible to find another homography")
