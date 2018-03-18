@@ -22,12 +22,12 @@ OUT_OF_IMAGE_THRESHOLD = 0.08 # Homography kept only if the square is not too mu
 CONFIDENCE_INTERVAL_AREA = 20 #2 = 0.9545
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', 0) # template image
-test_image = cv2.imread('../data/images/test/twinings4.JPG', 0)  # test image
+template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
-plt.imshow(template_image, 'gray'), plt.title('template'),plt.show()
-plt.imshow(test_image, 'gray'), plt.title('image'),plt.show()
+plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
+plt.imshow(cv2.cvtColor(test_image, cv2.COLOR_BGR2RGB)), plt.title('image'),plt.show()
 
 #%%  Initiate sift_detector detector
 
@@ -111,7 +111,7 @@ matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, t
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Plot the good matches
-plt.imshow(matches_image, 'gray'), plt.title('All matches after ratio test'), plt.show()
+plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All matches after ratio test'), plt.show()
 
 #%% Cluster good matches by fitting homographies through RANSAC
 
@@ -165,7 +165,7 @@ while not end:
                 if np.count_nonzero(matches_mask) >= MIN_MATCH_CURRENT:
                     ## Project the vertices of the abstract rectangle around the template image
                     ## in the test one, using the found homography, in order to localize the template in the scene
-                    h, w = template_image.shape
+                    h, w = template_image.shape[0:2]
                     src_vrtx = np.float32([[0, 0], [0, h - 1], [w - 1, h - 1], [w - 1, 0]]).reshape(-1, 1, 2)
                     dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)  
                     
@@ -223,7 +223,7 @@ while not end:
                                         print('Discarded ' + str(discarded_homographies) + ' homographies until now')
                                         
                                         ## Draw the projected polygon in the test image, in order to visualize the found template in the test image
-                                        polygons_image = cv2.polylines(test_image_squares, [np.int32(dst_vrtx)], True, 255, 3, cv2.LINE_AA)
+                                        polygons_image = cv2.polylines(test_image_squares, [np.int32(dst_vrtx)], True, [255,255,255], 3, cv2.LINE_AA)
                                         
                                         ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
                                         draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
@@ -238,7 +238,7 @@ while not end:
                                         matplotlib.rcParams["figure.figsize"]=(15,12)
                                         
                                         ## Plot the clustered matches
-                                        plt.imshow(matches_image, 'gray'), plt.title('Clustered matches'), plt.show()
+                                        plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
                                         
                                         ## Create a mask over the left good matches of the ones that are in the polygon
                                         in_square_mask = np.zeros(len(good_matches))
@@ -286,10 +286,30 @@ while not end:
                                         matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, in_polygon_pts, None, **draw_params)
                                         
                                         ## Show the rectified matches and image
-                                        plt.imshow(matches_image, 'gray'), plt.title('Rectified object matches'), plt.show()
+                                        plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object matches'), plt.show()
                                         rect_stacked_image = np.hstack((rect_test_image, template_image))
-                                        rect_stacked_image = np.dstack((rect_stacked_image, rect_stacked_image, rect_stacked_image))
-                                        plt.imshow(rect_stacked_image, 'gray'), plt.title('Rectified object image'), plt.show()
+                                        plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
+                                        
+                                        ## Compute the difference between template and rectified image and plot it
+                                        abs_diff_image = np.abs(template_image -  rect_test_image)
+                                        plt.imshow(cv2.cvtColor(abs_diff_image, cv2.COLOR_BGR2RGB)), plt.title('Absolute difference image'),plt.show()
+                                        color = ('B','G','R')
+                                        for i in range(np.size(abs_diff_image,2)):
+                                            plt.subplot(1,3,i+1)
+                                            plt.imshow(abs_diff_image[:,:,i],'gray')
+                                            plt.title(str(color[i])+' difference')
+                                        plt.show()
+                                        
+                                        ## Create differences histograms
+                                        abs_diff_hist = list()
+                                        for i in range(np.size(abs_diff_image,2)):
+                                            abs_diff_hist.append(cv2.calcHist([abs_diff_image],[i],None,[256],[0,256]))
+         
+                                        ## Print differences histograms
+                                        for i,col in enumerate(color):
+                                            plt.plot(abs_diff_hist[i],color = col) 
+                                            plt.xlim([0,256])
+                                        plt.show()                                        
                                         
                                         ## Show the number of good matches left
                                         print('There remains: ' + str(len(good_matches)) + ' features')
@@ -325,7 +345,7 @@ while not end:
         print("Not enough matches are found - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
         end = True
 ## Show the final image, in which all templates found are drawn
-plt.imshow(polygons_image, 'gray'), plt.title('final image'),plt.show()
+plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), plt.title('final image'),plt.show()
 
 ## Show the final number of good homographies found
 print("Found " + str(len(areas)) + " homographies")
