@@ -241,10 +241,14 @@ while not end:
                                         ## Plot the clustered matches
                                         plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
                                         
+                                        ## Put back, inside the good matches list, points temporary removed
+                                        good_matches.extend(temporary_removed_matches)
+                                        temporary_removed_matches.clear()
+                                        
                                         ## Create a mask over the left good matches of the ones that are in the polygon
                                         in_square_mask = np.zeros(len(good_matches))
-                                        for i in range(len(dst_pts)):
-                                            point = Point(dst_pts[i][0][0], dst_pts[i][0][1])
+                                        for i in range(len(good_matches)):
+                                            point = Point((test_keypoints[good_matches[i].queryIdx].pt)[0], (test_keypoints[good_matches[i].queryIdx].pt)[1])
                                             if polygon.contains(point):
                                                 in_square_mask[i] = 1
                                         
@@ -252,10 +256,19 @@ while not end:
                                         remove_mask = 1 - in_square_mask
                                         good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]]
                                         
-                                        ## Put back, inside the good matches list, points temporary removed
-                                        good_matches.extend(temporary_removed_matches)
-                                        temporary_removed_matches.clear()
                                         
+                                        """
+                                        in_square_mask = np.zeros(len(temporary_removed_matches))
+                                        for i in range(len(temporary_removed_matches)):
+                                            point = Point((test_keypoints[temporary_removed_matches[i].queryIdx].pt)[0], (test_keypoints[temporary_removed_matches[i].queryIdx].pt)[1])
+                                            if polygon.contains(point):
+                                                in_square_mask[i] = 1
+                                        
+                                        ## Remove all matches in the polygon
+                                        remove_mask = 1 - in_square_mask
+                                        temporary_removed_matches= [temporary_removed_matches[i] for i in range(len(temporary_removed_matches)) if remove_mask[i]]
+                                        """ 
+                                
                                         ## Apply the inverse of the found homography to the scene image
                                         ## in order to rectify the object in the polygon and extract the 
                                         ## bounded image region from the rectified one containing the template instance
