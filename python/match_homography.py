@@ -6,10 +6,7 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from out_area_ratio import out_area_ratio
-from out_points_ratio import out_points_ratio 
-from remove_temporarily_matches import remove_temporarily_matches
-
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches
 
 #%% Initial initializations
 

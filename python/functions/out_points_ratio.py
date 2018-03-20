@@ -1,4 +1,6 @@
+## Import libraries
 from shapely.geometry import Point
+
 ## Function that count the number of points lying in a polygon and return the ratio respect tothe number of points itself
 def out_points_ratio(points, pol):
     
@@ -8,5 +10,3 @@ def out_points_ratio(points, pol):
          if pol.contains(point):
              count+=1
      return count/len(points)
-    
-    
