@@ -5,3 +5,5 @@ from .remove_temporarily_matches import remove_temporarily_matches
 from .t_student_computation_and_plot import t_student_computation_and_plot
 from .self_similar_features_extraction import self_similar_features_extraction
 from .fingerprint_features_extraction import fingerprint_features_extraction
+from .self_similar_distances_plot import self_similar_distances_plot
+from .fingerprint_distances_plot import fingerprint_distances_plot

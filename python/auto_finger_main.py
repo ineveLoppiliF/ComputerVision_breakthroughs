@@ -1,7 +1,7 @@
 #%% Import libraries
 from matplotlib import pyplot as plt
 import cv2
-from functions import t_student_computation_and_plot, self_similar_features_extraction, fingerprint_features_extraction                    
+from functions import t_student_computation_and_plot, self_similar_features_extraction, fingerprint_features_extraction, self_similar_distances_plot, fingerprint_distances_plot
 
 #%% Initialize constants
 
@@ -46,8 +46,8 @@ print('found ' + str(len(template_keypoints)) + ' keypoints in the image')
 flann_matcher_INDEX_KDTREE = 1 # algorithm used is KDTREE
 
 ## Specify flann_matcher matcher creator parameters
-index_params = dict(algorithm=flann_matcher_INDEX_KDTREE, trees=5) # 5 trees used in the KDTREE search
-search_params = dict(checks=50) # number of times the trees in the index should be recursively traversed
+index_params = dict(algorithm=flann_matcher_INDEX_KDTREE, trees=20) # 5 trees used in the KDTREE search
+search_params = dict(checks=200) # number of times the trees in the index should be recursively traversed
 
 ## Create FLANN matcher
 flann_matcher = cv2.FlannBasedMatcher(index_params, search_params)
@@ -74,7 +74,7 @@ second_matches = [item[0] for item in matches]
 ## Then a t-student distribution is estimated over these distances in order to represent the mean and the sparsity of them.
 ## At the end the distribution is plotted together with an histogram of the distances.
 ## The t-student list of three parameters is then returned: (shape=parameters[0], mean=parameters[1] and std=parameters[2])
-t_parameters = t_student_computation_and_plot(second_matches, template_descriptors)
+t_parameters, interval = t_student_computation_and_plot(second_matches, template_descriptors)
 
 #%% Find self-similar features
 
@@ -102,3 +102,6 @@ fingerprint_list = fingerprint_features_extraction(matches,template_descriptors,
 print('Number of features that are fingerprint features: ' + str(len([fingerprint_match for fingerprint_match in fingerprint_list if fingerprint_match])))
 
 #%% Plot quantiles, self-similar features, fingerprint features together with the distances distribution
+
+self_similar_distances_plot(self_similar_list, template_descriptors, t_parameters, interval)
+fingerprint_distances_plot(fingerprint_list, template_descriptors, t_parameters, interval)

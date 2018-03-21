@@ -21,16 +21,15 @@ def t_student_computation_and_plot(matches, template_descriptors):
     t_parameters = t.fit(distances) # returned a list of three parameters (shape=parameters[0], mean=parameters[1] and std=parameters[2])
     
     ## Define the interval and the number of points through which plot the distribution
-    x = np.linspace(min(distances),max(distances),1000)
+    interval = np.linspace(min(distances),max(distances),1000)
     
     ## Generate the fitted distribution
-    fitted_pdf = t.pdf(x,df=t_parameters[0],loc = t_parameters[1],scale = t_parameters[2])
+    fitted_pdf = t.pdf(interval,df=t_parameters[0],loc = t_parameters[1],scale = t_parameters[2])
     
     ## Plot the distribution over the histogram of distances
-    plt.plot(x,fitted_pdf,"green",label="Fitted T-student dist", linewidth=4)
-    plt.hist(distances,bins=range(floor(min(distances)),ceil(max(distances))),normed=1,color="green",alpha=.2) #alpha, from 0 (transparent) to 1 (opaque)
+    plt.plot(interval,fitted_pdf,"green", linewidth=4)
+    plt.hist(distances,bins=range(floor(min(distances)),ceil(max(distances))),density=True,color="green",alpha=.2) #alpha, from 0 (transparent) to 1 (opaque)
     plt.title("T-student distribution fitting")
-    plt.legend()
     plt.show()
     
-    return t_parameters
+    return t_parameters, interval
