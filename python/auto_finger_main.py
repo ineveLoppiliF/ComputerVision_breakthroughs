@@ -1,7 +1,12 @@
 #%% Import libraries
 from matplotlib import pyplot as plt
 import cv2
-from functions import t_student_computation_and_plot, self_similar_features_extraction
+from functions import t_student_computation_and_plot, self_similar_features_extraction, fingerprint_features_extraction                    
+
+#%% Initialize constants
+
+INITIAL_KNN = 10 # at first iteration of FLANN KDTREE we search for this number of neighborhood for each feature
+KNN_STEP = 5 # when k self-similar features are been found for at least one feature, more neighbours are searched, incrementing the actual number by this
 
 #%% Load and show template image
 
@@ -50,19 +55,50 @@ flann_matcher = cv2.FlannBasedMatcher(index_params, search_params)
 #%% Find correspondences by matching the template features with itself
 
 ## Invoke flann_matcher methods to obtain k outputs: for each feature in the template_descriptors image returns the k closest features in the template_descriptors image
-matches =  flann_matcher.knnMatch(template_descriptors,template_descriptors,k=5) # there is no trehsold, the closest point is returned
+actual_knn = INITIAL_KNN
+matches =  flann_matcher.knnMatch(template_descriptors,template_descriptors,k=actual_knn) # there is no threshold, the k closest points are returned
 
 ## Show the number of features in template_descriptors image that have at least one match in template_descriptors image
 print('found ' + str(len(matches)) + ' putative matches')
 
-#%% Find self-similar features and fingerprints
+#%% Compute the description vector distances distribution
+
+## Deletion of the first match that is the feature itself
+for i,kmatches in enumerate(matches):
+    kmatches.pop(0)
+
+## Creation of an array of all second matches
+second_matches = [item[0] for item in matches]
 
 ## Compute distances between each template feature and its second nearest neighbour (the first is the feature itself).
 ## Then a t-student distribution is estimated over these distances in order to represent the mean and the sparsity of them.
 ## At the end the distribution is plotted together with an histogram of the distances.
 ## The t-student list of three parameters is then returned: (shape=parameters[0], mean=parameters[1] and std=parameters[2])
-t_parameters = t_student_computation_and_plot(matches, template_descriptors)
+t_parameters = t_student_computation_and_plot(second_matches, template_descriptors)
 
-search_for_more_neighbors = False
-#while not search_for_more_neighbors:
+#%% Find self-similar features
+
+## Compute a list with the same shape of "matches", but conserving only
+## matches that represent self-similar features
 self_similar_list, search_for_more_neighbors = self_similar_features_extraction(matches,template_descriptors,t_parameters)
+print('Maximum number of self-similar features: ' + str(len(max(self_similar_list,key=len))))
+
+## If at least one of the features has k self-similar features, 
+## more neighbors has to be computed to find other possible self-simlar features
+while search_for_more_neighbors:
+    actual_knn = actual_knn+KNN_STEP
+    matches =  flann_matcher.knnMatch(template_descriptors,template_descriptors,k=actual_knn)
+    for i,kmatches in enumerate(matches):
+        kmatches.pop(0)
+    self_similar_list, search_for_more_neighbors = self_similar_features_extraction(matches,template_descriptors,t_parameters)
+    print('Maximum number of self-similar features: ' + str(len(max(self_similar_list,key=len))))
+print('Number of features that have at least one self-similar feature: ' + str(len([self_similar_matches for self_similar_matches in self_similar_list if self_similar_matches])))
+    
+#%% Find fingerprint features
+    
+## Compute a list with the same shape of "matches", but conserving only
+## matches that represent fingerprint features
+fingerprint_list = fingerprint_features_extraction(matches,template_descriptors,t_parameters)
+print('Number of features that are fingerprint features: ' + str(len([fingerprint_match for fingerprint_match in fingerprint_list if fingerprint_match])))
+
+#%% Plot quantiles, self-similar features, fingerprint features together with the distances distribution

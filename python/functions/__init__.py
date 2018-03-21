@@ -2,5 +2,6 @@ from .index_to_eliminate import index_to_eliminate
 from .out_area_ratio import out_area_ratio
 from .out_points_ratio import out_points_ratio
 from .remove_temporarily_matches import remove_temporarily_matches
-from .self_similar_features_extraction import self_similar_features_extraction
 from .t_student_computation_and_plot import t_student_computation_and_plot
+from .self_similar_features_extraction import self_similar_features_extraction
+from .fingerprint_features_extraction import fingerprint_features_extraction

@@ -9,16 +9,10 @@ from math import ceil, floor
 ## At the end the distribution is plotted together with an histogram of the distances.
 ## The t-student list of three parameters is then returned: (shape=parameters[0], mean=parameters[1] and std=parameters[2])
 def t_student_computation_and_plot(matches, template_descriptors):
-    ## Deletion of the first match that is the feature itself
-    for i,kmatches in enumerate(matches):
-        kmatches.pop(0)
-    
-    ## Creation of an array of all second matches
-    second_matches = [item[0] for item in matches]
     
     ## Creation of an array of all the distances between each feature and its second match
-    distances = np.zeros(len(second_matches))
-    for i,match in enumerate(second_matches):
+    distances = np.zeros(len(matches))
+    for i,match in enumerate(matches):
         template_descriptor1 = np.float32(template_descriptors[match.trainIdx])
         template_descriptor2 = np.float32(template_descriptors[match.queryIdx])
         distances[i]=np.linalg.norm(template_descriptor1-template_descriptor2)

@@ -12,7 +12,7 @@ def self_similar_features_extraction(matches,template_descriptors,t_parameters):
     ## Define the quantiles used to discriminate self-similar features
     quantiles = t.interval(ALPHA,t_parameters[0],t_parameters[1],t_parameters[2])
     
-    ## Compute the list that contains, for each template feature, its matches that could not pass the quantile test.
+    ## Compute the list that contains, for each template feature, its matches that not pass the quantile test.
     ## This means that this feature could be considered self-similar with all these matches
     self_similar_list=[[] for i in range(len(matches))]
     
@@ -31,7 +31,7 @@ def self_similar_features_extraction(matches,template_descriptors,t_parameters):
             ## Quantile test executed only on the left tail, since a self-similar
             ## feature has more similar matches
             if distance<min(quantiles):
-                self_similar_list[i].extend(kmatches[j])
+                self_similar_list[i].append(kmatches[j])
                 if j==len(kmatches)-1:
                     search_for_more_neighbors=True
             else:

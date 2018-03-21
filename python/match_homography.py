@@ -72,7 +72,7 @@ flann_matcher = cv2.FlannBasedMatcher(index_params, search_params)
 #%% Find correspondences by matching the image features with the template features(this is not the same as matching template_descriptors with test_descriptors)
 
 ## Invoke flann_matcher methods to obtain k outputs: for each feature in the test_descriptors image returns the k closest features in the template_descriptors image
-matches =  flann_matcher.knnMatch(test_descriptors,template_descriptors,k=2) # there is no trehsold, the closest point is returned
+matches =  flann_matcher.knnMatch(test_descriptors,template_descriptors,k=2) # there is no trehsold, the k closest points are returned
 
 ## Show the number features in test_descriptors image that have at least one match in template_descriptors image
 print('found ' + str(len(matches)) + ' putative matches')
