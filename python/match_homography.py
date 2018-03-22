@@ -363,8 +363,11 @@ while not end:
     else:
         print("Not enough matches are found - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
         end = True
+        
+
+    
 ## Show the final image, in which all templates found are drawn
-plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), plt.title('final image'),plt.show()
+if len(areas)!=0: plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), plt.title('final image'),plt.show()
 
 ## Show the final number of good homographies found
 print("Found " + str(len(areas)) + " homographies")
