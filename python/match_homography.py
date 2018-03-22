@@ -19,8 +19,8 @@ OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too muc
 ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be used to discriminate areas
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/lipton_front.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/lipton_front_shuffle.jpg', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
