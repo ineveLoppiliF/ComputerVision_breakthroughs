@@ -80,7 +80,7 @@ t_parameters, interval = t_student_computation_and_plot(second_matches, template
 
 ## Compute a list with the same shape of "matches", but conserving only
 ## matches that represent self-similar features
-self_similar_list, search_for_more_neighbors = self_similar_features_extraction(matches,template_descriptors,t_parameters)
+self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_features_extraction(matches,template_descriptors,t_parameters)
 print('Maximum number of self-similar features: ' + str(len(max(self_similar_list,key=len))))
 
 ## If at least one of the features has k self-similar features, 
@@ -90,7 +90,7 @@ while search_for_more_neighbors:
     matches =  flann_matcher.knnMatch(template_descriptors,template_descriptors,k=actual_knn)
     for i,kmatches in enumerate(matches):
         kmatches.pop(0)
-    self_similar_list, search_for_more_neighbors = self_similar_features_extraction(matches,template_descriptors,t_parameters)
+    self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_features_extraction(matches,template_descriptors,t_parameters)
     print('Maximum number of self-similar features: ' + str(len(max(self_similar_list,key=len))))
 print('Number of features that have at least one self-similar feature: ' + str(len([self_similar_matches for self_similar_matches in self_similar_list if self_similar_matches])))
     
@@ -98,10 +98,10 @@ print('Number of features that have at least one self-similar feature: ' + str(l
     
 ## Compute a list with the same shape of "matches", but conserving only
 ## matches that represent fingerprint features
-fingerprint_list = fingerprint_features_extraction(matches,template_descriptors,t_parameters)
+fingerprint_list, fingerprint_quantiles = fingerprint_features_extraction(matches,template_descriptors,t_parameters)
 print('Number of features that are fingerprint features: ' + str(len([fingerprint_match for fingerprint_match in fingerprint_list if fingerprint_match])))
 
 #%% Plot quantiles, self-similar features, fingerprint features together with the distances distribution
 
-self_similar_distances_plot(self_similar_list, template_descriptors, t_parameters, interval)
-fingerprint_distances_plot(fingerprint_list, template_descriptors, t_parameters, interval)
+self_similar_distances_plot(self_similar_list, template_descriptors, t_parameters, interval, self_similar_quantiles)
+fingerprint_distances_plot(fingerprint_list, template_descriptors, t_parameters, interval, fingerprint_quantiles)

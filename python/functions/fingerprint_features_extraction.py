@@ -12,7 +12,7 @@ def fingerprint_features_extraction(matches,template_descriptors,t_parameters):
     second_matches = [item[0] for item in matches]
     
     ## Define the quantiles used to discriminate self-similar features
-    quantiles = t.interval(ALPHA,t_parameters[0],t_parameters[1],t_parameters[2])
+    fingerprint_quantiles = t.interval(ALPHA,t_parameters[0],t_parameters[1],t_parameters[2])
     
     ## Compute the list that contains, for each template feature, its second
     ## match only if it not pass the quantile test.
@@ -29,7 +29,7 @@ def fingerprint_features_extraction(matches,template_descriptors,t_parameters):
         
         ## Quantile test executed only on the left tail, since a self-similar
         ## feature has more similar matches
-        if distance>max(quantiles):
+        if distance>fingerprint_quantiles[1]:
             fingerprint_list[i].append(match)    
     
-    return fingerprint_list
+    return fingerprint_list, fingerprint_quantiles
