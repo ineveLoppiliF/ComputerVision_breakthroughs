@@ -6,10 +6,7 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from out_area_ratio import out_area_ratio
-from out_points_ratio import out_points_ratio 
-from remove_temporarily_matches import remove_temporarily_matches
-
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, validate_area
 
 #%% Initial initializations
 
@@ -19,7 +16,7 @@ MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that fe
 LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest match is lower than LOWE_THRESHOLD * the distance with the second best match
 IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
 OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too much out from test image
-CONFIDENCE_INTERVAL_AREA = 4 #2 = 0.9545
+ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be used to discriminate areas
 
 ## Load images 
 template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
@@ -39,7 +36,7 @@ template_keypoints,template_descriptors = sift_detector.detectAndCompute(templat
 test_keypoints,test_descriptors  = sift_detector.detectAndCompute(test_image, None)
 
 ## Show the number of keypoints found in the template and test image
-print('found ' + str(len(template_keypoints)) + ' keypoints in the image')
+print('found ' + str(len(template_keypoints)) + ' keypoints in the template')
 print('found ' + str(len(test_keypoints)) + ' keypoints in the test image')
 
 # kp list of keypoints such that:
@@ -75,7 +72,7 @@ flann_matcher = cv2.FlannBasedMatcher(index_params, search_params)
 #%% Find correspondences by matching the image features with the template features(this is not the same as matching template_descriptors with test_descriptors)
 
 ## Invoke flann_matcher methods to obtain k outputs: for each feature in the test_descriptors image returns the k closest features in the template_descriptors image
-matches =  flann_matcher.knnMatch(test_descriptors,template_descriptors,k=2) # there is no trehsold, the closest point is returned
+matches =  flann_matcher.knnMatch(test_descriptors,template_descriptors,k=2) # there is no trehsold, the k closest points are returned
 
 ## Show the number features in test_descriptors image that have at least one match in template_descriptors image
 print('found ' + str(len(matches)) + ' putative matches')
@@ -215,8 +212,9 @@ while not end:
                                     
                                     print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
                                     print('Fraction of inliers out of the homography:' +  str((len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers)))/len(dst_inliers)))
+                                    
                                     ## Area confidence test
-                                    if len(areas) < 2 or (polygon.area >= np.mean(areas) - CONFIDENCE_INTERVAL_AREA*np.std(areas) and polygon.area <= np.mean(areas) + CONFIDENCE_INTERVAL_AREA*np.std(areas)): 
+                                    if validate_area(ALPHA, areas, polygon.area): 
                                     
                                         areas.append(polygon.area) 
     
@@ -255,19 +253,6 @@ while not end:
                                         ## Remove all matches in the polygon
                                         remove_mask = 1 - in_square_mask
                                         good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]]
-                                        
-                                        
-                                        """
-                                        in_square_mask = np.zeros(len(temporary_removed_matches))
-                                        for i in range(len(temporary_removed_matches)):
-                                            point = Point((test_keypoints[temporary_removed_matches[i].queryIdx].pt)[0], (test_keypoints[temporary_removed_matches[i].queryIdx].pt)[1])
-                                            if polygon.contains(point):
-                                                in_square_mask[i] = 1
-                                        
-                                        ## Remove all matches in the polygon
-                                        remove_mask = 1 - in_square_mask
-                                        temporary_removed_matches= [temporary_removed_matches[i] for i in range(len(temporary_removed_matches)) if remove_mask[i]]
-                                        """ 
                                 
                                         ## Apply the inverse of the found homography to the scene image
                                         ## in order to rectify the object in the polygon and extract the 

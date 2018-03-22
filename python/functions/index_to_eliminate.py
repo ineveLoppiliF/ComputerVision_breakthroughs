@@ -1,5 +1,6 @@
 ## Import libraries
 import numpy as np
+
 ## Function that computes, given a cloud of points in 2D, the one farthest from the centroid, 
 ## and then returns its index wrt the list of points
 def index_to_eliminate( dst_inliers, index_inliers ):
@@ -23,4 +24,3 @@ def index_to_eliminate( dst_inliers, index_inliers ):
             
     ## Return the farthest point index
     return index_inliers[index_max_dist]
-
