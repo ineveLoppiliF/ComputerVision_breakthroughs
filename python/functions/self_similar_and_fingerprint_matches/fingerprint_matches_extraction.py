@@ -1,22 +1,22 @@
 ## Import libraries
 import numpy as np
-from scipy.stats import t
+from scipy.stats import norm
 
-ALPHA=0.95 # this constant allow us to determine the quantiles to be used to discriminate self-similar features
+ALPHA=0.95 # this constant allow us to determine the quantiles to be used to discriminate self-similar matches
 
-## This function discriminates between normal features and fingerprint features,
-## i.e. features that have no similar matches
-def fingerprint_features_extraction(matches,template_descriptors,t_parameters):
+## This function discriminates between normal matches and fingerprint matches,
+## i.e. matches between a feature and its nearest neighbour in which they are not similar
+def fingerprint_matches_extraction(matches,template_descriptors,norm_parameters):
     
     ## Creation of an array of all second matches
     second_matches = [item[0] for item in matches]
     
-    ## Define the quantiles used to discriminate self-similar features
-    fingerprint_quantiles = t.interval(ALPHA,t_parameters[0],t_parameters[1],t_parameters[2])
+    ## Define the quantiles used to discriminate self-similar matches
+    fingerprint_quantiles = norm.interval(ALPHA,norm_parameters[0],norm_parameters[1])
     
     ## Compute the list that contains, for each template feature, its second
     ## match only if it not pass the quantile test.
-    ## This means that this feature could be considered fingerprint
+    ## This means that this match could be considered fingerprint
     fingerprint_list=[[] for i in range(len(matches))]
     
     for i,match in enumerate(second_matches):
@@ -27,8 +27,8 @@ def fingerprint_features_extraction(matches,template_descriptors,t_parameters):
         ## Compute the distance between the descriptors using the Euclidean norm
         distance = np.linalg.norm(template_descriptor1-template_descriptor2)
         
-        ## Quantile test executed only on the left tail, since a self-similar
-        ## feature has more similar matches
+        ## Quantile test executed only on the right tail, since in a fingerprint
+        ## match the features are not similar
         if distance>fingerprint_quantiles[1]:
             fingerprint_list[i].append(match)    
     

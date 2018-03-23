@@ -1,25 +1,25 @@
 ## Import libraries
 import numpy as np
-from scipy.stats import t
+from scipy.stats import norm
 
-ALPHA=0.95 # this constant allow us to determine the quantiles to be used to discriminate self-similar features
+ALPHA=0.95 # this constant allow us to determine the quantiles to be used to discriminate self-similar matches
 
-## This function discriminates between normal features and self-similar features, i.e. features that could have legitimate
-## ambiguous matches (this features could not pass the ratio test).
+## This function discriminates between normal matches and self-similar matches,
+## i.e. matches that could be legitimately ambiguous (this matches could not pass the ratio test).
 ## This happens because the template itself has many similar parts
-def self_similar_features_extraction(matches,template_descriptors,t_parameters):
+def self_similar_matches_extraction(matches,template_descriptors,norm_parameters):
     
-    ## Define the quantiles used to discriminate self-similar features
-    self_similar_quantiles = t.interval(ALPHA,t_parameters[0],t_parameters[1],t_parameters[2])
+    ## Define the quantiles used to discriminate self-similar matches
+    self_similar_quantiles = norm.interval(ALPHA,norm_parameters[0],norm_parameters[1])
     
     ## Compute the list that contains, for each template feature, its matches that not pass the quantile test.
-    ## This means that this feature could be considered self-similar with all these matches
+    ## This means that this matches could be considered self-similar
     self_similar_list=[[] for i in range(len(matches))]
     
-    search_for_more_neighbors = False # if at least one of the features has k self-similar features, more neighbors has to be computed to find other possible self-simlar features
+    search_for_more_neighbors = False # if at least one of the features has k self-similar matches, more neighbors has to be computed to find other possible self-simlar matches
     for i,kmatches in enumerate(matches):
         j=0
-        no_more_selfs = False # if true, no more self-simlar features possible for the current feature, and so the search stops
+        no_more_selfs = False # if true, no more self-simlar matches possible for the current feature, and so the search stops
         while j<len(kmatches) and no_more_selfs==False:
             ## Extract the SIFT descriptor for the current feature and its actual considered match
             template_descriptor1 = np.float32(template_descriptors[kmatches[j].trainIdx])
@@ -28,8 +28,8 @@ def self_similar_features_extraction(matches,template_descriptors,t_parameters):
             ## Compute the distance between the descriptors using the Euclidean norm
             distance = np.linalg.norm(template_descriptor1-template_descriptor2)
             
-            ## Quantile test executed only on the left tail, since a self-similar
-            ## feature has more similar matches
+            ## Quantile test executed only on the left tail, since in a self-similar
+            ## match the features are similar
             if distance<self_similar_quantiles[0]:
                 self_similar_list[i].append(kmatches[j])
                 if j==len(kmatches)-1:

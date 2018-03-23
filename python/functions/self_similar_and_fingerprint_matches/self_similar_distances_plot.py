@@ -1,23 +1,23 @@
 ## Import libraries
 import numpy as np
 from matplotlib import pyplot as plt
-from scipy.stats import t
+from scipy.stats import norm
 from math import ceil, floor
 
-def fingerprint_distances_plot(fingerprint_list, template_descriptors, t_parameters, interval, quantiles):
+def self_similar_distances_plot(self_similar_list, template_descriptors, norm_parameters, interval, quantiles):
     
-    ## Unroll the list of fingerprint matches
-    unrolled_fingerprint_list = [match for fingerprint_matches in fingerprint_list for match in fingerprint_matches]
+    ## Unroll the list of self-similar matches
+    unrolled_self_similar_list = [match for self_similar_matches in self_similar_list for match in self_similar_matches]
     
-    ## Creation of an array of all the distances of each fingerprint match
-    distances = np.zeros(len(unrolled_fingerprint_list))
-    for i,match in enumerate(unrolled_fingerprint_list):
+    ## Creation of an array of all the distances of each self-similar match
+    distances = np.zeros(len(unrolled_self_similar_list))
+    for i,match in enumerate(unrolled_self_similar_list):
         template_descriptor1 = np.float32(template_descriptors[match.trainIdx])
         template_descriptor2 = np.float32(template_descriptors[match.queryIdx])
         distances[i]=np.linalg.norm(template_descriptor1-template_descriptor2)
     
     ## Generate the fitted distribution
-    fitted_pdf = t.pdf(interval,df=t_parameters[0],loc = t_parameters[1],scale = t_parameters[2])
+    fitted_pdf = norm.pdf(interval,loc=norm_parameters[0],scale=norm_parameters[1])
     
     ## Plot the distribution and the histogram of distances, together with quantiles
     fig=plt.figure()
@@ -34,7 +34,7 @@ def fingerprint_distances_plot(fingerprint_list, template_descriptors, t_paramet
     distances_subplot.set_ylabel('Number of matches')       
     distances_subplot.yaxis.set_label_position('right')
     
-    plt.axvline(x=quantiles[1], color='red', linewidth=0.5)
+    plt.axvline(x=quantiles[0], color='red', linewidth=0.5)
     
-    plt.title("Fingerprint features on T-student dist")
+    plt.title("Self-similar matches distance on Gaussian dist")
     plt.show()

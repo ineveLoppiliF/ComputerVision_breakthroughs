@@ -1,16 +1,16 @@
 ## Import libraries
 import cv2
-from . import t_student_computation_and_plot, self_similar_features_extraction, fingerprint_features_extraction, self_similar_distances_plot, fingerprint_distances_plot
+from . import gaussian_computation_and_plot, self_similar_matches_extraction, fingerprint_matches_extraction, self_similar_distances_plot, fingerprint_distances_plot
 
 ## Initialize constants
 
 INITIAL_KNN = 10 # at first iteration of FLANN KDTREE we search for this number of neighborhood for each feature
-KNN_STEP = 5 # when k self-similar features are been found for at least one feature, more neighbours are searched, incrementing the actual number by this
+KNN_STEP = 5 # when k self-similar matches are been found for at least one feature, more neighbours are searched, incrementing the actual number by this
 
-## Find self-similar features, fingerprint features.
+## Find self-similar matches, fingerprint matches.
 ## Furthermore compute the description vector distances distribution, plot quantiles,
-## self-similar features, fingerprint features together with the distances distribution
-def self_similar_features_and_fingerprints_extraction(template_descriptors):
+## self-similar matches, fingerprint matches together with the distances distribution
+def self_similar_and_fingerprint_matches_extraction(template_descriptors):
     #%% Initialize a flann_matcher object to match keypoint witn nearest neighborhood. 
     
     # = From flann_matcher documentation ==================================================
@@ -55,39 +55,39 @@ def self_similar_features_and_fingerprints_extraction(template_descriptors):
     second_matches = [item[0] for item in matches]
     
     ## Compute distances between each template feature and its second nearest neighbour (the first is the feature itself).
-    ## Then a t-student distribution is estimated over these distances in order to represent the mean and the sparsity of them.
+    ## Then a Gaussian distribution is estimated over these distances in order to represent the mean and the sparsity of them.
     ## At the end the distribution is plotted together with an histogram of the distances.
-    ## The t-student list of three parameters is then returned: (shape=parameters[0], mean=parameters[1] and std=parameters[2])
-    t_parameters, interval = t_student_computation_and_plot(second_matches, template_descriptors)
+    ## The Gaussian's list of three parameters is then returned: (shape=parameters[0], mean=parameters[1] and std=parameters[2])
+    norm_parameters, interval = gaussian_computation_and_plot(second_matches, template_descriptors)
     
-    #%% Find self-similar features
+    #%% Find self-similar matches
     
     ## Compute a list with the same shape of "matches", but conserving only
-    ## matches that represent self-similar features
-    self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_features_extraction(matches,template_descriptors,t_parameters)
-    print('Maximum number of self-similar features: ' + str(len(max(self_similar_list,key=len))))
+    ## self-similar matches
+    self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_matches_extraction(matches,template_descriptors,norm_parameters)
+    print('Maximum number of self-similar matches: ' + str(len(max(self_similar_list,key=len))))
     
-    ## If at least one of the features has k self-similar features, 
-    ## more neighbors has to be computed to find other possible self-simlar features
+    ## If at least one of the features has k self-similar matches, 
+    ## more neighbors has to be computed to find other possible self-simlar matches
     while search_for_more_neighbors:
         actual_knn = actual_knn+KNN_STEP
         matches =  flann_matcher.knnMatch(template_descriptors,template_descriptors,k=actual_knn)
         for i,kmatches in enumerate(matches):
             kmatches.pop(0)
-        self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_features_extraction(matches,template_descriptors,t_parameters)
-        print('Maximum number of self-similar features: ' + str(len(max(self_similar_list,key=len))))
-    print('Number of features that have at least one self-similar feature: ' + str(len([self_similar_matches for self_similar_matches in self_similar_list if self_similar_matches])))
+        self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_matches_extraction(matches,template_descriptors,norm_parameters)
+        print('Maximum number of self-similar matches: ' + str(len(max(self_similar_list,key=len))))
+    print('Number of features that have at least one self-similar match: ' + str(len([self_similar_matches for self_similar_matches in self_similar_list if self_similar_matches])))
         
-    #%% Find fingerprint features
+    #%% Find fingerprint matches
         
     ## Compute a list with the same shape of "matches", but conserving only
-    ## matches that represent fingerprint features
-    fingerprint_list, fingerprint_quantiles = fingerprint_features_extraction(matches,template_descriptors,t_parameters)
-    print('Number of features that are fingerprint features: ' + str(len([fingerprint_match for fingerprint_match in fingerprint_list if fingerprint_match])))
+    ## fingerprint matches
+    fingerprint_list, fingerprint_quantiles = fingerprint_matches_extraction(matches,template_descriptors,norm_parameters)
+    print('Number of features that have a fingerprint match: ' + str(len([fingerprint_match for fingerprint_match in fingerprint_list if fingerprint_match])))
     
-    #%% Plot quantiles, self-similar features, fingerprint features together with the distances distribution
+    #%% Plot quantiles, self-similar matches, fingerprint matches together with the distances distribution
     
-    self_similar_distances_plot(self_similar_list, template_descriptors, t_parameters, interval, self_similar_quantiles)
-    fingerprint_distances_plot(fingerprint_list, template_descriptors, t_parameters, interval, fingerprint_quantiles)
+    self_similar_distances_plot(self_similar_list, template_descriptors, norm_parameters, interval, self_similar_quantiles)
+    fingerprint_distances_plot(fingerprint_list, template_descriptors, norm_parameters, interval, fingerprint_quantiles)
     
     return self_similar_list, fingerprint_list

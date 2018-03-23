@@ -2,7 +2,7 @@
 import matplotlib
 from matplotlib import pyplot as plt
 import cv2
-from functions import self_similar_features_and_fingerprints_extraction, self_matches_plot
+from functions import self_similar_and_fingerprint_matches_extraction, self_matches_plot
 
 #%% Initialize constants
 
@@ -10,7 +10,7 @@ from functions import self_similar_features_and_fingerprints_extraction, self_ma
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 INITIAL_KNN = 10 # at first iteration of FLANN KDTREE we search for this number of neighborhood for each feature
-KNN_STEP = 5 # when k self-similar features are been found for at least one feature, more neighbours are searched, incrementing the actual number by this
+KNN_STEP = 5 # when k self-similar matches are been found for at least one feature, more neighbours are searched, incrementing the actual number by this
 
 #%% Load and show template image
 
@@ -33,9 +33,9 @@ print('found ' + str(len(template_keypoints)) + ' keypoints in the image')
 
 #%% Find self-similar matches, fingerprint matches
 ## Furthermore compute the description vector distances distribution, plot quantiles,
-## self-similar features, fingerprint features together with the distances distribution
+## self-similar matches, fingerprint matches together with the distances distribution
 
-self_similar_list, fingerprint_list = self_similar_features_and_fingerprints_extraction(template_descriptors)
+self_similar_list, fingerprint_list = self_similar_and_fingerprint_matches_extraction(template_descriptors)
 
 #%% Plot self-similar matches and fingerprint matches
 
