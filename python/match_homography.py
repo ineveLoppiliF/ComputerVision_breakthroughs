@@ -6,7 +6,7 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, validate_area
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, validate_area, print_discarded
 
 #%% Initial initializations
 
@@ -112,16 +112,13 @@ plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All match
 
 #%% Cluster good matches by fitting homographies through RANSAC
 
-input("Press Enter to continue...")
+input("Press Enter to start finding homographies...")
 
-## Initilalize discarded homograpies counters
-discarded_homographies = 0
+## Initilalize discarded homograpies counters (see print_discarded for more info)
+discarded_homographies = [0,0,0,0,0]
 
 ## Initialize areas of founded homography
 areas = []
-
-## Initialize rectified objects' images list
-#rectified_images = list()
 
 ## Initialize the buffer of temporary removed matches
 temporary_removed_matches = list()
@@ -129,8 +126,7 @@ temporary_removed_matches = list()
 ## Initialize the test image used to draw projected squares
 test_image_squares = test_image.copy()
 
-## Create a polygon using image dimension
-## Create a polygon using the projected vertices
+## Create a polygon using test image vertices
 img_polygon = Polygon([(0,0), (0,test_image.shape[0]), (test_image.shape[1],test_image.shape[0]), (test_image.shape[1],0)])
 
 ## Continue to look for other homographies
@@ -210,16 +206,16 @@ while not end:
                                 ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon and the polygon area is not too different from previous
                                 if out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
                                     
-                                    print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
-                                    print('Fraction of inliers out of the homography:' +  str((len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers)))/len(dst_inliers)))
-                                    
                                     ## Area confidence test
                                     if validate_area(ALPHA, areas, polygon.area): 
+                                        
+                                        print("")
+                                        print('NEW HOMOGRAPHY FOUND!')
+                                        
+                                        ##print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
+                                        ##print('Fraction of inliers out of the homography:' +  str((len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers)))/len(dst_inliers)))
                                     
                                         areas.append(polygon.area) 
-    
-                                        ## Show the number of discarded homographies until now
-                                        print('Discarded ' + str(discarded_homographies) + ' homographies until now')
                                         
                                         ## Draw the projected polygon in the test image, in order to visualize the found template in the test image
                                         polygons_image = cv2.polylines(test_image_squares, [np.int32(dst_vrtx)], True, [255,255,255], 3, cv2.LINE_AA)
@@ -308,7 +304,10 @@ while not end:
                                         for i,col in enumerate(color):
                                             plt.plot(abs_diff_hist[i],color = col) 
                                             plt.xlim([0,256])
-                                        plt.show()                                        
+                                        plt.show()      
+    
+                                        ## Show the number of discarded homographies until now
+                                        print_discarded(discarded_homographies)
                                         
                                         ## Show the number of good matches left
                                         print('There remains: ' + str(len(good_matches)) + ' features')
@@ -317,30 +316,29 @@ while not end:
                                         print("Found " + str(len(areas)) + " homographies until now")
                                         
                                         ## Search for the next template in the test image after a user command
-                                        input("Press Enter to continue...")
+                                        input("Press Enter to find new homography...")
                                     else:
-                                        print("Homography too big respect to previous founded")
-                                        discarded_homographies+=1
+                                        discarded_homographies[0]+=1
                                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
-                                    discarded_homographies+=1
+                                    discarded_homographies[2]+=1
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
-                                print("Degenerate homography")
-                                discarded_homographies+=1
+                                discarded_homographies[1]+=1
                                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                         else:
                             print("Not possible to find another homography")
                             end = True
                     else:
-                        discarded_homographies+=1
+                        if(not polygon.is_valid): discarded_homographies[3]+=1
+                        elif(not (out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD)): discarded_homographies[2]+=1
+                        else: discarded_homographies[4]+=1
                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
-                print("Degenerate homography")
-                discarded_homographies+=1
+                discarded_homographies[1]+=1
                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
         else:
             print("Not possible to find another homography")
