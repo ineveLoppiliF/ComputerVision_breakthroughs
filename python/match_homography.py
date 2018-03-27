@@ -152,7 +152,7 @@ while not end:
             
             ## Retrieve coordinates of the inliers in the test image, and their index wrt the actual good matches list
             dst_inliers = [dst_pts[i] for i in range(len(dst_pts)) if matches_mask[i]]
-            index_inliers = [i for i in range(len(dst_pts)) if matches_mask[i]] 
+            index_inliers = np.nonzero(matches_mask)[0]
             
             ## If the homography is degenerate, it is discarded
             if np.linalg.matrix_rank(H) == 3:
@@ -177,13 +177,13 @@ while not end:
                             if i in index_inliers:
                                 inliers_mask[i] = 1
                         
-                        ## Retrieve matches that are in the polygon, and their index wrt the actual good matches list
-                        in_polygon_pts = [good_matches[i] for i in range(len(good_matches)) if inliers_mask[i]]
-                        index_in_polygon_pts = [i for i in range(len(good_matches)) if inliers_mask[i]]
+                        ## Retrieve matches that are inliers, and their index wrt the actual good matches list
+                        inliers_matches = [good_matches[i] for i in range(len(good_matches)) if inliers_mask[i]]
+                        index_inliers_matches = [i for i in range(len(good_matches)) if inliers_mask[i]]
                         
                         ## Retrieve coordinates of features keypoints in its image, for ones that are in the polygon
-                        new_src_pts = np.float32([template_keypoints[m.trainIdx].pt for m in in_polygon_pts]).reshape(-1, 1, 2)
-                        new_dst_pts = np.float32([test_keypoints[m.queryIdx].pt for m in in_polygon_pts]).reshape(-1, 1, 2)
+                        new_src_pts = np.float32([template_keypoints[m.trainIdx].pt for m in inliers_matches]).reshape(-1, 1, 2)
+                        new_dst_pts = np.float32([test_keypoints[m.queryIdx].pt for m in inliers_matches]).reshape(-1, 1, 2)
                         
                         ## Apply LMEDS algorithm to fit a new homograpy, taking into account all previous inliers
                         H, inliers_mask = cv2.findHomography(new_src_pts,new_dst_pts,cv2.LMEDS, 10.0)
@@ -195,7 +195,7 @@ while not end:
                             
                             ## Retrieve coordinates of the inliers in the test image, and their index wrt the actual good matches list
                             dst_inliers = [new_dst_pts[i] for i in range(len(new_dst_pts)) if inliers_mask[i]]
-                            index_inliers = [index for i,index in enumerate(index_in_polygon_pts) if inliers_mask[i]]
+                            index_inliers = [index for i,index in enumerate(index_inliers_matches) if inliers_mask[i]]
                             
                             ## If the homography is degenerate, it is discarded
                             if np.linalg.matrix_rank(H) == 3:
@@ -231,7 +231,7 @@ while not end:
                                                            flags=2)
                                         
                                         ## Draw clustered matches
-                                        matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, in_polygon_pts, None, **draw_params)
+                                        matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
                                         
                                         ## Set the size of the figure to show
                                         matplotlib.rcParams["figure.figsize"]=(15,12)
@@ -282,7 +282,7 @@ while not end:
                                                            flags=2)
                                         
                                         ## Draw clustered rectified matches
-                                        matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, in_polygon_pts, None, **draw_params)
+                                        matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
                                         
                                         ## Show the rectified matches and image
                                         plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object matches'), plt.show()
