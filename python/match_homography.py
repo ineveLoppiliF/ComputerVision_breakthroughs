@@ -129,6 +129,9 @@ test_image_squares = test_image.copy()
 ## Create a polygon using test image vertices
 img_polygon = Polygon([(0,0), (0,test_image.shape[0]), (test_image.shape[1],test_image.shape[0]), (test_image.shape[1],0)])
 
+## Create error file
+discarded_file = open("error.txt","w")
+
 ## Continue to look for other homographies
 end = False
 while not end:
@@ -165,7 +168,7 @@ while not end:
                     polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                             
                     ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon, if the polygon is valid (no loop) and if is mostly inside the image
-                    if polygon.is_valid and out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD and out_area_ratio(img_polygon, polygon) <= OUT_OF_IMAGE_THRESHOLD:
+                    if polygon.is_valid and out_points_ratio(dst_inliers, polygon, discarded_file, IN_POLYGON_THRESHOLD, discarded_homographies) and out_area_ratio(img_polygon, polygon, discarded_file, OUT_OF_IMAGE_THRESHOLD, discarded_homographies):
                         
                         ## Create a mask over the left good matches of the ones that are inliers
                         inliers_mask = np.zeros(len(good_matches))
@@ -204,10 +207,10 @@ while not end:
                                 polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                                
                                 ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon and the polygon area is not too different from previous
-                                if out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD:
+                                if out_points_ratio(dst_inliers, polygon, discarded_file, IN_POLYGON_THRESHOLD, discarded_homographies):
                                     
                                     ## Area confidence test
-                                    if validate_area(ALPHA, areas, polygon.area): 
+                                    if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
                                         
                                         print("")
                                         print('NEW HOMOGRAPHY FOUND!')
@@ -318,27 +321,27 @@ while not end:
                                         ## Search for the next template in the test image after a user command
                                         input("Press Enter to find new homography...")
                                     else:
-                                        discarded_homographies[0]+=1
                                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
-                                    discarded_homographies[2]+=1
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
                                 discarded_homographies[1]+=1
+                                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (degenerate homography)\n\n")
                                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                         else:
                             print("Not possible to find another homography")
                             end = True
                     else:
-                        if(not polygon.is_valid): discarded_homographies[3]+=1
-                        elif(not (out_points_ratio(dst_inliers, polygon) >= IN_POLYGON_THRESHOLD)): discarded_homographies[2]+=1
-                        else: discarded_homographies[4]+=1
+                        if(not polygon.is_valid): 
+                            discarded_homographies[3]+=1
+                            discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (invalid polygon)\n\n")
                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
                 discarded_homographies[1]+=1
+                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (degenerate homography)\n\n")
                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
         else:
             print("Not possible to find another homography")
@@ -354,6 +357,9 @@ if len(areas)!=0: plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), p
 
 ## Show the final number of good homographies found
 print("Found " + str(len(areas)) + " homographies")
+
+## Close discarded error file
+discarded_file.close()
 
 ## Show all the rectified image regions
 #answer = input("Show rectified images? [Y/n]")
