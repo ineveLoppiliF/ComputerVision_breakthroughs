@@ -12,8 +12,8 @@ INSQUARE_THRESHOLD = 0.95
 
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
-img1 = cv2.imread('./../data/images/template/lipton_front.jpg', 0) # template
-img2 = cv2.imread('./../data/images/test/lipton_front_shuffle.jpg', 0)  # testImage
+img1 = cv2.imread('./../../data/images/template/lipton_front.jpg', 0) # template
+img2 = cv2.imread('./../../data/images/test/lipton_front_shuffle.jpg', 0)  # testImage
 
 plt.imshow(img1, 'gray'), plt.title('template'),plt.show()
 plt.imshow(img2, 'gray'), plt.title('image'),plt.show()
