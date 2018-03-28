@@ -129,8 +129,8 @@ test_image_squares = test_image.copy()
 ## Create a polygon using test image vertices
 img_polygon = Polygon([(0,0), (0,test_image.shape[0]), (test_image.shape[1],test_image.shape[0]), (test_image.shape[1],0)])
 
-## Create error file
-discarded_file = open("error.txt","w")
+## Create debug file
+discarded_file = open("debug.txt","w")
 
 ## Continue to look for other homographies
 end = False
@@ -317,6 +317,7 @@ while not end:
                                         
                                         ## Show the number of good homograpies until now
                                         print("Found " + str(len(areas)) + " homographies until now")
+                                        discarded_file.write("HOMOGRAPHY FOUNDED #"+str(len(areas))+"\n\n")
                                         
                                         ## Search for the next template in the test image after a user command
                                         input("Press Enter to find new homography...")
@@ -358,7 +359,7 @@ if len(areas)!=0: plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), p
 ## Show the final number of good homographies found
 print("Found " + str(len(areas)) + " homographies")
 
-## Close discarded error file
+## Close debug file
 discarded_file.close()
 
 ## Show all the rectified image regions
