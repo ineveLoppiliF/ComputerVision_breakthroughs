@@ -19,8 +19,8 @@ OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too muc
 ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be used to discriminate areas
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -289,7 +289,7 @@ while not end:
                                         plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
                                         
                                         ## Compute the difference between template and rectified image and plot it
-                                        abs_diff_image = np.abs(template_image -  rect_test_image)
+                                        abs_diff_image = cv2.absdiff(template_image, rect_test_image)
                                         plt.imshow(cv2.cvtColor(abs_diff_image, cv2.COLOR_BGR2RGB)), plt.title('Absolute difference image'),plt.show()
                                         color = ('B','G','R')
                                         for i in range(np.size(abs_diff_image,2)):
