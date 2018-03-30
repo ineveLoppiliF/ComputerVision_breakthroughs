@@ -6,7 +6,7 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded#, validate_area
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded, equalize_template_and_rectified_scene#, validate_area
 
 #%% Initial initializations
 
@@ -22,8 +22,8 @@ ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be 
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/lipton_front.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/lipton_front_shuffle.jpg', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/twinings1.JPG', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -231,9 +231,6 @@ while not end:
                                         ## Draw clustered matches
                                         matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
                                         
-                                        ## Set the size of the figure to show
-                                        matplotlib.rcParams["figure.figsize"]=(15,12)
-                                        
                                         ## Plot the clustered matches
                                         plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
                                         
@@ -257,9 +254,6 @@ while not end:
                                         ## bounded image region from the rectified one containing the template instance
                                         H_inv = inv(H)
                                         rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
-                                        
-                                        ## Append the rectified image to the proper list
-                                        #rectified_images.append(rect_test_image)
                                         
                                         ## Apply the homography to all test_keypoints in order to plot them
                                         object_test_keypoints_array = [0, 0]
@@ -287,8 +281,11 @@ while not end:
                                         rect_stacked_image = np.hstack((rect_test_image, template_image))
                                         plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
                                         
+                                        ## Equalize both template and rectified image, and plot them
+                                        equalized_template_image, equalized_rect_test_image = equalize_template_and_rectified_scene(template_image, rect_test_image)
+                                        
                                         ## Compute the difference between template and rectified image and plot it
-                                        abs_diff_image = cv2.absdiff(template_image, rect_test_image)
+                                        abs_diff_image = cv2.absdiff(equalized_template_image, equalized_rect_test_image)
                                         plt.imshow(cv2.cvtColor(abs_diff_image, cv2.COLOR_BGR2RGB)), plt.title('Absolute difference image'),plt.show()
                                         color = ('B','G','R')
                                         for i in range(np.size(abs_diff_image,2)):
@@ -360,9 +357,3 @@ print("Found " + str(len(areas)) + " homographies")
 
 ## Close debug file
 discarded_file.close()
-
-## Show all the rectified image regions
-#answer = input("Show rectified images? [Y/n]")
-#if answer == "" or answer.lower() == "y":
-#    for i,rectified_image in enumerate(rectified_images):
-#        plt.imshow(np.hstack((rectified_image, template_image)), 'gray'), plt.title('Rectified obect n° ' + str(i)), plt.show()
