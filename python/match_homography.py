@@ -4,9 +4,8 @@ import cv2
 import matplotlib
 from numpy.linalg import inv
 from matplotlib import pyplot as plt
-from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, validate_area, print_discarded
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded, equalize_template_and_rectified_scene, difference_plot_and_histogram, project_keypoints, remove_mask#, validate_area
 
 #%% Initial initializations
 
@@ -18,9 +17,12 @@ IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of 
 OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too much out from test image
 ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be used to discriminate areas
 
+## Set the size of the figure to show
+matplotlib.rcParams["figure.figsize"]=(15,12)
+
 ## Load images 
 template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
+test_image = cv2.imread('../data/images/test/twinings1.JPG', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -103,9 +105,6 @@ draw_params = dict(matchColor = (0,255,0), # draw matches in green
 
 ## Good matches represented on another image
 matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, template_keypoints, matches, None, **draw_params)
-
-## Set the size of the figure to show
-matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Plot the good matches
 plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All matches after ratio test'), plt.show()
@@ -210,9 +209,8 @@ while not end:
                                 if out_points_ratio(dst_inliers, polygon, discarded_file, IN_POLYGON_THRESHOLD, discarded_homographies):
                                     
                                     ## Area confidence test
-                                    ## if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies):
+                                    #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
                                         
-                                        print("")
                                         print('NEW HOMOGRAPHY FOUND!')
                                         
                                         ##print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
@@ -232,9 +230,6 @@ while not end:
                                         ## Draw clustered matches
                                         matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
                                         
-                                        ## Set the size of the figure to show
-                                        matplotlib.rcParams["figure.figsize"]=(15,12)
-                                        
                                         ## Plot the clustered matches
                                         plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
                                         
@@ -242,16 +237,9 @@ while not end:
                                         good_matches.extend(temporary_removed_matches)
                                         temporary_removed_matches.clear()
                                         
-                                        ## Create a mask over the left good matches of the ones that are in the polygon
-                                        in_square_mask = np.zeros(len(good_matches))
-                                        for i in range(len(good_matches)):
-                                            point = Point((test_keypoints[good_matches[i].queryIdx].pt)[0], (test_keypoints[good_matches[i].queryIdx].pt)[1])
-                                            if polygon.contains(point):
-                                                in_square_mask[i] = 1
-                                        
                                         ## Remove all matches in the polygon
-                                        remove_mask = 1 - in_square_mask
-                                        good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]]
+                                        keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
+                                        good_matches = [good_matches[i] for i in range(len(good_matches)) if keep_mask[i]]
                                 
                                         ## Apply the inverse of the found homography to the scene image
                                         ## in order to rectify the object in the polygon and extract the 
@@ -259,20 +247,8 @@ while not end:
                                         H_inv = inv(H)
                                         rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
                                         
-                                        ## Append the rectified image to the proper list
-                                        #rectified_images.append(rect_test_image)
-                                        
                                         ## Apply the homography to all test_keypoints in order to plot them
-                                        object_test_keypoints_array = [0, 0]
-                                        for keypoint in test_keypoints:
-                                            object_test_keypoints_array = np.vstack((object_test_keypoints_array, [keypoint.pt[0], keypoint.pt[1]]))
-                                        object_test_keypoints_array = np.delete(object_test_keypoints_array, (0), axis=0)
-                                        object_test_keypoints_array = object_test_keypoints_array.reshape(-1, 1, 2)
-                                        object_test_keypoints_array = cv2.perspectiveTransform(object_test_keypoints_array, H_inv)
-                                        
-                                        object_test_keypoints = list()
-                                        for i,keypoint  in enumerate(object_test_keypoints_array):
-                                            object_test_keypoints.append(cv2.KeyPoint(keypoint[0][0], keypoint[0][1], test_keypoints[i].size))
+                                        object_test_keypoints = project_keypoints(test_keypoints, H_inv)
                                         
                                         ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
                                         draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
@@ -288,26 +264,14 @@ while not end:
                                         rect_stacked_image = np.hstack((rect_test_image, template_image))
                                         plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
                                         
-                                        ## Compute the difference between template and rectified image and plot it
-                                        abs_diff_image = cv2.absdiff(template_image, rect_test_image)
-                                        plt.imshow(cv2.cvtColor(abs_diff_image, cv2.COLOR_BGR2RGB)), plt.title('Absolute difference image'),plt.show()
-                                        color = ('B','G','R')
-                                        for i in range(np.size(abs_diff_image,2)):
-                                            plt.subplot(1,3,i+1)
-                                            plt.imshow(abs_diff_image[:,:,i],'gray')
-                                            plt.title(str(color[i])+' difference')
-                                        plt.show()
+                                        ## Equalize both template and rectified image, and plot them
+                                        equalized_template_image, equalized_rect_test_image = equalize_template_and_rectified_scene(template_image, rect_test_image)
                                         
-                                        ## Create differences histograms
-                                        abs_diff_hist = list()
-                                        for i in range(np.size(abs_diff_image,2)):
-                                            abs_diff_hist.append(cv2.calcHist([abs_diff_image],[i],None,[256],[0,256]))
-         
-                                        ## Print differences histograms
-                                        for i,col in enumerate(color):
-                                            plt.plot(abs_diff_hist[i],color = col) 
-                                            plt.xlim([0,256])
-                                        plt.show()      
+                                        ## Compute the difference between equalized template and equalized rectified image and plot it
+                                        abs_diff_image = cv2.absdiff(equalized_template_image, equalized_rect_test_image)
+                                        
+                                        ## Plot the difference between equalized template and equalized rectified image and its histogram
+                                        difference_plot_and_histogram(abs_diff_image)
     
                                         ## Show the number of discarded homographies until now
                                         print_discarded(discarded_homographies)
@@ -321,8 +285,8 @@ while not end:
                                         
                                         ## Search for the next template in the test image after a user command
                                         input("Press Enter to find new homography...")
-                                    ##else:
-                                        ##good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                                    #else:
+                                    #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
@@ -361,9 +325,3 @@ print("Found " + str(len(areas)) + " homographies")
 
 ## Close debug file
 discarded_file.close()
-
-## Show all the rectified image regions
-#answer = input("Show rectified images? [Y/n]")
-#if answer == "" or answer.lower() == "y":
-#    for i,rectified_image in enumerate(rectified_images):
-#        plt.imshow(np.hstack((rectified_image, template_image)), 'gray'), plt.title('Rectified obect n° ' + str(i)), plt.show()

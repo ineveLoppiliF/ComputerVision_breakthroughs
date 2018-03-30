@@ -4,7 +4,7 @@ import matplotlib
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from support_functions import indexToEliminate, plot_inliers
+from support_functions import indexToEliminate, plot_inliers, project_and_plot_all_image_points
 
 MIN_MATCH_COUNT = 30 # search for the template whether there are at least MIN_MATCH_CURENT good matches in the scene
 MIN_MATCH_CURRENT =10  #stop when your matched homography has less than that features
@@ -118,6 +118,9 @@ while matchesMask != None:
                     # Plot the projected polygon in blue, in_polygon inliers in green and out_polygon inliers in red
                     plot_inliers(img2, dst, dst_inliers, 'First homography inliers')
                     
+                    # Plot all the template image on which the homography in applied
+                    project_and_plot_all_image_points(img1, img2, M, 'First homography projection')
+                    
                     count = 0
                     for i in range(len(dst_inliers)):
                         point = Point(dst_inliers[i][0][0], dst_inliers[i][0][1])                    
@@ -150,6 +153,9 @@ while matchesMask != None:
                                 
                                 # Plot the projected polygon in blue, in_polygon inliers in green and out_polygon inliers in red
                                 plot_inliers(img2, dst, dst_inliers, 'Second homography inliers')
+                                
+                                # Plot all the template image on which the homography in applied
+                                project_and_plot_all_image_points(img1, img2, M, 'Second homography projection')
                                 
                                 count = 0
                                 for i in range(len(dst_inliers)):
