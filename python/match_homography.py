@@ -4,9 +4,8 @@ import cv2
 import matplotlib
 from numpy.linalg import inv
 from matplotlib import pyplot as plt
-from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded, equalize_template_and_rectified_scene, difference_plot_and_histogram#, validate_area
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded, equalize_template_and_rectified_scene, difference_plot_and_histogram, project_keypoints, remove_mask#, validate_area
 
 #%% Initial initializations
 
@@ -238,16 +237,9 @@ while not end:
                                         good_matches.extend(temporary_removed_matches)
                                         temporary_removed_matches.clear()
                                         
-                                        ## Create a mask over the left good matches of the ones that are in the polygon
-                                        in_square_mask = np.zeros(len(good_matches))
-                                        for i in range(len(good_matches)):
-                                            point = Point((test_keypoints[good_matches[i].queryIdx].pt)[0], (test_keypoints[good_matches[i].queryIdx].pt)[1])
-                                            if polygon.contains(point):
-                                                in_square_mask[i] = 1
-                                        
                                         ## Remove all matches in the polygon
-                                        remove_mask = 1 - in_square_mask
-                                        good_matches = [good_matches[i] for i in range(len(good_matches)) if remove_mask[i]]
+                                        keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
+                                        good_matches = [good_matches[i] for i in range(len(good_matches)) if keep_mask[i]]
                                 
                                         ## Apply the inverse of the found homography to the scene image
                                         ## in order to rectify the object in the polygon and extract the 
@@ -256,16 +248,7 @@ while not end:
                                         rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
                                         
                                         ## Apply the homography to all test_keypoints in order to plot them
-                                        object_test_keypoints_array = [0, 0]
-                                        for keypoint in test_keypoints:
-                                            object_test_keypoints_array = np.vstack((object_test_keypoints_array, [keypoint.pt[0], keypoint.pt[1]]))
-                                        object_test_keypoints_array = np.delete(object_test_keypoints_array, (0), axis=0)
-                                        object_test_keypoints_array = object_test_keypoints_array.reshape(-1, 1, 2)
-                                        object_test_keypoints_array = cv2.perspectiveTransform(object_test_keypoints_array, H_inv)
-                                        
-                                        object_test_keypoints = list()
-                                        for i,keypoint  in enumerate(object_test_keypoints_array):
-                                            object_test_keypoints.append(cv2.KeyPoint(keypoint[0][0], keypoint[0][1], test_keypoints[i].size))
+                                        object_test_keypoints = project_keypoints(test_keypoints, H_inv)
                                         
                                         ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
                                         draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
