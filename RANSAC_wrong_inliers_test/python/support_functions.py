@@ -46,3 +46,14 @@ def plot_inliers( img2, dst, dst_inliers, text ):
     for i,point in enumerate(out_inliers):
         img3 = cv2.circle(img3, (point[0],point[1]), 10, (255,0,0), -1)
     plt.imshow(img3), plt.title(str(text)), plt.show()
+    
+def project_and_plot_all_image_points(img1, img2, M, text):
+    h, w = img1.shape
+    h1, w1 = img2.shape
+    
+    temp = np.zeros((h1,w1,2), np.uint8)
+    img3 = cv2.warpPerspective(img1,M, (w1, h1))
+    img3 = np.dstack((temp,img3))
+    
+    img2 = cv2.cvtColor(img2, cv2.COLOR_GRAY2RGB)
+    plt.imshow(img2+img3), plt.title(str(text)), plt.show()
