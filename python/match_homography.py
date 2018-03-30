@@ -6,7 +6,7 @@ from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
-from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, validate_area, print_discarded
+from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded#, validate_area
 
 #%% Initial initializations
 
@@ -210,7 +210,7 @@ while not end:
                                 if out_points_ratio(dst_inliers, polygon, discarded_file, IN_POLYGON_THRESHOLD, discarded_homographies):
                                     
                                     ## Area confidence test
-                                    if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
+                                    #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
                                         
                                         print('NEW HOMOGRAPHY FOUND!')
                                         
@@ -320,8 +320,8 @@ while not end:
                                         
                                         ## Search for the next template in the test image after a user command
                                         input("Press Enter to find new homography...")
-                                    else:
-                                        good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                                    #else:
+                                    #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
