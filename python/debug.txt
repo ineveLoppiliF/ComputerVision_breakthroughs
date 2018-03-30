@@ -1,12 +1,25 @@
+HOMOGRAPHY DISCARDED #1 (inliers outside polygon)
+Tot inliers: 28
+In polygon inliers: 0
+Ratio: 0.0
+
 HOMOGRAPHY FOUNDED #1
+
+HOMOGRAPHY DISCARDED #2 (invalid polygon)
 
 HOMOGRAPHY FOUNDED #2
 
+HOMOGRAPHY DISCARDED #3 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #4 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #5 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #6 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #7 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #8 (invalid polygon)
+
 HOMOGRAPHY FOUNDED #3
-
-HOMOGRAPHY FOUNDED #4
-
-HOMOGRAPHY FOUNDED #5
-
-HOMOGRAPHY FOUNDED #6
 

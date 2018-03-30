@@ -18,9 +18,12 @@ IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of 
 OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too much out from test image
 ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be used to discriminate areas
 
+## Set the size of the figure to show
+matplotlib.rcParams["figure.figsize"]=(15,12)
+
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/lipton_front.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/lipton_front_shuffle.jpg', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -103,9 +106,6 @@ draw_params = dict(matchColor = (0,255,0), # draw matches in green
 
 ## Good matches represented on another image
 matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, template_keypoints, matches, None, **draw_params)
-
-## Set the size of the figure to show
-matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Plot the good matches
 plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All matches after ratio test'), plt.show()
@@ -212,7 +212,6 @@ while not end:
                                     ## Area confidence test
                                     if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
                                         
-                                        print("")
                                         print('NEW HOMOGRAPHY FOUND!')
                                         
                                         ##print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
@@ -294,7 +293,7 @@ while not end:
                                         color = ('B','G','R')
                                         for i in range(np.size(abs_diff_image,2)):
                                             plt.subplot(1,3,i+1)
-                                            plt.imshow(abs_diff_image[:,:,i],'gray')
+                                            plt.imshow(abs_diff_image[:,:,i],'gray', vmin=0, vmax=255)
                                             plt.title(str(color[i])+' difference')
                                         plt.show()
                                         
