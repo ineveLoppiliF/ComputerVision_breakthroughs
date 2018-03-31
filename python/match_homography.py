@@ -5,11 +5,13 @@ import matplotlib
 from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry.polygon import Polygon
-from functions import (difference_plot_and_histogram, 
+from functions import (difference_norm_image_computation,
+                       difference_plot_and_histogram, 
                        equalize_template_and_rectified_scene, 
                        out_area_ratio, 
                        out_points_ratio, 
                        pixelwise_difference_norm_check,
+                       pixelwise_difference_plot_and_histogram,
                        print_discarded,
                        project_keypoints,
                        remove_temporarily_matches,
@@ -31,10 +33,10 @@ OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not
                              # too much out from test image
 ALPHA=0.9999999999999 # this constant allow us to determine the quantiles
                       # to be used to discriminate areas
-IMAGE_RATIO_TO_CROP = 0.5 # after the computation of the image representing
+IMAGE_RATIO_TO_CROP = 0.8 # after the computation of the image representing
                           # the pixelwise difference norm, a cropped version
                           # of it is computed, in which only the central part is keeped
-MEDIAN_THRESHOLD = 255//4 # threshold on the median, used to discard wrong matches
+MEDIAN_THRESHOLD = 255//2 # threshold on the median, used to discard wrong matches
                           # if the cropped pixelwise difference norm 
                           # have it greater than this
 
@@ -42,7 +44,7 @@ MEDIAN_THRESHOLD = 255//4 # threshold on the median, used to discard wrong match
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/emirates-logo.png', cv2.IMREAD_COLOR) # template image
+template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
 test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
@@ -258,6 +260,12 @@ while not end:
                                                     IN_POLYGON_THRESHOLD, 
                                                     discarded_homographies):
                                     
+                                    ## Apply the inverse of the found homography to the scene image
+                                    ## in order to rectify the object in the polygon and extract the 
+                                    ## bounded image region from the rectified one containing the template instance
+                                    H_inv = inv(H)
+                                    rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
+                                    
                                     ## Equalize both template and rectified image
                                     (equalized_template_image,
                                      equalized_rect_test_image) = equalize_template_and_rectified_scene(template_image,
@@ -283,7 +291,7 @@ while not end:
                                     if pixelwise_difference_norm_check(diff_norm_image_central, 
                                                                        MEDIAN_THRESHOLD, 
                                                                        discarded_file,
-                                                                       discarded_homographies)
+                                                                       discarded_homographies):
                                     
                                     ## Area confidence test
                                     #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
@@ -317,12 +325,6 @@ while not end:
                                         ## Remove all matches in the polygon
                                         keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
                                         good_matches = [good_matches[i] for i in range(len(good_matches)) if keep_mask[i]]
-                                
-                                        ## Apply the inverse of the found homography to the scene image
-                                        ## in order to rectify the object in the polygon and extract the 
-                                        ## bounded image region from the rectified one containing the template instance
-                                        H_inv = inv(H)
-                                        rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
                                         
                                         ## Apply the homography to all test_keypoints in order to plot them
                                         object_test_keypoints = project_keypoints(test_keypoints, H_inv)
@@ -347,15 +349,17 @@ while not end:
                                                                                   equalized_template_image))
                                         plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Equalized template and object image'), plt.show()
                                         
-                                        ## Plot the difference between equalized template and equalized rectified image and its histogram
+                                        ## Plot the difference between equalized
+                                        ## template and equalized rectified image and its histogram
                                         difference_plot_and_histogram(abs_diff_image)
                                         
                                         ## Plot the images of the pixelwise
                                         ## difference norm, and the histrogram
                                         ## of the one representing the
-                                        ## central part, highlighting th median
+                                        ## central part, highlighting the median
                                         pixelwise_difference_plot_and_histogram(diff_norm_image,
-                                                                                diff_norm_image_central)
+                                                                                diff_norm_image_central,
+                                                                                MEDIAN_THRESHOLD)
     
                                         ## Show the number of discarded homographies until now
                                         print_discarded(discarded_homographies)

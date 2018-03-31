@@ -7,7 +7,6 @@ def pixelwise_difference_norm_check(diff_norm_image_central, MEDIAN_THRESHOLD, d
     ## Compute the median over the norm difference image
     median = np.median(diff_norm_image_central)
     
-    print(str(MEDIAN_THRESHOLD))
     ## Check if the difference image has a median lower than this
     if median < MEDIAN_THRESHOLD:
         return True
