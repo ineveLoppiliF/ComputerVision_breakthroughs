@@ -36,9 +36,12 @@ ALPHA=0.9999999999999 # this constant allow us to determine the quantiles
 IMAGE_RATIO_TO_CROP = 0.8 # after the computation of the image representing
                           # the pixelwise difference norm, a cropped version
                           # of it is computed, in which only the central part is keeped
-MEDIAN_THRESHOLD = np.divide(255*2, 3) # threshold on the median, used to discard wrong matches
-                          # if the cropped pixelwise difference norm 
-                          # have it greater than this
+MEDIAN_THRESHOLD = np.divide(441.672956,2.5) # threshold on the median, used to
+                                             # discard wrong matches if the
+                                             # cropped pixelwise difference norm 
+                                             # have it greater than this.
+                                             # 441.672956 is the maximum
+                                             # possible cropped pixelwise difference
 
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
