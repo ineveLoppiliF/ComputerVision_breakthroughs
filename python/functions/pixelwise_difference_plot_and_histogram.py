@@ -22,7 +22,7 @@ def pixelwise_difference_plot_and_histogram(diff_norm_image, diff_norm_image_cen
              color='gray')
  
     ## Print the histogram together with the median
-    plt.xlim([0,256])
+    plt.xlim([0,max_value])
     plt.axvline(x=MEDIAN_THRESHOLD, color='red', linewidth=1)
     plt.axvline(x=median, color='green', linewidth=1)
     plt.show()

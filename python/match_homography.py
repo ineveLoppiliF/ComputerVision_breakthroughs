@@ -36,7 +36,7 @@ ALPHA=0.9999999999999 # this constant allow us to determine the quantiles
 IMAGE_RATIO_TO_CROP = 0.8 # after the computation of the image representing
                           # the pixelwise difference norm, a cropped version
                           # of it is computed, in which only the central part is keeped
-MEDIAN_THRESHOLD = 255//2 # threshold on the median, used to discard wrong matches
+MEDIAN_THRESHOLD = np.divide(255*2, 3) # threshold on the median, used to discard wrong matches
                           # if the cropped pixelwise difference norm 
                           # have it greater than this
 
@@ -137,7 +137,7 @@ plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All match
 input("Press Enter to start finding homographies...")
 
 ## Initilalize discarded homograpies counters (see print_discarded for more info)
-discarded_homographies = [0,0,0,0,0]
+discarded_homographies = [0,0,0,0,0,0]
 
 ## Initialize areas of founded homography
 areas = []
@@ -381,7 +381,7 @@ while not end:
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
                                 discarded_homographies[1]+=1
-                                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (degenerate homography)\n\n")
+                                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (degenerate homography)\n\n")
                                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                         else:
                             print("Not possible to find another homography")
@@ -389,14 +389,14 @@ while not end:
                     else:
                         if(not polygon.is_valid): 
                             discarded_homographies[3]+=1
-                            discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (invalid polygon)\n\n")
+                            discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (invalid polygon)\n\n")
                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
                 discarded_homographies[1]+=1
-                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (degenerate homography)\n\n")
+                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (degenerate homography)\n\n")
                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
         else:
             print("Not possible to find another homography")

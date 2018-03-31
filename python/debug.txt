@@ -1,0 +1,889 @@
+HOMOGRAPHY DISCARDED #1 (invalid polygon)
+
+HOMOGRAPHY FOUNDED #1
+
+HOMOGRAPHY FOUNDED #2
+
+HOMOGRAPHY DISCARDED #2 (invalid polygon)
+
+HOMOGRAPHY FOUNDED #3
+
+HOMOGRAPHY DISCARDED #3 (inliers outside polygon)
+Tot inliers: 14
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #4 (inliers outside polygon)
+Tot inliers: 18
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY FOUNDED #4
+
+HOMOGRAPHY DISCARDED #5 (inliers outside polygon)
+Tot inliers: 13
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY FOUNDED #5
+
+HOMOGRAPHY FOUNDED #6
+
+HOMOGRAPHY FOUNDED #7
+
+HOMOGRAPHY FOUNDED #8
+
+HOMOGRAPHY DISCARDED #6 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #7 (inliers outside polygon)
+Tot inliers: 11
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #8 (invalid polygon)
+
+HOMOGRAPHY FOUNDED #9
+
+HOMOGRAPHY DISCARDED #9 (invalid polygon)
+
+HOMOGRAPHY FOUNDED #10
+
+HOMOGRAPHY FOUNDED #11
+
+HOMOGRAPHY FOUNDED #12
+
+HOMOGRAPHY FOUNDED #13
+
+HOMOGRAPHY DISCARDED #10 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #11 (invalid polygon)
+
+HOMOGRAPHY FOUNDED #14
+
+HOMOGRAPHY DISCARDED #12 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #13 (inliers outside polygon)
+Tot inliers: 15
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #14 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #15 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #16 (inliers outside polygon)
+Tot inliers: 11
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #17 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #18 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY FOUNDED #15
+
+HOMOGRAPHY DISCARDED #19 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #20 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #21 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #22 (polygon out)
+Area out: 590512.9860673922
+Area polygon: 1180761.0306519943
+Ratio: 0.5001121909835743
+
+HOMOGRAPHY DISCARDED #23 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #24 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #25 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #26 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #27 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #28 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #29 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #30 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #31 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #32 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #33 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #34 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #35 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #36 (polygon out)
+Area out: 257240.80328326742
+Area polygon: 1024582.3827944626
+Ratio: 0.2510689307204997
+
+HOMOGRAPHY DISCARDED #37 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #38 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #39 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #40 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #41 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #42 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #43 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #44 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #45 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #46 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #47 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #48 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #49 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #50 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #51 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #52 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #53 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #54 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #55 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #56 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #57 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 2
+Ratio: 0.2222222222222222
+
+HOMOGRAPHY DISCARDED #58 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #59 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #60 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #61 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #62 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #63 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #64 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #65 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #66 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #67 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #68 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #69 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #70 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #71 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #72 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #73 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #74 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #75 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #76 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #77 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #78 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #79 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #80 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #81 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #82 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #83 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #84 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #85 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #86 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #87 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #88 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #89 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #90 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #91 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #92 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #93 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #94 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #95 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #96 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #97 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #98 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #99 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #100 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #101 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #102 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #103 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #104 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #105 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #106 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #107 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #108 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #109 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #110 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #111 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #112 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #113 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #114 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #115 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #116 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #117 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #118 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #119 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #120 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #121 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #122 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #123 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #124 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #125 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #126 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #127 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #128 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #129 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #130 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #131 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #132 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #133 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #134 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #135 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #136 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #137 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #138 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #139 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #140 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #141 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #142 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #143 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #144 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #145 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #146 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #147 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #148 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #149 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #150 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #151 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #152 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #153 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #154 (polygon out)
+Area out: 153023215.40908852
+Area polygon: 155916650.81920147
+Ratio: 0.98144242199335
+
+HOMOGRAPHY DISCARDED #155 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #156 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #157 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #158 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #159 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #160 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #161 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 3
+Ratio: 0.375
+
+HOMOGRAPHY DISCARDED #162 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #163 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #164 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #165 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #166 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #167 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 205.776577354
+
+HOMOGRAPHY DISCARDED #168 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #169 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #169 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #170 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #171 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #172 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #174 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #175 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #175 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #176 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #178 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #178 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #180 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #181 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #182 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #183 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #184 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 174.599541809
+
+HOMOGRAPHY DISCARDED #183 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #184 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 1
+Ratio: 0.125
+
+HOMOGRAPHY DISCARDED #185 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #186 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #189 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #188 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #189 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #190 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #193 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #194 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #193 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #196 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #197 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #196 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #199 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #200 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #199 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #200 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #201 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #204 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #203 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #206 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 189.056869709
+
+HOMOGRAPHY DISCARDED #204 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #205 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #209 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #210 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #208 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #209 (polygon out)
+Area out: 52845127.302246496
+Area polygon: 56403413.60643478
+Ratio: 0.9369136355998436
+
+HOMOGRAPHY DISCARDED #210 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #211 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #212 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #216 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #217 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #215 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #216 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #217 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #218 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #219 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #223 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #221 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #222 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #226 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #227 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #225 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #229 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 186.032255093
+
+HOMOGRAPHY DISCARDED #226 (polygon out)
+Area out: 43894.28788067159
+Area polygon: 117034.77774854051
+Ratio: 0.37505337067399164
+
+HOMOGRAPHY DISCARDED #227 (polygon out)
+Area out: 14598331.974586593
+Area polygon: 15548845.830265768
+Ratio: 0.9388691697084678
+
+HOMOGRAPHY DISCARDED #232 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #233 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #230 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #235 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #232 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #237 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 191.863231543
+
+HOMOGRAPHY DISCARDED #238 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #234 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #235 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #236 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #237 (polygon out)
+Area out: 76685.99596008065
+Area polygon: 507060.804959422
+Ratio: 0.15123629199897934
+
+HOMOGRAPHY DISCARDED #243 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 185.499326144
+
+HOMOGRAPHY DISCARDED #238 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #239 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #240 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #247 (norm difference histogram median too big)
+Max treshold: 170.0
+Median: 182.349938177
+
+HOMOGRAPHY DISCARDED #248 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #242 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #243 (inliers outside polygon)
+Tot inliers: 7
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #244 (inliers outside polygon)
+Tot inliers: 5
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #252 (invalid polygon)
+
+HOMOGRAPHY DISCARDED #253 (invalid polygon)
+
