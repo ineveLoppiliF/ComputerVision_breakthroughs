@@ -8,4 +8,7 @@ from .equalize_template_and_rectified_scene import equalize_template_and_rectifi
 from .difference_plot_and_histogram import difference_plot_and_histogram
 from .project_keypoints import project_keypoints
 from .remove_mask import remove_mask
+from .pixelwise_difference_norm_check import pixelwise_difference_norm_check
+from .pixelwise_difference_plot_and_histogram import pixelwise_difference_plot_and_histogram
+from .difference_norm_image_computation import difference_norm_image_computation
 from .self_similar_and_fingerprint_matches import *

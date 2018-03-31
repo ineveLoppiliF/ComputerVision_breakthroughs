@@ -5,24 +5,45 @@ import matplotlib
 from numpy.linalg import inv
 from matplotlib import pyplot as plt
 from shapely.geometry.polygon import Polygon
-from functions import out_area_ratio, out_points_ratio, remove_temporarily_matches, print_discarded, equalize_template_and_rectified_scene, difference_plot_and_histogram, project_keypoints, remove_mask#, validate_area
+from functions import (difference_plot_and_histogram, 
+                       equalize_template_and_rectified_scene, 
+                       out_area_ratio, 
+                       out_points_ratio, 
+                       pixelwise_difference_norm_check,
+                       print_discarded,
+                       project_keypoints,
+                       remove_temporarily_matches,
+                       remove_mask)
+                       #, validate_area)
 
 #%% Initial initializations
 
 ## Constant parameters to be tuned
-MIN_MATCH_COUNT = 30 # search for the template whether there are at least MIN_MATCH_CURENT good matches in the scene
-MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that features
-LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest match is lower than LOWE_THRESHOLD * the distance with the second best match
-IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction of inliers are in the polygon
-OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not too much out from test image
-ALPHA=0.9999999999999 # this constant allow us to determine the quantiles to be used to discriminate areas
+MIN_MATCH_COUNT = 30 # search for the template whether there are at least
+                     # MIN_MATCH_CURENT good matches in the scene
+MIN_MATCH_CURRENT = 5 # stop when your matched homography has less than that features
+LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest
+                     # match is lower than LOWE_THRESHOLD * the distance with
+                     # the second best match
+IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction
+                            # of inliers are in the polygon
+OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not 
+                             # too much out from test image
+ALPHA=0.9999999999999 # this constant allow us to determine the quantiles
+                      # to be used to discriminate areas
+IMAGE_RATIO_TO_CROP = 0.5 # after the computation of the image representing
+                          # the pixelwise difference norm, a cropped version
+                          # of it is computed, in which only the central part is keeped
+MEDIAN_THRESHOLD = 255//4 # threshold on the median, used to discard wrong matches
+                          # if the cropped pixelwise difference norm 
+                          # have it greater than this
 
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings1.JPG', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/emirates-logo.png', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -164,10 +185,27 @@ while not end:
                     dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)  
                     
                     ## Create a polygon using the projected vertices
-                    polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
+                    polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), 
+                                       (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), 
+                                       (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), 
+                                       (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                             
-                    ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon, if the polygon is valid (no loop) and if is mostly inside the image
-                    if polygon.is_valid and out_points_ratio(dst_inliers, polygon, discarded_file, IN_POLYGON_THRESHOLD, discarded_homographies) and out_area_ratio(img_polygon, polygon, discarded_file, OUT_OF_IMAGE_THRESHOLD, discarded_homographies):
+                    ## Homography kept only if at least INSQUARE_TRESHOLD 
+                    ## fraction of inliers are in the polygon, if the polygon
+                    ## is valid (no loop) and if is mostly inside the image
+                    if (polygon.is_valid 
+                        and 
+                        out_points_ratio(dst_inliers, 
+                                         polygon, 
+                                         discarded_file, 
+                                         IN_POLYGON_THRESHOLD,
+                                         discarded_homographies) 
+                        and 
+                        out_area_ratio(img_polygon, 
+                                       polygon, 
+                                       discarded_file,
+                                       OUT_OF_IMAGE_THRESHOLD, 
+                                       discarded_homographies)):
                         
                         ## Create a mask over the left good matches of the ones that are inliers
                         inliers_mask = np.zeros(len(good_matches))
@@ -198,15 +236,54 @@ while not end:
                             ## If the homography is degenerate, it is discarded
                             if np.linalg.matrix_rank(H) == 3:
                             
-                                ## Project the vertices of the abstract rectangle around the template image
-                                ## in the test one, using the found homography, in order to localize the template in the scene
+                                ## Project the vertices of the abstract 
+                                ## rectangle around the template image
+                                ## in the test one, using the found homography,
+                                ## in order to localize the template in the scene
                                 dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)
                                 
                                 ## Create a polygon using the projected vertices
-                                polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
+                                polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]),
+                                                   (dst_vrtx[1][0][0], dst_vrtx[1][0][1]),
+                                                   (dst_vrtx[2][0][0], dst_vrtx[2][0][1]),
+                                                   (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                                
-                                ## Homography kept only if at least INSQUARE_TRESHOLD fraction of inliers are in the polygon and the polygon area is not too different from previous
-                                if out_points_ratio(dst_inliers, polygon, discarded_file, IN_POLYGON_THRESHOLD, discarded_homographies):
+                                ## Homography kept only if at least 
+                                ## INSQUARE_TRESHOLD fraction of inliers are
+                                ## in the polygon and the polygon area is not
+                                ## too different from previous
+                                if out_points_ratio(dst_inliers, 
+                                                    polygon, 
+                                                    discarded_file, 
+                                                    IN_POLYGON_THRESHOLD, 
+                                                    discarded_homographies):
+                                    
+                                    ## Equalize both template and rectified image
+                                    (equalized_template_image,
+                                     equalized_rect_test_image) = equalize_template_and_rectified_scene(template_image,
+                                                                                                        rect_test_image)
+                                    
+                                    ## Compute the difference between equalized
+                                    ## template and equalized rectified image
+                                    abs_diff_image = cv2.absdiff(equalized_template_image,
+                                                                 equalized_rect_test_image)
+                                    
+                                    ## Compute the image representing the
+                                    ## pixelwise difference norm, and the
+                                    ## version of it in which only the central
+                                    ## part is keeped
+                                    (diff_norm_image, 
+                                     diff_norm_image_central) = difference_norm_image_computation(abs_diff_image, 
+                                                                                                  IMAGE_RATIO_TO_CROP)
+                                    
+                                    ## Check that the pixelwise difference norm
+                                    ## median of a central region of the
+                                    ## difference image is under a certain
+                                    ## threshold
+                                    if pixelwise_difference_norm_check(diff_norm_image_central, 
+                                                                       MEDIAN_THRESHOLD, 
+                                                                       discarded_file,
+                                                                       discarded_homographies)
                                     
                                     ## Area confidence test
                                     #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
@@ -264,14 +341,21 @@ while not end:
                                         rect_stacked_image = np.hstack((rect_test_image, template_image))
                                         plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
                                         
-                                        ## Equalize both template and rectified image, and plot them
-                                        equalized_template_image, equalized_rect_test_image = equalize_template_and_rectified_scene(template_image, rect_test_image)
-                                        
-                                        ## Compute the difference between equalized template and equalized rectified image and plot it
-                                        abs_diff_image = cv2.absdiff(equalized_template_image, equalized_rect_test_image)
+                                        ## Plot the equalized template and
+                                        ## rectified image
+                                        equalized_rect_stacked_image = np.hstack((equalized_rect_test_image,
+                                                                                  equalized_template_image))
+                                        plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Equalized template and object image'), plt.show()
                                         
                                         ## Plot the difference between equalized template and equalized rectified image and its histogram
                                         difference_plot_and_histogram(abs_diff_image)
+                                        
+                                        ## Plot the images of the pixelwise
+                                        ## difference norm, and the histrogram
+                                        ## of the one representing the
+                                        ## central part, highlighting th median
+                                        pixelwise_difference_plot_and_histogram(diff_norm_image,
+                                                                                diff_norm_image_central)
     
                                         ## Show the number of discarded homographies until now
                                         print_discarded(discarded_homographies)
@@ -287,6 +371,8 @@ while not end:
                                         input("Press Enter to find new homography...")
                                     #else:
                                     #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                                    else:
+                                        good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
