@@ -1,6 +1,7 @@
 #%% Import libraries
 import numpy as np
 import cv2
+import sys
 import matplotlib
 from numpy.linalg import inv
 from matplotlib import pyplot as plt
@@ -15,9 +16,10 @@ from functions import (difference_norm_image_computation,
                        print_discarded,
                        project_keypoints,
                        remove_temporarily_matches,
-                       remove_mask)
+                       remove_mask,
+                       )
                        #, validate_area)
-
+from functions import self_similar_and_fingerprint_matches_extraction
 #%% Initial initializations
 
 ## Constant parameters to be tuned
@@ -105,6 +107,9 @@ matches =  flann_matcher.knnMatch(test_descriptors,template_descriptors,k=2) # t
 ## Show the number features in test_descriptors image that have at least one match in template_descriptors image
 print('found ' + str(len(matches)) + ' putative matches')
 
+## Extract self similar and fingerprint list
+self_similar_list, fingerprint_list = self_similar_and_fingerprint_matches_extraction(template_descriptors)
+
 #%% Store all the good matches as per Lowe's ratio test
 # Lowe's ratio test removes the ambiguous and false matches:
 #   It keeps only matches where the distance with the closest match is lower 
@@ -114,14 +119,20 @@ good_matches = []
 ## Need to keep only good matches, so create a mask, each row corresponds to a match
 matches_mask = [[0,0] for i in iter(range(len(matches)))]
 
+self_similar_discarded_by_ratio_test=0
 ## Apply Lowe's test for each match, modifying the mask accordingly
 for i,(m,n) in enumerate(matches):
     if m.distance < LOWE_THRESHOLD*n.distance:
         good_matches.append(m) # match appended to the list of good matches 
         matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
+    else:
+        if len(self_similar_list[m.trainIdx])!=0 :
+            good_matches.append(m) # match appended to the list of good matches 
+            matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
+            self_similar_discarded_by_ratio_test+=1
 
 ## Show the number of good matches found
-print('found ' + str(len(good_matches)) + ' matches validated by the distance ratio test')
+print('found ' + str(len(good_matches)) + ' matches validated by the distance ratio test, ' + str(self_similar_discarded_by_ratio_test) + ' self similar')
 
 ## Specify parameters for the function that shows good matches graphically
 draw_params = dict(matchColor = (0,255,0), # draw matches in green

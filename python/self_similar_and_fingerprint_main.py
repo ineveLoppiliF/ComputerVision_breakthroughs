@@ -9,9 +9,6 @@ from functions import self_similar_and_fingerprint_matches_extraction, self_matc
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
-INITIAL_KNN = 10 # at first iteration of FLANN KDTREE we search for this number of neighborhood for each feature
-KNN_STEP = 5 # when k self-similar matches are been found for at least one feature, more neighbours are searched, incrementing the actual number by this
-
 #%% Load and show template image
 
 ## Load the template
