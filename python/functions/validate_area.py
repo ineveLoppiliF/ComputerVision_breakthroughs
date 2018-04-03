@@ -16,6 +16,6 @@ def validate_area(ALPHA, areas, area, discarded_file, discarded_homographies):
     if area >= areas_quantiles[0] and area <= areas_quantiles[1]: return True
     else: 
         discarded_homographies[0]+=1
-        discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4])+" (area too big)\n")
+        discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (area too big)\n")
         discarded_file.write("Min bound: "+str(areas_quantiles[0])+"\nMax bound: "+str(areas_quantiles[1])+"\nArea: "+str(area)+"\n\n")
         return False

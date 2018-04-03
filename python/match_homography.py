@@ -31,7 +31,7 @@ IN_POLYGON_THRESHOLD = 0.95 # homography kept only if at least this fraction
                             # of inliers are in the polygon
 OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not 
                              # too much out from test image
-ALPHA=0.9999999999999 # this constant allow us to determine the quantiles
+#ALPHA=0.9999999999999 # this constant allow us to determine the quantiles
                       # to be used to discriminate areas
 IMAGE_RATIO_TO_CROP = 0.8 # after the computation of the image representing
                           # the pixelwise difference norm, a cropped version
