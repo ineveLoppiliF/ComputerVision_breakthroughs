@@ -11,4 +11,5 @@ from .remove_mask import remove_mask
 from .pixelwise_difference_norm_check import pixelwise_difference_norm_check
 from .pixelwise_difference_plot_and_histogram import pixelwise_difference_plot_and_histogram
 from .difference_norm_image_computation import difference_norm_image_computation
+from .is_homography_degenerate import is_homography_degenerate
 from .self_similar_and_fingerprint_matches import *

@@ -1,7 +1,6 @@
 #%% Import libraries
 import numpy as np
 import cv2
-import sys
 import matplotlib
 from numpy.linalg import inv
 from matplotlib import pyplot as plt
@@ -9,8 +8,8 @@ from shapely.geometry.polygon import Polygon
 from functions import (difference_norm_image_computation,
                        difference_plot_and_histogram, 
                        equalize_template_and_rectified_scene, 
-                       out_area_ratio, 
-                       out_points_ratio, 
+                       is_homography_degenerate,
+                       out_area_ratio,
                        pixelwise_difference_norm_check,
                        pixelwise_difference_plot_and_histogram,
                        print_discarded,
@@ -38,7 +37,7 @@ OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not
 IMAGE_RATIO_TO_CROP = 0.8 # after the computation of the image representing
                           # the pixelwise difference norm, a cropped version
                           # of it is computed, in which only the central part is keeped
-MEDIAN_THRESHOLD = np.divide(441.672956,2.5) # threshold on the median, used to
+MEDIAN_THRESHOLD = np.multiply(441.672956,0.25) # threshold on the median, used to
                                              # discard wrong matches if the
                                              # cropped pixelwise difference norm 
                                              # have it greater than this.
@@ -49,8 +48,8 @@ MEDIAN_THRESHOLD = np.divide(441.672956,2.5) # threshold on the median, used to
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/lipton_front.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/lipton_front_shuffle.jpg', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -132,7 +131,9 @@ for i,(m,n) in enumerate(matches):
             self_similar_discarded_by_ratio_test+=1
 
 ## Show the number of good matches found
-print('found ' + str(len(good_matches)) + ' matches validated by the distance ratio test, ' + str(self_similar_discarded_by_ratio_test) + ' self similar')
+print('found ' + str(len(good_matches)) + 
+      ' matches validated by the distance ratio test, ' + 
+      str(self_similar_discarded_by_ratio_test) + ' self similar')
 
 ## Specify parameters for the function that shows good matches graphically
 draw_params = dict(matchColor = (0,255,0), # draw matches in green
@@ -141,7 +142,8 @@ draw_params = dict(matchColor = (0,255,0), # draw matches in green
                    flags = 0)
 
 ## Good matches represented on another image
-matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, template_keypoints, matches, None, **draw_params)
+matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, 
+                                   template_keypoints, matches, None, **draw_params)
 
 ## Plot the good matches
 plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All matches after ratio test'), plt.show()
@@ -151,7 +153,7 @@ plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All match
 input("Press Enter to start finding homographies...")
 
 ## Initilalize discarded homograpies counters (see print_discarded for more info)
-discarded_homographies = [0,0,0,0,0,0]
+discarded_homographies = [0,0,0,0]
 
 ## Initialize areas of founded homography
 areas = []
@@ -171,73 +173,77 @@ discarded_file = open("debug.txt","w")
 ## Continue to look for other homographies
 end = False
 while not end:
-    ## If the number of remaining matches is low, is likely that there aren't other good homograpies, and the algorithm ends
+    ## If the number of remaining matches is low, is likely that there aren't
+    ## other good homograpies, and the algorithm ends
     if len(good_matches) >= MIN_MATCH_COUNT:
-        ## Retrieve coordinates of features keypoints in its image(the feature m.queryIdx inside test_image has been matched with feature m.trainIdx inside template_image)
+        ## Retrieve coordinates of features keypoints in its image
+        ## (the feature m.queryIdx inside test_image has been matched
+        ##  with feature m.trainIdx inside template_image)
         src_pts = np.float32([template_keypoints[m.trainIdx].pt for m in good_matches]).reshape(-1, 1, 2)
         dst_pts = np.float32([test_keypoints[m.queryIdx].pt for m in good_matches]).reshape(-1, 1, 2)
         
-        ## Apply RANSAC algorithm to fit homograpy: M is the final homography, mask represents the inliers
+        ## Apply RANSAC algorithm to fit homograpy: M is the final homography,
+        ## mask represents the inliers
         H, inliers_mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
         
         ## If no available homograpies exist, the algorithm ends
         if H is not None:      
-            ## Create a list representing all the inliers of the retrieved hompgrapy
+            ## Create a list representing all the inliers of the
+            ## retrieved homography
             matches_mask = inliers_mask.ravel().tolist()
             
-            ## Retrieve coordinates of the inliers in the test image, and their index wrt the actual good matches list
+            ## Retrieve coordinates of the inliers in the test image, 
+            ## and their index wrt the actual good matches list
             dst_inliers = [dst_pts[i] for i in range(len(dst_pts)) if matches_mask[i]]
             index_inliers = np.nonzero(matches_mask)[0]
             
+            ## Project the vertices of the abstract rectangle around the
+            ## template image in the test one, using the found homography,
+            ## in order to localize the template in the scene
+            h, w = template_image.shape[0:2]
+            src_vrtx = np.float32([[0, 0], 
+                                   [0, h - 1], 
+                                   [w - 1, h - 1], 
+                                   [w - 1, 0]]).reshape(-1, 1, 2)
+            dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)  
+            
             ## If the homography is degenerate, it is discarded
-            if np.linalg.matrix_rank(H) == 3:
+            if not is_homography_degenerate(inv(H), dst_vrtx, discarded_file, discarded_homographies):
                 ## If the retrieved homography has been fitted using few matches, 
                 ## is likely that has poor performances and that there aren't other good homograpies, so the algorithm ends
                 if np.count_nonzero(matches_mask) >= MIN_MATCH_CURRENT:
-                    ## Project the vertices of the abstract rectangle around the template image
-                    ## in the test one, using the found homography, in order to localize the template in the scene
-                    h, w = template_image.shape[0:2]
-                    src_vrtx = np.float32([[0, 0], [0, h - 1], [w - 1, h - 1], [w - 1, 0]]).reshape(-1, 1, 2)
-                    dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)  
-                    
                     ## Create a polygon using the projected vertices
                     polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]), 
                                        (dst_vrtx[1][0][0], dst_vrtx[1][0][1]), 
                                        (dst_vrtx[2][0][0], dst_vrtx[2][0][1]), 
                                        (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                             
-                    ## Homography kept only if at least INSQUARE_TRESHOLD 
-                    ## fraction of inliers are in the polygon, if the polygon
-                    ## is valid (no loop) and if is mostly inside the image
-                    if (polygon.is_valid 
-                        and 
-                        out_points_ratio(dst_inliers, 
-                                         polygon, 
-                                         discarded_file, 
-                                         IN_POLYGON_THRESHOLD,
-                                         discarded_homographies) 
-                        and 
-                        out_area_ratio(img_polygon, 
-                                       polygon, 
+                    ## Homography kept only if the projected polygon
+                    ## is mostly inside the image
+                    if out_area_ratio(img_polygon,
+                                       polygon,
                                        discarded_file,
-                                       OUT_OF_IMAGE_THRESHOLD, 
-                                       discarded_homographies)):
-                        
-                        ## Create a mask over the left good matches of the ones that are inliers
+                                       OUT_OF_IMAGE_THRESHOLD,
+                                       discarded_homographies):
+                        ## Create a mask over the left good matches of the 
+                        ## ones that are inliers
                         inliers_mask = np.zeros(len(good_matches))
                         for i in range(len(good_matches)):
                             if i in index_inliers:
                                 inliers_mask[i] = 1
                         
-                        ## Retrieve matches that are inliers, and their index wrt the actual good matches list
+                        ## Retrieve matches that are inliers, and their index
+                        ## wrt the actual good matches list
                         inliers_matches = [good_matches[i] for i in range(len(good_matches)) if inliers_mask[i]]
                         index_inliers_matches = [i for i in range(len(good_matches)) if inliers_mask[i]]
                         
-                        ## Retrieve coordinates of features keypoints in its image, for ones that are in the polygon
+                        ## Retrieve coordinates of features keypoints in its
+                        ## image, for ones that are inliers
                         new_src_pts = np.float32([template_keypoints[m.trainIdx].pt for m in inliers_matches]).reshape(-1, 1, 2)
                         new_dst_pts = np.float32([test_keypoints[m.queryIdx].pt for m in inliers_matches]).reshape(-1, 1, 2)
                         
-                        ## Apply LMEDS algorithm to fit a new homograpy, taking into account all previous inliers
+                        ## Apply LMEDS algorithm to fit a new homograpy,
+                        ## taking into account all previous inliers
                         H, inliers_mask = cv2.findHomography(new_src_pts,new_dst_pts,cv2.LMEDS, 10.0)
                         
                         ## If no available homograpies exist, the algorithm ends
@@ -249,14 +255,14 @@ while not end:
                             dst_inliers = [new_dst_pts[i] for i in range(len(new_dst_pts)) if inliers_mask[i]]
                             index_inliers = [index for i,index in enumerate(index_inliers_matches) if inliers_mask[i]]
                             
-                            ## If the homography is degenerate, it is discarded
-                            if np.linalg.matrix_rank(H) == 3:
+                            ## Project the vertices of the abstract 
+                            ## rectangle around the template image
+                            ## in the test one, using the found homography,
+                            ## in order to localize the template in the scene
+                            dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)
                             
-                                ## Project the vertices of the abstract 
-                                ## rectangle around the template image
-                                ## in the test one, using the found homography,
-                                ## in order to localize the template in the scene
-                                dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)
+                            ## If the homography is degenerate, it is discarded
+                            if not is_homography_degenerate(inv(H), dst_vrtx, discarded_file, discarded_homographies):
                                 
                                 ## Create a polygon using the projected vertices
                                 polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]),
@@ -264,153 +270,134 @@ while not end:
                                                    (dst_vrtx[2][0][0], dst_vrtx[2][0][1]),
                                                    (dst_vrtx[3][0][0], dst_vrtx[3][0][1])])
                                
-                                ## Homography kept only if at least 
-                                ## INSQUARE_TRESHOLD fraction of inliers are
-                                ## in the polygon and the polygon area is not
-                                ## too different from previous
-                                if out_points_ratio(dst_inliers, 
-                                                    polygon, 
-                                                    discarded_file, 
-                                                    IN_POLYGON_THRESHOLD, 
-                                                    discarded_homographies):
+                                ## Apply the inverse of the found homography to the scene image
+                                ## in order to rectify the object in the polygon and extract the 
+                                ## bounded image region from the rectified one containing the template instance
+                                H_inv = inv(H)
+                                rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
+                                
+                                ## Equalize both template and rectified image
+                                (equalized_template_image,
+                                 equalized_rect_test_image) = equalize_template_and_rectified_scene(template_image,
+                                                                                                    rect_test_image)
+                                
+                                ## Compute the difference between equalized
+                                ## template and equalized rectified image
+                                abs_diff_image = cv2.absdiff(equalized_template_image,
+                                                             equalized_rect_test_image)
+                                
+                                ## Compute the image representing the
+                                ## pixelwise difference norm, and the
+                                ## version of it in which only the central
+                                ## part is keeped
+                                (diff_norm_image, 
+                                 diff_norm_image_central) = difference_norm_image_computation(abs_diff_image, 
+                                                                                              IMAGE_RATIO_TO_CROP)
+                                
+                                ## Check that the pixelwise difference norm
+                                ## median of a central region of the
+                                ## difference image is under a certain
+                                ## threshold
+                                if pixelwise_difference_norm_check(diff_norm_image_central, 
+                                                                   MEDIAN_THRESHOLD, 
+                                                                   discarded_file,
+                                                                   discarded_homographies):
+                                
+                                ## Area confidence test
+                                #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
                                     
-                                    ## Apply the inverse of the found homography to the scene image
-                                    ## in order to rectify the object in the polygon and extract the 
-                                    ## bounded image region from the rectified one containing the template instance
-                                    H_inv = inv(H)
-                                    rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
+                                    print('NEW HOMOGRAPHY FOUND!')
                                     
-                                    ## Equalize both template and rectified image
-                                    (equalized_template_image,
-                                     equalized_rect_test_image) = equalize_template_and_rectified_scene(template_image,
-                                                                                                        rect_test_image)
+                                    ##print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
+                                    ##print('Fraction of inliers out of the homography:' +  str((len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers)))/len(dst_inliers)))
+                                
+                                    areas.append(polygon.area) 
                                     
-                                    ## Compute the difference between equalized
-                                    ## template and equalized rectified image
-                                    abs_diff_image = cv2.absdiff(equalized_template_image,
-                                                                 equalized_rect_test_image)
+                                    ## Draw the projected polygon in the test image, in order to visualize the found template in the test image
+                                    polygons_image = cv2.polylines(test_image_squares, [np.int32(dst_vrtx)], True, [255,255,255], 3, cv2.LINE_AA)
                                     
-                                    ## Compute the image representing the
-                                    ## pixelwise difference norm, and the
-                                    ## version of it in which only the central
-                                    ## part is keeped
-                                    (diff_norm_image, 
-                                     diff_norm_image_central) = difference_norm_image_computation(abs_diff_image, 
-                                                                                                  IMAGE_RATIO_TO_CROP)
+                                    ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
+                                    draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
+                                                       singlePointColor=None,
+                                                       matchesMask=matches_mask,  # draw only inliers
+                                                       flags=2)
                                     
-                                    ## Check that the pixelwise difference norm
-                                    ## median of a central region of the
-                                    ## difference image is under a certain
-                                    ## threshold
-                                    if pixelwise_difference_norm_check(diff_norm_image_central, 
-                                                                       MEDIAN_THRESHOLD, 
-                                                                       discarded_file,
-                                                                       discarded_homographies):
+                                    ## Draw clustered matches
+                                    matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
                                     
-                                    ## Area confidence test
-                                    #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
-                                        
-                                        print('NEW HOMOGRAPHY FOUND!')
-                                        
-                                        ##print('Number of inliers out of the homography:' +  str(len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers))))
-                                        ##print('Fraction of inliers out of the homography:' +  str((len(dst_inliers) - (out_points_ratio(dst_inliers, polygon)*len(dst_inliers)))/len(dst_inliers)))
+                                    ## Plot the clustered matches
+                                    plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
                                     
-                                        areas.append(polygon.area) 
-                                        
-                                        ## Draw the projected polygon in the test image, in order to visualize the found template in the test image
-                                        polygons_image = cv2.polylines(test_image_squares, [np.int32(dst_vrtx)], True, [255,255,255], 3, cv2.LINE_AA)
-                                        
-                                        ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
-                                        draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
-                                                           singlePointColor=None,
-                                                           matchesMask=matches_mask,  # draw only inliers
-                                                           flags=2)
-                                        
-                                        ## Draw clustered matches
-                                        matches_image = cv2.drawMatches(polygons_image, test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
-                                        
-                                        ## Plot the clustered matches
-                                        plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
-                                        
-                                        ## Put back, inside the good matches list, points temporary removed
-                                        good_matches.extend(temporary_removed_matches)
-                                        temporary_removed_matches.clear()
-                                        
-                                        ## Remove all matches in the polygon
-                                        keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
-                                        good_matches = [good_matches[i] for i in range(len(good_matches)) if keep_mask[i]]
-                                        
-                                        ## Apply the homography to all test_keypoints in order to plot them
-                                        object_test_keypoints = project_keypoints(test_keypoints, H_inv)
-                                        
-                                        ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
-                                        draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
-                                                           singlePointColor=None,
-                                                           matchesMask=matches_mask,  # draw only inliers
-                                                           flags=2)
-                                        
-                                        ## Draw clustered rectified matches
-                                        matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
-                                        
-                                        ## Show the rectified matches and image
-                                        plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object matches'), plt.show()
-                                        rect_stacked_image = np.hstack((rect_test_image, template_image))
-                                        plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
-                                        
-                                        ## Plot the equalized template and
-                                        ## rectified image
-                                        equalized_rect_stacked_image = np.hstack((equalized_rect_test_image,
-                                                                                  equalized_template_image))
-                                        plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Equalized template and object image'), plt.show()
-                                        
-                                        ## Plot the difference between equalized
-                                        ## template and equalized rectified image and its histogram
-                                        difference_plot_and_histogram(abs_diff_image)
-                                        
-                                        ## Plot the images of the pixelwise
-                                        ## difference norm, and the histrogram
-                                        ## of the one representing the
-                                        ## central part, highlighting the median
-                                        pixelwise_difference_plot_and_histogram(diff_norm_image,
-                                                                                diff_norm_image_central,
-                                                                                MEDIAN_THRESHOLD)
+                                    ## Put back, inside the good matches list, points temporary removed
+                                    good_matches.extend(temporary_removed_matches)
+                                    temporary_removed_matches.clear()
+                                    
+                                    ## Remove all matches in the polygon
+                                    keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
+                                    good_matches = [good_matches[i] for i in range(len(good_matches)) if keep_mask[i]]
+                                    
+                                    ## Apply the homography to all test_keypoints in order to plot them
+                                    object_test_keypoints = project_keypoints(test_keypoints, H_inv)
+                                    
+                                    ## Specify parameters for the function that shows clustered matches, i.e. all the inliers for the selceted homography
+                                    draw_params = dict(matchColor=(0, 255, 0),  # draw matches in green
+                                                       singlePointColor=None,
+                                                       matchesMask=matches_mask,  # draw only inliers
+                                                       flags=2)
+                                    
+                                    ## Draw clustered rectified matches
+                                    matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
+                                    
+                                    ## Show the rectified matches and image
+                                    plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object matches'), plt.show()
+                                    rect_stacked_image = np.hstack((rect_test_image, template_image))
+                                    plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
+                                    
+                                    ## Plot the equalized template and
+                                    ## rectified image
+                                    equalized_rect_stacked_image = np.hstack((equalized_rect_test_image,
+                                                                              equalized_template_image))
+                                    plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Equalized template and object image'), plt.show()
+                                    
+                                    ## Plot the difference between equalized
+                                    ## template and equalized rectified image and its histogram
+                                    difference_plot_and_histogram(abs_diff_image)
+                                    
+                                    ## Plot the images of the pixelwise
+                                    ## difference norm, and the histrogram
+                                    ## of the one representing the
+                                    ## central part, highlighting the median
+                                    pixelwise_difference_plot_and_histogram(diff_norm_image,
+                                                                            diff_norm_image_central,
+                                                                            MEDIAN_THRESHOLD)
     
-                                        ## Show the number of discarded homographies until now
-                                        print_discarded(discarded_homographies)
-                                        
-                                        ## Show the number of good matches left
-                                        print('There remains: ' + str(len(good_matches)) + ' features')
-                                        
-                                        ## Show the number of good homograpies until now
-                                        print("Found " + str(len(areas)) + " homographies until now")
-                                        discarded_file.write("HOMOGRAPHY FOUNDED #"+str(len(areas))+"\n\n")
-                                        
-                                        ## Search for the next template in the test image after a user command
-                                        input("Press Enter to find new homography...")
-                                    #else:
-                                    #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                                    else:
-                                        good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                                    ## Show the number of discarded homographies until now
+                                    print_discarded(discarded_homographies)
+                                    
+                                    ## Show the number of good matches left
+                                    print('There remains: ' + str(len(good_matches)) + ' features')
+                                    
+                                    ## Show the number of good homograpies until now
+                                    print("Found " + str(len(areas)) + " homographies until now")
+                                    discarded_file.write("HOMOGRAPHY FOUNDED #"+str(len(areas))+"\n\n")
+                                    
+                                    ## Search for the next template in the test image after a user command
+                                    #input("Press Enter to find new homography...")
+                                #else:
+                                #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
                                     good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                             else:
-                                discarded_homographies[1]+=1
-                                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (degenerate homography)\n\n")
                                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                         else:
                             print("Not possible to find another homography")
                             end = True
                     else:
-                        if(not polygon.is_valid): 
-                            discarded_homographies[3]+=1
-                            discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (invalid polygon)\n\n")
                         good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
-                discarded_homographies[1]+=1
-                discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (degenerate homography)\n\n")
                 good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
         else:
             print("Not possible to find another homography")
@@ -423,6 +410,9 @@ while not end:
     
 ## Show the final image, in which all templates found are drawn
 if len(areas)!=0: plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), plt.title('final image'),plt.show()
+
+## Show the number of discarded homographies until now
+print_discarded(discarded_homographies)
 
 ## Show the final number of good homographies found
 print("Found " + str(len(areas)) + " homographies")

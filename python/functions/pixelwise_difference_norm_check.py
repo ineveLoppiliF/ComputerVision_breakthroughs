@@ -12,7 +12,8 @@ def pixelwise_difference_norm_check(diff_norm_image_central, MEDIAN_THRESHOLD, d
         return True
     
     ## Otherwise return false, and write on debug file
-    discarded_homographies[5]+=1
-    discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3]+discarded_homographies[4]+discarded_homographies[5])+" (norm difference histogram median too big)\n")
+    discarded_homographies[3]+=1
+    discarded_file.write("HOMOGRAPHY DISCARDED #"+str(discarded_homographies[0]+discarded_homographies[1]+discarded_homographies[2]+discarded_homographies[3])+" (norm difference histogram median too big)\n")
     discarded_file.write("Max treshold: "+str(MEDIAN_THRESHOLD)+"\nMedian: "+str(median)+"\n\n")
+    
     return False
