@@ -65,7 +65,6 @@ def self_similar_and_fingerprint_matches_extraction(template_descriptors):
     ## Compute a list with the same shape of "matches", but conserving only
     ## self-similar matches
     self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_matches_extraction(matches,template_descriptors,norm_parameters)
-    print('Maximum number of self-similar matches: ' + str(len(max(self_similar_list,key=len))))
     
     ## If at least one of the features has k self-similar matches, 
     ## more neighbors has to be computed to find other possible self-simlar matches
@@ -75,7 +74,7 @@ def self_similar_and_fingerprint_matches_extraction(template_descriptors):
         for i,kmatches in enumerate(matches):
             kmatches.pop(0)
         self_similar_list, search_for_more_neighbors, self_similar_quantiles = self_similar_matches_extraction(matches,template_descriptors,norm_parameters)
-        print('Maximum number of self-similar matches: ' + str(len(max(self_similar_list,key=len))))
+    print('Maximum number of self-similar matches: ' + str(len(max(self_similar_list,key=len))))
     print('Number of features that have at least one self-similar match: ' + str(len([self_similar_matches for self_similar_matches in self_similar_list if self_similar_matches])))
         
     #%% Find fingerprint matches
