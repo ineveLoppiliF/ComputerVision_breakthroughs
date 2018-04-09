@@ -407,7 +407,7 @@ while not end:
                                     discarded_file.write("HOMOGRAPHY FOUNDED #"+str(len(areas))+"\n\n")
                                     
                                     ## Search for the next template in the test image after a user command
-                                    #input("Press Enter to find new homography...")
+                                    input("Press Enter to find new homography...")
                                 #else:
                                 #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                                 else:
