@@ -125,10 +125,13 @@ for i,(m,n) in enumerate(matches):
         good_matches.append(m) # match appended to the list of good matches 
         matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
     else:
-        if len(self_similar_list[m.trainIdx])!=0 :
-            good_matches.append(m) # match appended to the list of good matches 
-            matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
-            self_similar_discarded_by_ratio_test+=1
+        if len(self_similar_list[m.trainIdx])!=0:
+                second_nearest_keypoint = template_keypoints[n.trainIdx]
+                self_similar_keypoints = [template_keypoints[match.trainIdx] for match in self_similar_list[m.trainIdx]]
+                if second_nearest_keypoint in self_similar_keypoints:
+                    good_matches.append(m) # match appended to the list of good matches 
+                    matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
+                    self_similar_discarded_by_ratio_test+=1
 
 ## Show the number of good matches found
 print('found ' + str(len(good_matches)) + 
