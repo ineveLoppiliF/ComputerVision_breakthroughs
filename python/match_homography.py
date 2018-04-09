@@ -48,8 +48,8 @@ MEDIAN_THRESHOLD = np.multiply(441.672956,0.25) # threshold on the median, used 
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -118,6 +118,9 @@ good_matches = []
 ## Need to keep only good matches, so create a mask, each row corresponds to a match
 matches_mask = [[0,0] for i in iter(range(len(matches)))]
 
+## Create also a mask to keep self-similar feature matches
+self_similar_mask = [[0,0] for i in iter(range(len(matches)))]
+
 self_similar_discarded_by_ratio_test=0
 ## Apply Lowe's test for each match, modifying the mask accordingly
 for i,(m,n) in enumerate(matches):
@@ -129,7 +132,9 @@ for i,(m,n) in enumerate(matches):
                 second_nearest_keypoint = template_keypoints[n.trainIdx]
                 self_similar_keypoints = [template_keypoints[match.trainIdx] for match in self_similar_list[m.trainIdx]]
                 if second_nearest_keypoint in self_similar_keypoints:
-                    good_matches.append(m) # match appended to the list of good matches 
+                    good_matches.append(m) # match appended to the list of good matches
+                    self_similar_mask[i]=[1,0]  # mask modified to consider
+                                                # the i-th match as self-similar
                     matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
                     self_similar_discarded_by_ratio_test+=1
 
@@ -149,7 +154,24 @@ matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image,
                                    template_keypoints, matches, None, **draw_params)
 
 ## Plot the good matches
-plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('All matches after ratio test'), plt.show()
+plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB))
+plt.title('All matches after ratio test'), plt.show()
+
+## Plot rescued self-similar feature matches on the images
+## Specify parameters
+draw_params = dict(matchColor = (0,255,0), # draw matches in green
+                   singlePointColor = (255,0,0), # draw lone points in red
+                   matchesMask = self_similar_mask, # draw only rescued
+                                                    # self-similar matches
+                   flags = 0)
+
+## Rescued self-similar feature matches represented on another image
+self_similar_matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, 
+                                   template_keypoints, matches, None, **draw_params)
+
+## Plot the self-similar feature matches
+plt.imshow(cv2.cvtColor(self_similar_matches_image, cv2.COLOR_BGR2RGB))
+plt.title('Self-similar feature matches'), plt.show()
 
 #%% Cluster good matches by fitting homographies through RANSAC
 
