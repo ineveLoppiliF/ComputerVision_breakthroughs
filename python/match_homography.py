@@ -16,9 +16,11 @@ from functions import (difference_norm_image_computation,
                        project_keypoints,
                        remove_temporarily_matches,
                        remove_mask,
+                       self_matches_plot,
+                       self_similar_and_fingerprint_matches_extraction
                        )
                        #, validate_area)
-from functions import self_similar_and_fingerprint_matches_extraction
+                       
 #%% Initial initializations
 
 ## Constant parameters to be tuned
@@ -48,8 +50,8 @@ MEDIAN_THRESHOLD = np.multiply(441.672956,0.25) # threshold on the median, used 
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/twinings5.JPG', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -104,10 +106,13 @@ flann_matcher = cv2.FlannBasedMatcher(index_params, search_params)
 matches =  flann_matcher.knnMatch(test_descriptors,template_descriptors,k=2) # there is no trehsold, the k closest points are returned
 
 ## Show the number features in test_descriptors image that have at least one match in template_descriptors image
-print('found ' + str(len(matches)) + ' putative matches')
+print('Found ' + str(len(matches)) + ' putative matches')
 
 ## Extract self similar and fingerprint list
 self_similar_list, fingerprint_list = self_similar_and_fingerprint_matches_extraction(template_descriptors)
+
+## Plot self-similar feature matches
+self_matches_plot(template_image, template_keypoints, self_similar_list, 'Self-similar matches')
 
 #%% Store all the good matches as per Lowe's ratio test
 # Lowe's ratio test removes the ambiguous and false matches:
@@ -139,7 +144,7 @@ for i,(m,n) in enumerate(matches):
                     self_similar_discarded_by_ratio_test+=1
 
 ## Show the number of good matches found
-print('found ' + str(len(good_matches)) + 
+print('Found ' + str(len(good_matches)) + 
       ' matches validated by the distance ratio test, ' + 
       str(self_similar_discarded_by_ratio_test) + ' self similar')
 
@@ -171,7 +176,7 @@ self_similar_matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, temp
 
 ## Plot the self-similar feature matches
 plt.imshow(cv2.cvtColor(self_similar_matches_image, cv2.COLOR_BGR2RGB))
-plt.title('Self-similar feature matches'), plt.show()
+plt.title('Rescued self-similar feature matches'), plt.show()
 
 #%% Cluster good matches by fitting homographies through RANSAC
 
