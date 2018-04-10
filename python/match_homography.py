@@ -1,10 +1,4 @@
 #%% Import libraries
-import numpy as np
-import cv2
-import matplotlib
-from numpy.linalg import inv
-from matplotlib import pyplot as plt
-from shapely.geometry.polygon import Polygon
 from functions import (difference_norm_image_computation,
                        difference_plot_and_histogram, 
                        equalize_template_and_rectified_scene, 
@@ -13,6 +7,8 @@ from functions import (difference_norm_image_computation,
                        pixelwise_difference_norm_check,
                        pixelwise_difference_plot_and_histogram,
                        print_discarded,
+                       print_random_matches,
+                       rescued_self_similar_used,
                        project_keypoints,
                        remove_temporarily_matches,
                        remove_mask,
@@ -20,6 +16,13 @@ from functions import (difference_norm_image_computation,
                        self_similar_and_fingerprint_matches_extraction
                        )
                        #, validate_area)
+from matplotlib import pyplot as plt
+from numpy.linalg import inv
+from shapely.geometry.polygon import Polygon
+
+import cv2
+import matplotlib
+import numpy as np
                        
 #%% Initial initializations
 
@@ -45,6 +48,10 @@ MEDIAN_THRESHOLD = np.multiply(441.672956,0.25) # threshold on the median, used 
                                              # have it greater than this.
                                              # 441.672956 is the maximum
                                              # possible cropped pixelwise difference
+RANDOM_MATCH_RATIO = 0.1 # number of randomly plotted matches at each
+                         # print_random_matches iteration, in order to see
+                         # better the matches connections
+ITERATIONS = 5 # number of iterations of print_random_matches
 
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
@@ -114,23 +121,37 @@ self_similar_list, fingerprint_list = self_similar_and_fingerprint_matches_extra
 ## Plot self-similar feature matches
 self_matches_plot(template_image, template_keypoints, self_similar_list, 'Self-similar matches')
 
+## Create a reorganized self similar template matches list
+## and create an always true mask
+self_similar_template_matches = [[item] for items in self_similar_list for item in items]
+self_similar_template_mask = [[1] for i in iter(range(len(self_similar_template_matches)))]
+
+## Plot randomly a subset of self-similar feature matches in the template
+print_random_matches(template_image, template_keypoints, template_image, 
+                         template_keypoints, self_similar_template_matches, 
+                         self_similar_template_mask, 
+                         RANDOM_MATCH_RATIO, ITERATIONS)
+
 #%% Store all the good matches as per Lowe's ratio test
 # Lowe's ratio test removes the ambiguous and false matches:
 #   It keeps only matches where the distance with the closest match is lower 
 #   than LOWE_THRESHOLD * the distance with the second best match
 good_matches = []
+good_rescued_self_similar_mask = [] # mask of rescued self similar matches
+                                         # with same length of good_matches
 
 ## Need to keep only good matches, so create a mask, each row corresponds to a match
 matches_mask = [[0,0] for i in iter(range(len(matches)))]
 
-## Create also a mask to keep self-similar feature matches
-self_similar_mask = [[0,0] for i in iter(range(len(matches)))]
+## Create also a mask to keep rescued self-similar feature matches
+rescued_self_similar_mask = [[0,0] for i in iter(range(len(matches)))]
 
-self_similar_discarded_by_ratio_test=0
+number_rescued_self_similar=0
 ## Apply Lowe's test for each match, modifying the mask accordingly
 for i,(m,n) in enumerate(matches):
     if m.distance < LOWE_THRESHOLD*n.distance:
         good_matches.append(m) # match appended to the list of good matches 
+        good_rescued_self_similar_mask.append(0)
         matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
     else:
         if len(self_similar_list[m.trainIdx])!=0:
@@ -138,19 +159,27 @@ for i,(m,n) in enumerate(matches):
                 self_similar_keypoints = [template_keypoints[match.trainIdx] for match in self_similar_list[m.trainIdx]]
                 if second_nearest_keypoint in self_similar_keypoints:
                     good_matches.append(m) # match appended to the list of good matches
-                    self_similar_mask[i]=[1,0]  # mask modified to consider
-                                                # the i-th match as self-similar
+                    good_rescued_self_similar_mask.append(1)
+                    rescued_self_similar_mask[i]=[1,0]  # mask modified to consider
+                                                        # the i-th match as self-similar
                     matches_mask[i]=[1,0] # mask modified to consider the i-th match as good
-                    self_similar_discarded_by_ratio_test+=1
+                    number_rescued_self_similar+=1
+good_rescued_self_similar_mask = np.asarray(good_rescued_self_similar_mask)
+
+## Compute a flat array of rescued self similar matches
+flat_rescued_self_similar_mask = np.zeros(len(rescued_self_similar_mask))
+for i,items in enumerate(rescued_self_similar_mask):
+    if items[0]==1:
+        flat_rescued_self_similar_mask[i]=1
 
 ## Show the number of good matches found
 print('Found ' + str(len(good_matches)) + 
       ' matches validated by the distance ratio test, ' + 
-      str(self_similar_discarded_by_ratio_test) + ' self similar')
+      str(number_rescued_self_similar) + ' self similar')
 
 ## Specify parameters for the function that shows good matches graphically
 draw_params = dict(matchColor = (0,255,0), # draw matches in green
-                   singlePointColor = (255,0,0), # draw lone points in red
+                   singlePointColor = (0,0,255), # draw lone points in red
                    matchesMask = matches_mask, # draw only good matches
                    flags = 0)
 
@@ -165,18 +194,25 @@ plt.title('All matches after ratio test'), plt.show()
 ## Plot rescued self-similar feature matches on the images
 ## Specify parameters
 draw_params = dict(matchColor = (0,255,0), # draw matches in green
-                   singlePointColor = (255,0,0), # draw lone points in red
-                   matchesMask = self_similar_mask, # draw only rescued
-                                                    # self-similar matches
+                   singlePointColor = (0,0,255), # draw lone points in red
+                   matchesMask = rescued_self_similar_mask, # draw only rescued
+                                                            # self-similar matches
                    flags = 0)
 
 ## Rescued self-similar feature matches represented on another image
-self_similar_matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image, 
-                                   template_keypoints, matches, None, **draw_params)
+self_similar_matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, 
+                                                template_image, template_keypoints,
+                                                matches, None, **draw_params)
 
 ## Plot the self-similar feature matches
 plt.imshow(cv2.cvtColor(self_similar_matches_image, cv2.COLOR_BGR2RGB))
 plt.title('Rescued self-similar feature matches'), plt.show()
+
+## Plot randomly a subset of self-similar feature matches between template
+## and test image
+print_random_matches(test_image, test_keypoints, template_image, 
+                         template_keypoints, matches, rescued_self_similar_mask, 
+                         RANDOM_MATCH_RATIO, ITERATIONS)
 
 #%% Cluster good matches by fitting homographies through RANSAC
 
@@ -364,7 +400,13 @@ while not end:
                                     
                                     ## Remove all matches in the polygon
                                     keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
-                                    good_matches = [good_matches[i] for i in range(len(good_matches)) if keep_mask[i]]
+                                    good_matches = [good_matches[i] for i in range(len(keep_mask)) if keep_mask[i]]
+                                    
+                                    ## Keep the length of this mask compatible
+                                    ## with good_matches length
+                                    new_good_rescued_self_similar_mask = [good_rescued_self_similar_mask[i] for i in
+                                                                      range(len(keep_mask)) if keep_mask[i]]
+                                    new_good_rescued_self_similar_mask = np.asarray(new_good_rescued_self_similar_mask)
                                     
                                     ## Apply the homography to all test_keypoints in order to plot them
                                     object_test_keypoints = project_keypoints(test_keypoints, H_inv)
@@ -376,18 +418,27 @@ while not end:
                                                        flags=2)
                                     
                                     ## Draw clustered rectified matches
-                                    matches_image = cv2.drawMatches(rect_test_image, object_test_keypoints, template_image, template_keypoints, inliers_matches, None, **draw_params)
+                                    matches_image = cv2.drawMatches(rect_test_image,
+                                                                    object_test_keypoints,
+                                                                    template_image,
+                                                                    template_keypoints,
+                                                                    inliers_matches,
+                                                                    None,
+                                                                    **draw_params)
                                     
                                     ## Show the rectified matches and image
-                                    plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object matches'), plt.show()
+                                    plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), 
+                                    plt.title('Rectified object matches'), plt.show()
                                     rect_stacked_image = np.hstack((rect_test_image, template_image))
-                                    plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Rectified object image'), plt.show()
+                                    plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)),
+                                    plt.title('Rectified object image'), plt.show()
                                     
                                     ## Plot the equalized template and
                                     ## rectified image
                                     equalized_rect_stacked_image = np.hstack((equalized_rect_test_image,
                                                                               equalized_template_image))
-                                    plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), plt.title('Equalized template and object image'), plt.show()
+                                    plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), 
+                                    plt.title('Equalized template and object image'), plt.show()
                                     
                                     ## Plot the difference between equalized
                                     ## template and equalized rectified image and its histogram
@@ -410,6 +461,15 @@ while not end:
                                     ## Show the number of good homograpies until now
                                     print("Found " + str(len(areas)) + " homographies until now")
                                     discarded_file.write("HOMOGRAPHY FOUNDED #"+str(len(areas))+"\n\n")
+                                    
+                                    ## Show the number of rescued self-similar
+                                    ## matches effectively used to find a good
+                                    ## homography until now
+                                    rescued_self_similar_used(flat_rescued_self_similar_mask,
+                                                              good_rescued_self_similar_mask,
+                                                              new_good_rescued_self_similar_mask,
+                                                              1-keep_mask)
+                                    good_rescued_self_similar_mask = new_good_rescued_self_similar_mask
                                     
                                     ## Search for the next template in the test image after a user command
                                     input("Press Enter to find new homography...")
