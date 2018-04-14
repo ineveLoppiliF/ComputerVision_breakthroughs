@@ -13,7 +13,9 @@ from functions import (difference_norm_image_computation,
                        remove_temporarily_matches,
                        remove_mask,
                        self_matches_plot,
-                       self_similar_and_fingerprint_matches_extraction
+                       self_similar_and_fingerprint_matches_extraction,
+                       print_self_similar_stats,
+                       shuffle_matches
                        )
                        #, validate_area)
 from matplotlib import pyplot as plt
@@ -224,6 +226,9 @@ discarded_homographies = [0,0,0,0]
 ## Initialize areas of founded homography
 areas = []
 
+## Initialize self similar per image counter
+self_similar_per_image = []
+
 ## Initialize the buffer of temporary removed matches
 temporary_removed_matches = list()
 
@@ -239,6 +244,10 @@ discarded_file = open("debug.txt","w")
 ## Continue to look for other homographies
 end = False
 while not end:
+    
+    #Shuffle matches and related masks in order to randomize ransac
+    shuffle_matches(good_matches, flat_rescued_self_similar_mask)
+    
     ## If the number of remaining matches is low, is likely that there aren't
     ## other good homograpies, and the algorithm ends
     if len(good_matches) >= MIN_MATCH_COUNT:
@@ -468,7 +477,8 @@ while not end:
                                     rescued_self_similar_used(flat_rescued_self_similar_mask,
                                                               good_rescued_self_similar_mask,
                                                               new_good_rescued_self_similar_mask,
-                                                              1-keep_mask)
+                                                              1-keep_mask,
+                                                              self_similar_per_image)
                                     good_rescued_self_similar_mask = new_good_rescued_self_similar_mask
                                     
                                     ## Search for the next template in the test image after a user command
@@ -483,20 +493,18 @@ while not end:
                             print("Not possible to find another homography")
                             end = True
                     else:
-                        good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                        #good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                     end = True
             else:
-                good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                #good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
         else:
             print("Not possible to find another homography")
             end = True
     else:
         print("Not enough matches are found - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
-        end = True
-        
-
+        end = True    
     
 ## Show the final image, in which all templates found are drawn
 if len(areas)!=0: plt.imshow(cv2.cvtColor(polygons_image, cv2.COLOR_BGR2RGB)), plt.title('final image'),plt.show()
@@ -506,6 +514,9 @@ print_discarded(discarded_homographies)
 
 ## Show the final number of good homographies found
 print("Found " + str(len(areas)) + " homographies")
+
+## Show self similar statistics
+print_self_similar_stats(self_similar_per_image, number_rescued_self_similar)
 
 ## Close debug file
 discarded_file.close()
