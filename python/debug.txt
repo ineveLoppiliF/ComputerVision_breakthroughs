@@ -13,20 +13,20 @@ HOMOGRAPHY FOUNDED #6
 HOMOGRAPHY DISCARDED #1 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #2 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 151.172087371
+HOMOGRAPHY DISCARDED #2 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 5.634835901969039e-09
 
 HOMOGRAPHY DISCARDED #3 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.8034281017454643e-09
 
 HOMOGRAPHY DISCARDED #4 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.69365675066e-10
+Ratio: 7.99624185082444e-10
 
 HOMOGRAPHY DISCARDED #5 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.31142337328e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #6 (degenerate homography)
 Twisted homography
@@ -35,17 +35,14 @@ HOMOGRAPHY DISCARDED #7 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #8 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.1911627001e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #9 (polygon out)
-Area out: 17712078.00546882
-Area polygon: 20988568.459412634
-Ratio: 0.8438916660619403
+HOMOGRAPHY DISCARDED #9 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.8782789045498097e-11
 
 HOMOGRAPHY DISCARDED #10 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.84626111804e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #11 (degenerate homography)
 Twisted homography
@@ -54,88 +51,94 @@ HOMOGRAPHY DISCARDED #12 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #13 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.991938863638825e-09
 
 HOMOGRAPHY DISCARDED #14 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.00568505077e-09
+Ratio: 3.8964990726488187e-10
 
 HOMOGRAPHY DISCARDED #15 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.4194733712e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #16 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.916902412698264e-09
 
 HOMOGRAPHY DISCARDED #17 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.324947431050928e-10
 
 HOMOGRAPHY DISCARDED #18 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.8406132215e-09
+Ratio: 2.3388214983120884e-09
 
-HOMOGRAPHY DISCARDED #19 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #19 (polygon out)
+Area out: 1916381.814395912
+Area polygon: 3309801.6953956974
+Ratio: 0.5790020039755893
 
 HOMOGRAPHY DISCARDED #20 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.34362733623e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #21 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.283609779139037e-10
 
 HOMOGRAPHY DISCARDED #22 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.43479473203e-11
+Ratio: 9.38972300577568e-10
 
 HOMOGRAPHY DISCARDED #23 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #24 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #25 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.84488065855e-10
+Ratio: 7.997872953379292e-10
+
+HOMOGRAPHY DISCARDED #24 (polygon out)
+Area out: 145189.717937571
+Area polygon: 1130425.0415611146
+Ratio: 0.12843816493755686
+
+HOMOGRAPHY DISCARDED #25 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 139.21566003866087
 
 HOMOGRAPHY DISCARDED #26 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.40879866118e-10
+Ratio: 7.284642627391275e-09
 
 HOMOGRAPHY DISCARDED #27 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.06285762515e-09
+Ratio: 7.387005568626588e-09
 
 HOMOGRAPHY DISCARDED #28 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.41246077544e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #29 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.49430281502e-11
+HOMOGRAPHY DISCARDED #29 (polygon out)
+Area out: 31578745.957427625
+Area polygon: 34918958.22570625
+Ratio: 0.9043438739870634
 
 HOMOGRAPHY DISCARDED #30 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #31 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.27181743161e-09
+Ratio: 2.6669701947236825e-09
 
 HOMOGRAPHY DISCARDED #32 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.77303443415e-09
+Ratio: 1.3954492242971413e-09
 
 HOMOGRAPHY DISCARDED #33 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.0247989052e-09
+Ratio: 5.538689894735192e-09
 
 HOMOGRAPHY DISCARDED #34 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.20143209868e-10
+Ratio: 7.065276433341867e-09
 
 HOMOGRAPHY DISCARDED #35 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.63436485293e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #36 (degenerate homography)
 Twisted homography
@@ -145,218 +148,207 @@ Twisted homography
 
 HOMOGRAPHY DISCARDED #38 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.90678264218e-10
+Ratio: 4.972993803175412e-09
 
 HOMOGRAPHY DISCARDED #39 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.90441749842e-09
-
-HOMOGRAPHY DISCARDED #40 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.65638846975e-09
-
-HOMOGRAPHY DISCARDED #41 (degenerate homography)
 Twisted homography
+
+HOMOGRAPHY DISCARDED #40 (polygon out)
+Area out: 556368.2141424329
+Area polygon: 2079685.2384788957
+Ratio: 0.2675252022990588
+
+HOMOGRAPHY DISCARDED #41 (polygon out)
+Area out: 272692.7271987144
+Area polygon: 2662484.508889094
+Ratio: 0.10242039955097948
 
 HOMOGRAPHY DISCARDED #42 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.628987603260946e-10
 
 HOMOGRAPHY DISCARDED #43 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #44 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.55930471899e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #45 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.96546545057e-10
+Ratio: 1.0458957199346197e-09
 
 HOMOGRAPHY DISCARDED #46 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.02000737454e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #47 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.59461284658e-09
+Ratio: 1.4847922106664964e-09
 
 HOMOGRAPHY DISCARDED #48 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.83561230691e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #49 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.01929148004e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #50 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.41889643155e-09
+Ratio: 4.015072775553657e-09
 
 HOMOGRAPHY DISCARDED #51 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #52 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.87117043497e-10
+Ratio: 2.903208575798198e-10
 
 HOMOGRAPHY DISCARDED #53 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.50858429069e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #54 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.55251508127e-09
+Ratio: 5.488467211535381e-09
 
 HOMOGRAPHY DISCARDED #55 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.40776399567e-09
+Ratio: 7.972720827193649e-09
 
 HOMOGRAPHY DISCARDED #56 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.12490030245e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #57 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.99641173248e-10
+Ratio: 3.768806327960286e-09
 
 HOMOGRAPHY DISCARDED #58 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.63105736165e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #59 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.11200082251e-09
+Ratio: 1.769026795263607e-10
 
 HOMOGRAPHY DISCARDED #60 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.00824147371e-10
+Ratio: 1.8970776224631127e-10
 
 HOMOGRAPHY DISCARDED #61 (polygon out)
-Area out: 8722759.302954357
-Area polygon: 11816761.252545595
-Ratio: 0.7381683624246262
+Area out: 35225422.44102575
+Area polygon: 37302143.26621246
+Ratio: 0.9443270374475301
 
 HOMOGRAPHY DISCARDED #62 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.28851461472e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #63 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.50077135502e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #64 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.37378061498e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #65 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.43347202244e-13
+HOMOGRAPHY DISCARDED #65 (polygon out)
+Area out: 6008977.617891957
+Area polygon: 8290838.284396997
+Ratio: 0.7247732269969125
 
 HOMOGRAPHY DISCARDED #66 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.80218783467e-09
+Ratio: 1.0752231653862976e-09
 
 HOMOGRAPHY DISCARDED #67 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.43654309723e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #68 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.92057619505e-09
+Ratio: 1.153711012817281e-09
 
 HOMOGRAPHY DISCARDED #69 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.44316010011e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #70 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.54309564275e-09
+Ratio: 8.612816775144974e-10
 
 HOMOGRAPHY DISCARDED #71 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.26716818417e-10
+Ratio: 3.406221753825277e-09
 
 HOMOGRAPHY DISCARDED #72 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.34763438495e-09
+Ratio: 1.4756782391893934e-09
 
-HOMOGRAPHY DISCARDED #73 (polygon out)
-Area out: 2136891131.6345916
-Area polygon: 2138205572.34375
-Ratio: 0.9993852598991604
+HOMOGRAPHY DISCARDED #73 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #74 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.50608432955e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #75 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.40490979311e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #76 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.36744416754e-09
+Ratio: 9.451083754647832e-10
 
-HOMOGRAPHY DISCARDED #77 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 141.58213163
+HOMOGRAPHY DISCARDED #77 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #78 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.38596940998e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #79 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.08996334138e-09
+Ratio: 5.479469656848226e-09
 
 HOMOGRAPHY DISCARDED #80 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.92649919977e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #81 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.46371791124e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #82 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.97089483757e-10
+HOMOGRAPHY DISCARDED #82 (polygon out)
+Area out: 1677572.4196205204
+Area polygon: 4032852.3312551975
+Ratio: 0.41597665419561436
 
 HOMOGRAPHY DISCARDED #83 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.5105106304677225e-09
 
 HOMOGRAPHY DISCARDED #84 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.40077883234e-09
+Ratio: 9.309661665239228e-10
 
 HOMOGRAPHY DISCARDED #85 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.215653796733372e-09
 
 HOMOGRAPHY DISCARDED #86 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.175926161558966e-11
 
 HOMOGRAPHY DISCARDED #87 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #88 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.01028708674e-09
+Ratio: 1.9914049551146123e-09
 
 HOMOGRAPHY DISCARDED #89 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.06755330474e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #90 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.892664133077264e-09
 
 HOMOGRAPHY DISCARDED #91 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.5393251519351593e-09
 
 HOMOGRAPHY DISCARDED #92 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.70079054952e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #93 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.905306392079987e-09
 
 HOMOGRAPHY DISCARDED #94 (degenerate homography)
 Twisted homography
@@ -365,153 +357,150 @@ HOMOGRAPHY DISCARDED #95 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #96 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.58091293113e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #97 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.04726988873e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #98 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.319390930027276e-09
 
 HOMOGRAPHY DISCARDED #99 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.07404792004e-09
+Ratio: 1.6896115709727087e-09
 
 HOMOGRAPHY DISCARDED #100 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.59342069431e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #101 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.65107722171e-09
+Ratio: 1.7643725571502716e-09
 
 HOMOGRAPHY DISCARDED #102 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #103 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.364602940272274e-10
 
 HOMOGRAPHY DISCARDED #104 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.46931008905e-13
+Ratio: 4.67294891727351e-10
 
-HOMOGRAPHY DISCARDED #105 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.34829918828e-10
+HOMOGRAPHY DISCARDED #105 (polygon out)
+Area out: 1419241.3668138105
+Area polygon: 2657337.7181028705
+Ratio: 0.5340839281154813
 
 HOMOGRAPHY DISCARDED #106 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #107 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.84315857079e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #108 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #109 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.7272267934156424e-09
 
 HOMOGRAPHY DISCARDED #110 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.14585793716e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #111 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.01840602243e-09
+Ratio: 3.6407556106563044e-09
 
 HOMOGRAPHY DISCARDED #112 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.92183520305e-09
+Ratio: 7.068511224188814e-10
 
-HOMOGRAPHY DISCARDED #113 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 165.154473146
+HOMOGRAPHY DISCARDED #113 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.7396079141857433e-09
 
 HOMOGRAPHY DISCARDED #114 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.62608123245e-09
+Ratio: 6.859836275611959e-10
 
 HOMOGRAPHY DISCARDED #115 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #116 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.7322474248974517e-12
 
 HOMOGRAPHY DISCARDED #117 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.3930689468e-09
+Ratio: 1.8351497664203451e-09
 
 HOMOGRAPHY DISCARDED #118 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.14321874445e-10
+Ratio: 2.858476464908735e-09
 
-HOMOGRAPHY DISCARDED #119 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.44733549541e-09
+HOMOGRAPHY DISCARDED #119 (polygon out)
+Area out: 74124.74950786645
+Area polygon: 444068.52465622127
+Ratio: 0.16692187217108134
 
 HOMOGRAPHY DISCARDED #120 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #121 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.11884526272e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #122 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.29984326072111e-09
 
 HOMOGRAPHY DISCARDED #123 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.24083129556e-09
+Ratio: 4.5199456147915145e-10
 
 HOMOGRAPHY DISCARDED #124 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #125 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.93634895347e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #126 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.685801973361616e-09
 
 HOMOGRAPHY DISCARDED #127 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.47794179371e-10
+Ratio: 2.1410426941183065e-09
 
 HOMOGRAPHY DISCARDED #128 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.60902757381e-11
+Ratio: 4.064859155644579e-09
 
 HOMOGRAPHY DISCARDED #129 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.66565479804e-09
+Ratio: 7.904915195572625e-09
 
 HOMOGRAPHY DISCARDED #130 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.04249399899e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #131 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.52043154889e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #132 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.50408629098e-09
+Ratio: 2.818205352308623e-09
 
 HOMOGRAPHY DISCARDED #133 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.33411074359e-09
+Ratio: 2.309609345980565e-09
 
-HOMOGRAPHY DISCARDED #134 (polygon out)
-Area out: 583559.2850276541
-Area polygon: 2375801.0890664235
-Ratio: 0.24562632272256643
+HOMOGRAPHY DISCARDED #134 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #135 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.76557252693e-09
+Ratio: 5.82400900981458e-09
 
 HOMOGRAPHY DISCARDED #136 (degenerate homography)
 Twisted homography
@@ -520,60 +509,55 @@ HOMOGRAPHY DISCARDED #137 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #138 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.7672876937e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #139 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.437352975319992e-10
 
 HOMOGRAPHY DISCARDED #140 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.9756198858e-09
+Ratio: 8.911033851374913e-10
 
 HOMOGRAPHY DISCARDED #141 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #142 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.03865118243e-09
-
-HOMOGRAPHY DISCARDED #143 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.90893660544e-09
-
-HOMOGRAPHY DISCARDED #144 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #145 (degenerate homography)
+HOMOGRAPHY DISCARDED #143 (degenerate homography)
+Twisted homography
+
+HOMOGRAPHY DISCARDED #144 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.35378214366e-09
+Ratio: 3.2972309101074397e-10
+
+HOMOGRAPHY DISCARDED #145 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #146 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.20259175975e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #147 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.9057278306e-10
+Ratio: 2.5832448868441e-09
 
 HOMOGRAPHY DISCARDED #148 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #149 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.28130618476e-09
+Ratio: 3.339654655844373e-09
 
 HOMOGRAPHY DISCARDED #150 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.03130977493e-09
+Ratio: 6.073850107306681e-11
 
 HOMOGRAPHY DISCARDED #151 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.08903029548e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #152 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.58117417623e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #153 (degenerate homography)
 Twisted homography
@@ -582,252 +566,262 @@ HOMOGRAPHY DISCARDED #154 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #155 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.0422152171949416e-09
 
-HOMOGRAPHY DISCARDED #156 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #156 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 148.22280526288793
 
 HOMOGRAPHY DISCARDED #157 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.689195285487913e-10
 
 HOMOGRAPHY DISCARDED #158 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.01471117034e-09
+Ratio: 6.129551327790051e-09
 
 HOMOGRAPHY DISCARDED #159 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.8601564462e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #160 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.75618907548e-09
+Ratio: 6.231910193878897e-09
 
 HOMOGRAPHY DISCARDED #161 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.716421197685456e-09
 
 HOMOGRAPHY DISCARDED #162 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.769873140846043e-09
 
 HOMOGRAPHY DISCARDED #163 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.772416644922948e-10
 
 HOMOGRAPHY DISCARDED #164 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.03948376229e-10
+Ratio: 1.8635506337378704e-10
 
 HOMOGRAPHY DISCARDED #165 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.81497985817e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #166 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #167 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.27624080272e-09
+Ratio: 2.740957900175175e-09
 
 HOMOGRAPHY DISCARDED #168 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.73353696715e-09
+Ratio: 1.1582836362864257e-09
 
 HOMOGRAPHY DISCARDED #169 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.92891634214e-09
+Ratio: 1.0268696480453285e-09
 
 HOMOGRAPHY DISCARDED #170 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.3913918278e-09
+Ratio: 1.26297057307641e-09
 
 HOMOGRAPHY DISCARDED #171 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.88789976699e-09
+Ratio: 2.463423196675976e-09
 
-HOMOGRAPHY DISCARDED #172 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.17635174824e-09
+HOMOGRAPHY DISCARDED #172 (polygon out)
+Area out: 240292.1798581946
+Area polygon: 530474.418076897
+Ratio: 0.45297599972740266
 
 HOMOGRAPHY DISCARDED #173 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.21273573361e-09
+Ratio: 9.433367368633834e-09
 
 HOMOGRAPHY DISCARDED #174 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.09708974983e-09
+Ratio: 1.9541430728403946e-09
 
 HOMOGRAPHY DISCARDED #175 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.30585497015e-09
+Ratio: 1.3152949090719293e-09
 
 HOMOGRAPHY DISCARDED #176 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.22290140932e-09
+Ratio: 4.414962382522708e-09
 
 HOMOGRAPHY DISCARDED #177 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.69975920079e-09
+Ratio: 9.10115508740387e-09
 
 HOMOGRAPHY DISCARDED #178 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.813061384723377e-10
 
 HOMOGRAPHY DISCARDED #179 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.566705988224832e-10
 
 HOMOGRAPHY DISCARDED #180 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.81864561468e-09
+Ratio: 1.101308649581631e-09
 
 HOMOGRAPHY DISCARDED #181 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.07227173588e-10
+Ratio: 1.6532594556708728e-10
 
 HOMOGRAPHY DISCARDED #182 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.65067607915e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #183 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.3479734031e-10
+Ratio: 1.1092387543375033e-09
 
 HOMOGRAPHY DISCARDED #184 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #185 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.7345876086e-09
+Ratio: 7.428884886839099e-09
+
+HOMOGRAPHY DISCARDED #185 (polygon out)
+Area out: 154998.88207727857
+Area polygon: 327477.5280011147
+Ratio: 0.4733115063600668
 
 HOMOGRAPHY DISCARDED #186 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #187 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.46179770312e-09
-
-HOMOGRAPHY DISCARDED #188 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #189 (degenerate homography)
+HOMOGRAPHY DISCARDED #188 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.77928745913e-10
+Ratio: 9.008189257309516e-09
+
+HOMOGRAPHY DISCARDED #189 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #190 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.2166877106e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #191 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.78765035675e-10
+Ratio: 2.164853514186542e-09
 
 HOMOGRAPHY DISCARDED #192 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.0907375198826265e-09
 
 HOMOGRAPHY DISCARDED #193 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.9057976418032092e-10
 
 HOMOGRAPHY DISCARDED #194 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.29037340612e-10
+Ratio: 9.827281870059489e-11
 
 HOMOGRAPHY DISCARDED #195 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.65910694184e-09
+Ratio: 3.260422910425216e-09
 
 HOMOGRAPHY DISCARDED #196 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.14400120452e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #197 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.76199082946e-10
+Ratio: 1.970533768120002e-09
 
 HOMOGRAPHY DISCARDED #198 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #199 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.41490294634e-09
+Ratio: 2.2279152851007687e-09
 
 HOMOGRAPHY DISCARDED #200 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1842403378408778e-09
 
 HOMOGRAPHY DISCARDED #201 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.76510418908e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #202 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.17047711856e-10
+Ratio: 4.272651996845458e-09
 
 HOMOGRAPHY DISCARDED #203 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.87671272213e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #204 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.914529773952889e-10
 
 HOMOGRAPHY DISCARDED #205 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.601558717004737e-09
 
 HOMOGRAPHY DISCARDED #206 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.23917225826e-11
+Ratio: 5.899473796984043e-09
 
 HOMOGRAPHY DISCARDED #207 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.37093406022e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #208 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.70700249552e-09
+Ratio: 2.6258165579161942e-09
 
 HOMOGRAPHY DISCARDED #209 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.19326183715e-10
+Ratio: 7.780295073143304e-10
 
 HOMOGRAPHY DISCARDED #210 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.40639359148e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #211 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.25717539209e-09
+Ratio: 8.29834196194184e-09
 
 HOMOGRAPHY DISCARDED #212 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.07108546803e-09
+Ratio: 2.5279655689760962e-09
 
 HOMOGRAPHY DISCARDED #213 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.04679888832e-10
+Ratio: 1.0795250146511166e-09
 
 HOMOGRAPHY DISCARDED #214 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.55099114233e-09
+Ratio: 2.2191016064614133e-11
 
 HOMOGRAPHY DISCARDED #215 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #216 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.10791155995e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #217 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.726292246137663e-09
 
 HOMOGRAPHY DISCARDED #218 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.78079239835e-09
+Ratio: 7.135550366359387e-09
 
 HOMOGRAPHY DISCARDED #219 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.951780637400758e-09
 
 HOMOGRAPHY DISCARDED #220 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.488801893887614e-09
 
 HOMOGRAPHY DISCARDED #221 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.932748857756486e-09
 
 HOMOGRAPHY DISCARDED #222 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.3850285876727315e-09
 
 HOMOGRAPHY DISCARDED #223 (degenerate homography)
 Twisted homography
@@ -837,286 +831,298 @@ Twisted homography
 
 HOMOGRAPHY DISCARDED #225 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.97732487122e-09
+Ratio: 4.477149711397279e-09
 
 HOMOGRAPHY DISCARDED #226 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.022937205643036e-10
 
 HOMOGRAPHY DISCARDED #227 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.45344036659e-09
+Ratio: 3.279986187782582e-09
 
 HOMOGRAPHY DISCARDED #228 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.90746568994e-10
+Ratio: 1.4618079071739383e-10
 
 HOMOGRAPHY DISCARDED #229 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.029262918768324e-09
 
 HOMOGRAPHY DISCARDED #230 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #231 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.08041799721e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #232 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.042922393277011e-09
 
 HOMOGRAPHY DISCARDED #233 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.477093941859017e-09
 
 HOMOGRAPHY DISCARDED #234 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.74850446789e-09
+Ratio: 8.206786694978192e-09
 
 HOMOGRAPHY DISCARDED #235 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.148514831816342e-09
 
 HOMOGRAPHY DISCARDED #236 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.38523758092e-09
+Ratio: 7.964118622098086e-09
 
 HOMOGRAPHY DISCARDED #237 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.76450873886e-09
+Ratio: 2.64038868718956e-09
 
 HOMOGRAPHY DISCARDED #238 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.7503801987e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #239 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.8073467831357295e-11
 
 HOMOGRAPHY DISCARDED #240 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.59854626032e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #241 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.146876974364908e-09
 
 HOMOGRAPHY DISCARDED #242 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #243 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.47171517458042e-11
 
 HOMOGRAPHY DISCARDED #244 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #245 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.16278114846e-10
+Ratio: 2.100387209311563e-09
 
 HOMOGRAPHY DISCARDED #246 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #247 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.390878542544913e-09
 
 HOMOGRAPHY DISCARDED #248 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.15991437942e-09
+Ratio: 5.5951857682899916e-11
 
 HOMOGRAPHY DISCARDED #249 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.64404251798e-09
+Ratio: 1.0916967429104583e-10
 
 HOMOGRAPHY DISCARDED #250 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.16573970554e-09
+Ratio: 9.09664731610482e-09
 
 HOMOGRAPHY DISCARDED #251 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.76041662678e-12
+Ratio: 3.78467977661777e-09
 
 HOMOGRAPHY DISCARDED #252 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.25618055466e-09
+Ratio: 7.492276174036163e-10
 
 HOMOGRAPHY DISCARDED #253 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #254 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.18723536951e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #255 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #256 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.396696856379589e-09
 
 HOMOGRAPHY DISCARDED #257 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.72409992515e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #258 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #259 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.26362896528e-09
+Ratio: 5.689442224101016e-10
 
 HOMOGRAPHY DISCARDED #260 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.40691227659e-10
+Ratio: 1.0097906455035118e-10
 
 HOMOGRAPHY DISCARDED #261 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.23223485133e-10
+Ratio: 4.350319979785172e-10
 
-HOMOGRAPHY DISCARDED #262 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #262 (polygon out)
+Area out: 143458.99371835584
+Area polygon: 341719.3337116912
+Ratio: 0.41981526816212356
 
 HOMOGRAPHY DISCARDED #263 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.11852331471e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #264 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.61449482348e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #265 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.9182253468468467e-09
 
 HOMOGRAPHY DISCARDED #266 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.43514333002e-09
+Ratio: 6.608561696172078e-09
 
 HOMOGRAPHY DISCARDED #267 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #268 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.6488313203e-09
+Ratio: 8.6680516012304e-09
 
 HOMOGRAPHY DISCARDED #269 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #270 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.2396576563960356e-09
 
-HOMOGRAPHY DISCARDED #271 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 149.616175596
+HOMOGRAPHY DISCARDED #271 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 7.192107289839248e-11
 
 HOMOGRAPHY DISCARDED #272 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.60425645074e-09
+Ratio: 1.114451656918739e-09
 
 HOMOGRAPHY DISCARDED #273 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.083366163122818e-10
 
 HOMOGRAPHY DISCARDED #274 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.08590512605e-09
+Ratio: 2.7822420117659725e-09
 
 HOMOGRAPHY DISCARDED #275 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.70064573395e-09
+Ratio: 3.610013020857015e-10
 
 HOMOGRAPHY DISCARDED #276 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.47177906819e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #277 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.80725687768e-09
+HOMOGRAPHY DISCARDED #277 (polygon out)
+Area out: 9424477.878050594
+Area polygon: 10390485.189617634
+Ratio: 0.9070296243208842
 
 HOMOGRAPHY DISCARDED #278 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.32562957128e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #279 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.36251416848e-09
+Ratio: 1.5268138138073707e-09
 
 HOMOGRAPHY DISCARDED #280 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.167547429665143e-09
 
 HOMOGRAPHY DISCARDED #281 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #282 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #282 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 160.61133210331082
 
 HOMOGRAPHY DISCARDED #283 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.115869855356859e-09
 
 HOMOGRAPHY DISCARDED #284 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.28977509637e-09
+Ratio: 2.473269903112523e-09
 
 HOMOGRAPHY DISCARDED #285 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.863926066279905e-09
 
 HOMOGRAPHY DISCARDED #286 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.62275979447e-09
+Ratio: 2.405780822787952e-09
 
-HOMOGRAPHY DISCARDED #287 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.91358705441e-10
+HOMOGRAPHY DISCARDED #287 (polygon out)
+Area out: 84212.80072216812
+Area polygon: 200762.7762129195
+Ratio: 0.41946421697643793
 
 HOMOGRAPHY DISCARDED #288 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.62050271087e-09
+Ratio: 3.800066156069729e-09
 
 HOMOGRAPHY DISCARDED #289 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #290 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.354774528449602e-10
 
 HOMOGRAPHY DISCARDED #291 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.5222289793739651e-09
 
 HOMOGRAPHY DISCARDED #292 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.0222136217e-10
+Ratio: 9.627893070541596e-10
 
 HOMOGRAPHY DISCARDED #293 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.73408593201e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #294 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.05169828826e-10
+Ratio: 1.68860230796141e-09
 
 HOMOGRAPHY DISCARDED #295 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.74598939045e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #296 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.49162120557e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #297 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.32301190755e-09
+Ratio: 9.901737533740474e-10
 
 HOMOGRAPHY DISCARDED #298 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #299 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.69745823554e-11
+Ratio: 1.837385466444706e-10
 
 HOMOGRAPHY DISCARDED #300 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.2136569524529928e-09
 
 HOMOGRAPHY DISCARDED #301 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.72928626958e-11
+Ratio: 1.4829507035298404e-09
 
 HOMOGRAPHY DISCARDED #302 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.66106310907e-09
+Ratio: 1.7629578120232334e-09
 
 HOMOGRAPHY DISCARDED #303 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.7987729972e-09
+Ratio: 5.130112515919077e-09
 
 HOMOGRAPHY DISCARDED #304 (degenerate homography)
 Twisted homography
@@ -1125,58 +1131,61 @@ HOMOGRAPHY DISCARDED #305 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #306 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.3110394098500461e-09
 
 HOMOGRAPHY DISCARDED #307 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.73154674652e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #308 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.10907191402e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #309 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.91205820674e-09
+Ratio: 3.4381932105142186e-09
 
 HOMOGRAPHY DISCARDED #310 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.05167510512e-10
+Ratio: 1.6433273290046482e-10
 
 HOMOGRAPHY DISCARDED #311 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #312 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.63024590009e-10
+HOMOGRAPHY DISCARDED #312 (polygon out)
+Area out: 476379.0403694529
+Area polygon: 2605950.8533510696
+Ratio: 0.1828043072097323
 
 HOMOGRAPHY DISCARDED #313 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.95748852402e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #314 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.585816747448194e-09
 
 HOMOGRAPHY DISCARDED #315 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.437339517216502e-09
 
 HOMOGRAPHY DISCARDED #316 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.94003661901e-09
+Ratio: 4.872595819641079e-09
 
 HOMOGRAPHY DISCARDED #317 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.847339659477726e-10
 
 HOMOGRAPHY DISCARDED #318 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.4666691599454142e-11
 
 HOMOGRAPHY DISCARDED #319 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.47535092536e-09
+Ratio: 2.4661963147539876e-09
 
 HOMOGRAPHY DISCARDED #320 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.04590365005e-09
+Ratio: 6.096649719897216e-09
 
 HOMOGRAPHY DISCARDED #321 (degenerate homography)
 Twisted homography
@@ -1186,36 +1195,35 @@ Twisted homography
 
 HOMOGRAPHY DISCARDED #323 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.03313213784e-09
+Ratio: 5.763561513410217e-10
 
 HOMOGRAPHY DISCARDED #324 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.9588138912266454e-10
 
 HOMOGRAPHY DISCARDED #325 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.60278798265e-09
+Ratio: 1.0642288883008038e-10
 
 HOMOGRAPHY DISCARDED #326 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.96219065846e-09
+Ratio: 4.843941627005248e-09
 
-HOMOGRAPHY DISCARDED #327 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 170.531522013
+HOMOGRAPHY DISCARDED #327 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #328 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.21865444268e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #329 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #330 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1148659132004618e-09
 
 HOMOGRAPHY DISCARDED #331 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.45472452473e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #332 (degenerate homography)
 Twisted homography
@@ -1225,11 +1233,11 @@ Twisted homography
 
 HOMOGRAPHY DISCARDED #334 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.64244368127e-10
+Ratio: 9.905163431632138e-10
 
 HOMOGRAPHY DISCARDED #335 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.82560137381e-09
+Ratio: 6.980781081810643e-10
 
 HOMOGRAPHY DISCARDED #336 (degenerate homography)
 Twisted homography
@@ -1239,37 +1247,35 @@ Twisted homography
 
 HOMOGRAPHY DISCARDED #338 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.94666555964e-09
+Ratio: 2.3668347594123783e-10
 
 HOMOGRAPHY DISCARDED #339 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.98111823987e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #340 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.55483259994e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #341 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #342 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.71586091817e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #343 (polygon out)
-Area out: 24048.185606527026
-Area polygon: 92508.10836818814
-Ratio: 0.25995759756338027
+HOMOGRAPHY DISCARDED #343 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 3.788172897594558e-10
 
 HOMOGRAPHY DISCARDED #344 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.045601044849658e-09
 
 HOMOGRAPHY DISCARDED #345 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.02379606344e-09
+Ratio: 2.4662788963400343e-11
 
 HOMOGRAPHY DISCARDED #346 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.5916219570848685e-09
 
 HOMOGRAPHY DISCARDED #347 (degenerate homography)
 Twisted homography
@@ -1278,476 +1284,477 @@ HOMOGRAPHY DISCARDED #348 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #349 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.210759791707951e-10
 
 HOMOGRAPHY DISCARDED #350 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.45435132026e-10
+Ratio: 8.922926843287546e-11
 
 HOMOGRAPHY DISCARDED #351 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.93664246661e-09
+Ratio: 1.0474997938511588e-09
 
 HOMOGRAPHY DISCARDED #352 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.03569460845e-09
+Ratio: 1.4353031789421172e-09
 
 HOMOGRAPHY DISCARDED #353 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.581620931638544e-09
 
 HOMOGRAPHY DISCARDED #354 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.8783911527849522e-09
 
 HOMOGRAPHY DISCARDED #355 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.3018673660694963e-10
 
 HOMOGRAPHY DISCARDED #356 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.98990903164e-09
+Ratio: 1.9192618722114054e-09
 
 HOMOGRAPHY DISCARDED #357 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.48552056445e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #358 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.0917128973388395e-09
 
 HOMOGRAPHY DISCARDED #359 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #360 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.5752133516145053e-09
 
 HOMOGRAPHY DISCARDED #361 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #362 (polygon out)
-Area out: 42744686.89860599
-Area polygon: 45208855.680371076
-Ratio: 0.9454936705501487
+HOMOGRAPHY DISCARDED #362 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 4.874162105047161e-09
 
 HOMOGRAPHY DISCARDED #363 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #364 (polygon out)
-Area out: 13217712.892102282
-Area polygon: 16959517.18287967
-Ratio: 0.7793684660696194
+HOMOGRAPHY DISCARDED #364 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 7.109484692903226e-09
 
 HOMOGRAPHY DISCARDED #365 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #366 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.5618252607e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #367 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #368 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.1466166724e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #369 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.94282659341e-09
+Ratio: 8.407162672908462e-10
 
 HOMOGRAPHY DISCARDED #370 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.7859995325e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #371 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #372 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.33504674129e-09
+Ratio: 1.1715421866722407e-10
 
 HOMOGRAPHY DISCARDED #373 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.70957056895e-09
+Ratio: 2.901998421375598e-09
 
 HOMOGRAPHY DISCARDED #374 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.96140828948e-09
+Ratio: 4.177386186027788e-11
 
 HOMOGRAPHY DISCARDED #375 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.8087705636e-11
+Ratio: 5.410545242167992e-09
 
 HOMOGRAPHY DISCARDED #376 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #377 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.9286060370807362e-10
 
 HOMOGRAPHY DISCARDED #378 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.16669925087e-10
+Ratio: 2.8643473292350447e-09
 
 HOMOGRAPHY DISCARDED #379 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.622638091601572e-09
 
 HOMOGRAPHY DISCARDED #380 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.43961515175e-09
+Ratio: 5.799495171192448e-09
 
 HOMOGRAPHY DISCARDED #381 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.5237150661316966e-10
 
 HOMOGRAPHY DISCARDED #382 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.48681581857661e-10
 
 HOMOGRAPHY DISCARDED #383 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.80906673969e-11
+Ratio: 1.286334783427521e-09
 
 HOMOGRAPHY DISCARDED #384 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.87685417664e-09
+Ratio: 3.990695192408633e-09
 
 HOMOGRAPHY DISCARDED #385 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #386 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.75992383803e-10
+Ratio: 6.24123294959563e-09
 
 HOMOGRAPHY DISCARDED #387 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.60390152648e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #388 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1645449635741979e-10
 
 HOMOGRAPHY DISCARDED #389 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #390 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.03853709519e-10
+HOMOGRAPHY DISCARDED #390 (polygon out)
+Area out: 2183358.841205718
+Area polygon: 3943146.4476021007
+Ratio: 0.5537098026205591
 
 HOMOGRAPHY DISCARDED #391 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.03923970962e-10
+Ratio: 1.8434468399881451e-09
 
 HOMOGRAPHY DISCARDED #392 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.61046093612e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #393 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.30351895841e-09
+Ratio: 7.3842855791450655e-09
 
 HOMOGRAPHY DISCARDED #394 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #395 (norm difference histogram median too big)
 Max treshold: 110.418239
-Median: 143.645396724
+Median: 148.65059703882793
 
 HOMOGRAPHY DISCARDED #396 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.3227889728258876e-09
 
 HOMOGRAPHY DISCARDED #397 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.7776806527804617e-11
 
 HOMOGRAPHY DISCARDED #398 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.21027491871e-10
+Ratio: 1.2021417965135217e-09
 
 HOMOGRAPHY DISCARDED #399 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.96855076619e-10
-
-HOMOGRAPHY DISCARDED #400 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #401 (polygon out)
-Area out: 1159048.9190463582
-Area polygon: 1532671.361902833
-Ratio: 0.7562279480497259
+HOMOGRAPHY DISCARDED #400 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 7.251581255590962e-09
+
+HOMOGRAPHY DISCARDED #401 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #402 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #403 (polygon out)
-Area out: 208385.20593179483
-Area polygon: 772844.1015560254
-Ratio: 0.26963420631953733
+HOMOGRAPHY DISCARDED #403 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #404 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #405 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.29416047916e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #406 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.77787161781e-10
+Ratio: 4.663986628236408e-09
 
 HOMOGRAPHY DISCARDED #407 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.13468740801e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #408 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.93074541556e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #409 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.68817569032e-09
+Ratio: 1.4914703323298142e-09
 
 HOMOGRAPHY DISCARDED #410 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.13235628205e-10
+Ratio: 6.38512276235269e-09
 
 HOMOGRAPHY DISCARDED #411 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.6680554604371165e-09
 
 HOMOGRAPHY DISCARDED #412 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #413 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.69721276777e-09
+Ratio: 1.343964137778921e-09
 
 HOMOGRAPHY DISCARDED #414 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1402535242250196e-09
 
 HOMOGRAPHY DISCARDED #415 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.352360912373614e-10
 
 HOMOGRAPHY DISCARDED #416 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.38280865611e-11
+Ratio: 4.604867772733488e-09
 
 HOMOGRAPHY DISCARDED #417 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.48103742888e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #418 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.59829894074e-09
+Ratio: 3.372659700474034e-10
 
-HOMOGRAPHY DISCARDED #419 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #419 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 148.03377992877165
 
 HOMOGRAPHY DISCARDED #420 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.375988706711958e-10
 
 HOMOGRAPHY DISCARDED #421 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.40954097878e-09
+Ratio: 3.4976479195381984e-09
 
 HOMOGRAPHY DISCARDED #422 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.364546351761204e-09
 
 HOMOGRAPHY DISCARDED #423 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.7071512506400803e-10
 
 HOMOGRAPHY DISCARDED #424 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.24868913469e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #425 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.11831704847e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #426 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.25734437933e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #427 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.23245700725e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #428 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #429 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.09635798246e-09
+Ratio: 9.395863932799772e-09
 
 HOMOGRAPHY DISCARDED #430 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.744645867796512e-10
 
 HOMOGRAPHY DISCARDED #431 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.45222954604e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #432 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.828188807461132e-10
 
 HOMOGRAPHY DISCARDED #433 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.9601668643842813e-09
 
 HOMOGRAPHY DISCARDED #434 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.249978286e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #435 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.11179794978e-10
+Ratio: 3.0268604715294514e-10
 
 HOMOGRAPHY DISCARDED #436 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.33230838344e-11
+Ratio: 2.604566885944871e-09
 
 HOMOGRAPHY DISCARDED #437 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.029100582623415e-09
 
 HOMOGRAPHY DISCARDED #438 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.41226726009e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #439 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #440 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.40885010225e-10
+Ratio: 9.990959620033491e-10
 
 HOMOGRAPHY DISCARDED #441 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.86295841661e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #442 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.81384476046e-09
+Ratio: 2.327336580591713e-10
 
 HOMOGRAPHY DISCARDED #443 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.19462845873e-10
+Twisted homography
 
-HOMOGRAPHY DISCARDED #444 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.77379131752e-09
+HOMOGRAPHY DISCARDED #444 (polygon out)
+Area out: 140077.26399068604
+Area polygon: 521462.6861804575
+Ratio: 0.26862375334409044
 
 HOMOGRAPHY DISCARDED #445 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.30785185019e-09
+Ratio: 3.8611292671327616e-10
 
 HOMOGRAPHY DISCARDED #446 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.001773009350024e-10
 
 HOMOGRAPHY DISCARDED #447 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.20709653532e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #448 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.07111031653e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #449 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.24448200469e-09
+Ratio: 7.522054499204085e-11
 
 HOMOGRAPHY DISCARDED #450 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.24008034268e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #451 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.65189651814e-10
+Ratio: 5.451885373038244e-10
 
 HOMOGRAPHY DISCARDED #452 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.67065265425e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #453 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.977513059445931e-09
 
 HOMOGRAPHY DISCARDED #454 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.89225981765077e-11
 
 HOMOGRAPHY DISCARDED #455 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.9176997069442362e-11
 
 HOMOGRAPHY DISCARDED #456 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.45195150971e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #457 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.3484511956e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #458 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.98254133436e-09
+Ratio: 1.066929044547146e-09
 
 HOMOGRAPHY DISCARDED #459 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.84803246163e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #460 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.37629672788e-09
+Ratio: 6.305541939982642e-09
 
 HOMOGRAPHY DISCARDED #461 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1430288065361977e-09
 
 HOMOGRAPHY DISCARDED #462 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.536680817458925e-10
 
 HOMOGRAPHY DISCARDED #463 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #464 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.18657067325817e-09
 
 HOMOGRAPHY DISCARDED #465 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.23396098218e-10
+Twisted homography
 
-HOMOGRAPHY DISCARDED #466 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 149.934985901
+HOMOGRAPHY DISCARDED #466 (degenerate homography)
+Twisted homography
 
-HOMOGRAPHY DISCARDED #467 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.43871178389e-10
+HOMOGRAPHY DISCARDED #467 (polygon out)
+Area out: 2084938.1444848862
+Area polygon: 3408534.4985547215
+Ratio: 0.6116816905825471
 
 HOMOGRAPHY DISCARDED #468 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.74246922392e-09
+Ratio: 6.282554758284927e-09
 
 HOMOGRAPHY DISCARDED #469 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.12393761309e-09
+Ratio: 3.494414628146377e-10
 
 HOMOGRAPHY DISCARDED #470 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.48471728299e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #471 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.92415814142e-10
+Ratio: 2.434284665012892e-09
 
 HOMOGRAPHY DISCARDED #472 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.519971815557099e-10
 
 HOMOGRAPHY DISCARDED #473 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #474 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.84613002131e-09
+Ratio: 1.5298641405437386e-10
 
 HOMOGRAPHY DISCARDED #475 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.05360508468e-09
+Ratio: 6.8849603121119994e-09
 
 HOMOGRAPHY DISCARDED #476 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #477 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.7569211327307772e-09
 
 HOMOGRAPHY DISCARDED #478 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.02940087202e-10
+Ratio: 3.36019235026145e-11
 
 HOMOGRAPHY DISCARDED #479 (degenerate homography)
 Twisted homography
@@ -1755,69 +1762,68 @@ Twisted homography
 HOMOGRAPHY DISCARDED #480 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #481 (polygon out)
-Area out: 31829175.77209205
-Area polygon: 32081185.621764883
-Ratio: 0.9921446216906067
+HOMOGRAPHY DISCARDED #481 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #482 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.20152425157e-10
+Ratio: 1.0422010859585102e-09
 
 HOMOGRAPHY DISCARDED #483 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.64103949102e-10
+Ratio: 3.904885703789715e-09
 
 HOMOGRAPHY DISCARDED #484 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.676538688484669e-09
 
 HOMOGRAPHY DISCARDED #485 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.89933075554e-10
+Ratio: 1.8346922129651279e-09
 
-HOMOGRAPHY DISCARDED #486 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #486 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 152.4663897388536
 
 HOMOGRAPHY DISCARDED #487 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.77070183132e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #488 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.26166521335e-10
+Ratio: 4.6003366202469425e-09
 
 HOMOGRAPHY DISCARDED #489 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.764487657425054e-10
 
 HOMOGRAPHY DISCARDED #490 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.21274359062e-09
+Ratio: 1.2008383954899413e-09
 
 HOMOGRAPHY DISCARDED #491 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.47350534538e-09
+Ratio: 9.456568044472748e-10
 
 HOMOGRAPHY DISCARDED #492 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.835496116838075e-09
 
 HOMOGRAPHY DISCARDED #493 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #494 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.4432886753e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #495 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.82587474703e-10
+Ratio: 5.0903157308242016e-09
 
 HOMOGRAPHY DISCARDED #496 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.30682440391e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #497 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.30418934768e-09
+Ratio: 1.760631605334642e-09
 
 HOMOGRAPHY DISCARDED #498 (degenerate homography)
 Twisted homography
@@ -1826,510 +1832,498 @@ HOMOGRAPHY DISCARDED #499 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #500 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.58325037973e-09
-
-HOMOGRAPHY DISCARDED #501 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #502 (degenerate homography)
+HOMOGRAPHY DISCARDED #501 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.40827165898e-09
+Ratio: 3.758738195791654e-09
+
+HOMOGRAPHY DISCARDED #502 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #503 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.93027137849e-10
+Ratio: 6.480673766041586e-10
 
 HOMOGRAPHY DISCARDED #504 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #505 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.445506966784753e-10
 
 HOMOGRAPHY DISCARDED #506 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.46801490697e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #507 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.84867109798407e-09
 
 HOMOGRAPHY DISCARDED #508 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.67520392208e-09
+Ratio: 1.4693121049393308e-09
 
 HOMOGRAPHY DISCARDED #509 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.94399714094e-10
+Ratio: 7.533301431559977e-09
 
 HOMOGRAPHY DISCARDED #510 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.08677195816e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #511 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.65056229127e-10
+Ratio: 1.3004671583637118e-09
 
 HOMOGRAPHY DISCARDED #512 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.80499639291e-11
+Ratio: 8.807684245710625e-10
 
 HOMOGRAPHY DISCARDED #513 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.262558650525402e-10
 
 HOMOGRAPHY DISCARDED #514 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #515 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.365892129071931e-10
 
 HOMOGRAPHY DISCARDED #516 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.79057641587e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #517 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.914905460525243e-12
 
 HOMOGRAPHY DISCARDED #518 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.881063459460608e-10
 
 HOMOGRAPHY DISCARDED #519 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.45113191922e-09
+Ratio: 1.542484551817721e-10
 
 HOMOGRAPHY DISCARDED #520 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.30515240875e-09
+Ratio: 1.0324390526765198e-09
 
 HOMOGRAPHY DISCARDED #521 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.17292835254e-10
+Ratio: 2.9952967648717623e-10
 
 HOMOGRAPHY DISCARDED #522 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.05048164331e-09
+Ratio: 4.474943373826776e-09
 
 HOMOGRAPHY DISCARDED #523 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.18706374789e-09
+Ratio: 7.117873923700607e-09
 
 HOMOGRAPHY DISCARDED #524 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.0916451924e-10
+Ratio: 8.32892496378618e-09
 
 HOMOGRAPHY DISCARDED #525 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.67286822356e-10
+Ratio: 2.4429375838638382e-09
 
 HOMOGRAPHY DISCARDED #526 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.55617651489905e-09
 
 HOMOGRAPHY DISCARDED #527 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.85359149615e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #528 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.860988358e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #529 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.29736902362e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #530 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.883635490317066e-09
 
 HOMOGRAPHY DISCARDED #531 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #532 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.29671749536e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #533 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.04319928097e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #534 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.03321339141e-09
+Ratio: 3.0643637316031917e-09
 
 HOMOGRAPHY DISCARDED #535 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.93111614522e-09
+Ratio: 6.0405397658451705e-09
 
 HOMOGRAPHY DISCARDED #536 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.794859290862074e-09
 
 HOMOGRAPHY DISCARDED #537 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.14599317979e-09
+Ratio: 2.7848246016333633e-11
 
 HOMOGRAPHY DISCARDED #538 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.55423829207e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #539 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.33025570241e-09
+Ratio: 1.60449518323018e-09
 
 HOMOGRAPHY DISCARDED #540 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.57850220658e-09
-
-HOMOGRAPHY DISCARDED #541 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #542 (polygon out)
-Area out: 820562.336230948
-Area polygon: 1158866.7634883681
-Ratio: 0.7080730607554302
-
-HOMOGRAPHY DISCARDED #543 (degenerate homography)
+HOMOGRAPHY DISCARDED #541 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.17544234087e-09
+Ratio: 5.389018849068016e-09
+
+HOMOGRAPHY DISCARDED #542 (degenerate homography)
+Twisted homography
+
+HOMOGRAPHY DISCARDED #543 (polygon out)
+Area out: 12581.593309592106
+Area polygon: 44684.31560428813
+Ratio: 0.2815662081749488
 
 HOMOGRAPHY DISCARDED #544 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.44664603174e-10
+Ratio: 2.9149341545504956e-09
 
 HOMOGRAPHY DISCARDED #545 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #546 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.40073425066e-09
+Ratio: 4.697218677687652e-09
+
+HOMOGRAPHY DISCARDED #546 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 153.73028328862208
 
 HOMOGRAPHY DISCARDED #547 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.4538629700549625e-09
 
 HOMOGRAPHY DISCARDED #548 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.47162065558308e-09
 
 HOMOGRAPHY DISCARDED #549 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.48847645099e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #550 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.61681110512e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #551 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.70352091352e-10
+Ratio: 5.542352220226169e-09
 
 HOMOGRAPHY DISCARDED #552 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.4758995228366927e-09
 
 HOMOGRAPHY DISCARDED #553 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.16202450559e-11
+Twisted homography
 
-HOMOGRAPHY DISCARDED #554 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.03708565975e-09
+HOMOGRAPHY DISCARDED #554 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 139.04675472660267
 
 HOMOGRAPHY DISCARDED #555 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.33043861211e-10
+Ratio: 8.692513906120274e-12
 
 HOMOGRAPHY DISCARDED #556 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.628529416567571e-09
 
 HOMOGRAPHY DISCARDED #557 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.524846025138342e-09
 
 HOMOGRAPHY DISCARDED #558 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.19077418548e-10
+Ratio: 8.584236793568355e-09
 
 HOMOGRAPHY DISCARDED #559 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.74888630665e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #560 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.01840190498e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #561 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.59249491536e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #562 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.65616370741e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #563 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.2054364251540988e-09
 
 HOMOGRAPHY DISCARDED #564 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #565 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.14760513932e-09
+Ratio: 1.0434971018605978e-10
 
 HOMOGRAPHY DISCARDED #566 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.01210287728e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #567 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.9986685801e-09
+Ratio: 7.785719326141676e-09
 
 HOMOGRAPHY DISCARDED #568 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #569 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.978629697138205e-10
 
 HOMOGRAPHY DISCARDED #570 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.79332124097e-09
+Ratio: 1.215572437329351e-09
 
 HOMOGRAPHY DISCARDED #571 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.58935888721e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #572 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.2546693551773225e-09
 
 HOMOGRAPHY DISCARDED #573 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #574 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.32504796719e-09
+Twisted homography
 
-HOMOGRAPHY DISCARDED #575 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.15123624386e-09
+HOMOGRAPHY DISCARDED #575 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 168.3864602632884
 
-HOMOGRAPHY DISCARDED #576 (polygon out)
-Area out: 75005.54133014841
-Area polygon: 434202.4027097486
-Ratio: 0.17274326641690047
+HOMOGRAPHY DISCARDED #576 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 2.454888063423136e-10
 
 HOMOGRAPHY DISCARDED #577 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.77825775971e-09
+Ratio: 1.6539759875405192e-10
 
 HOMOGRAPHY DISCARDED #578 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.25321533275e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #579 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.25356723028e-10
+Ratio: 2.1185327644637752e-10
 
 HOMOGRAPHY DISCARDED #580 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #581 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.26920721976e-10
+Ratio: 2.435004456443802e-09
 
 HOMOGRAPHY DISCARDED #582 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.36206559351e-09
+Ratio: 9.114359694282156e-10
 
 HOMOGRAPHY DISCARDED #583 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.44014664404e-10
+Ratio: 2.6573787203114864e-10
 
 HOMOGRAPHY DISCARDED #584 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.44145831959e-09
+Ratio: 9.304574601692312e-09
 
 HOMOGRAPHY DISCARDED #585 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.81494362877e-09
+Ratio: 5.874916078194987e-09
 
 HOMOGRAPHY DISCARDED #586 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.45765001374e-10
+Ratio: 9.017297178442146e-10
 
 HOMOGRAPHY DISCARDED #587 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.2775577027e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #588 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.18930748599e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #589 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.15792172412e-11
+Ratio: 8.28475277367734e-09
 
 HOMOGRAPHY DISCARDED #590 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.64701554136e-09
+Ratio: 3.58759902095173e-10
 
 HOMOGRAPHY DISCARDED #591 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.17637481267e-09
+Ratio: 4.0179178906497564e-10
 
 HOMOGRAPHY DISCARDED #592 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.63761462111e-11
+Ratio: 1.4705137645143324e-10
 
 HOMOGRAPHY DISCARDED #593 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.33033816617e-10
+Ratio: 1.2318602849831648e-10
 
 HOMOGRAPHY DISCARDED #594 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.38484723704e-09
+Ratio: 3.3342942869052054e-09
 
 HOMOGRAPHY DISCARDED #595 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.60576453425e-09
+Ratio: 3.819489552288368e-09
 
 HOMOGRAPHY DISCARDED #596 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.70116230989e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #597 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.92838536203e-09
+Ratio: 3.1666003451228144e-09
 
 HOMOGRAPHY DISCARDED #598 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.55640592565e-10
+Ratio: 6.344174080813901e-10
 
 HOMOGRAPHY DISCARDED #599 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.67519106357e-09
+Ratio: 1.925417936535403e-09
 
 HOMOGRAPHY DISCARDED #600 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.0434423205034256e-09
 
 HOMOGRAPHY DISCARDED #601 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.31049000665e-11
+Ratio: 1.610034913873069e-10
 
-HOMOGRAPHY DISCARDED #602 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 136.981750609
+HOMOGRAPHY DISCARDED #602 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #603 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.49984965681e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #604 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.14145769994e-09
+Ratio: 4.806633633027499e-10
 
 HOMOGRAPHY DISCARDED #605 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.74045769072e-09
+Ratio: 2.85288239327308e-09
 
 HOMOGRAPHY DISCARDED #606 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.48868686313e-09
+Ratio: 1.0343796560057932e-09
 
 HOMOGRAPHY DISCARDED #607 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.95517164149e-09
+Ratio: 2.3738581490703096e-11
 
 HOMOGRAPHY DISCARDED #608 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.15970399091e-10
+Ratio: 5.0944174149400745e-09
 
 HOMOGRAPHY DISCARDED #609 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.4247064726e-09
+Ratio: 2.479779767240766e-09
 
 HOMOGRAPHY DISCARDED #610 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.34893838566e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #611 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.69698412269e-09
+Ratio: 9.750320520704418e-09
 
 HOMOGRAPHY DISCARDED #612 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.93303902985e-11
+Ratio: 6.239794874682537e-10
 
 HOMOGRAPHY DISCARDED #613 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.05171537244e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #614 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.2510766052954413e-09
 
 HOMOGRAPHY DISCARDED #615 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 6.005040243240203e-09
+
+HOMOGRAPHY DISCARDED #616 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #616 (polygon out)
-Area out: 22328.73178671999
-Area polygon: 133939.81061267108
-Ratio: 0.16670720739848224
-
 HOMOGRAPHY DISCARDED #617 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.76864786355e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #618 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.76577415317e-11
+Ratio: 8.644797277580046e-09
 
 HOMOGRAPHY DISCARDED #619 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.75769861174e-09
+Ratio: 4.084175129045135e-09
 
 HOMOGRAPHY DISCARDED #620 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.36229857692e-10
+Ratio: 2.3963751829578957e-09
 
-HOMOGRAPHY DISCARDED #621 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 148.711129375
+HOMOGRAPHY DISCARDED #621 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.360846940469636e-09
 
 HOMOGRAPHY DISCARDED #622 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.10382120556e-09
+Ratio: 5.622993032845023e-09
 
 HOMOGRAPHY DISCARDED #623 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #624 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.18795793236e-10
+Ratio: 1.8039255269043394e-09
 
 HOMOGRAPHY DISCARDED #625 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.90418433301e-09
+Ratio: 1.4351186164398103e-09
 
 HOMOGRAPHY DISCARDED #626 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.14852302433e-10
+Ratio: 4.26727022520032e-09
 
 HOMOGRAPHY DISCARDED #627 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #628 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.54120908958e-10
+Ratio: 3.2944228754501665e-09
 
 HOMOGRAPHY DISCARDED #629 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.40080753852e-09
+Ratio: 8.279365855067197e-09
 
 HOMOGRAPHY DISCARDED #630 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.72941768227e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #631 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.309670861124179e-10
 
 HOMOGRAPHY DISCARDED #632 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.08743162446e-10
+Ratio: 1.018558136972926e-09
 
 HOMOGRAPHY DISCARDED #633 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.75692999391e-10
+Ratio: 1.793592962676357e-09
 
 HOMOGRAPHY DISCARDED #634 (degenerate homography)
 Twisted homography
@@ -2338,386 +2332,381 @@ HOMOGRAPHY DISCARDED #635 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #636 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.118461286089876e-09
 
 HOMOGRAPHY DISCARDED #637 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.44949697384e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #638 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.72963951876e-09
+Ratio: 7.4230271853391824e-09
 
 HOMOGRAPHY DISCARDED #639 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.48710812123e-10
+Ratio: 3.2572667172980382e-09
 
 HOMOGRAPHY DISCARDED #640 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.78096370476e-10
+Ratio: 1.582039035087759e-10
 
 HOMOGRAPHY DISCARDED #641 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.234397673811084e-09
 
 HOMOGRAPHY DISCARDED #642 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.22401690645e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #643 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.77154259795e-10
+Ratio: 1.3571282070302197e-09
 
 HOMOGRAPHY DISCARDED #644 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.04900691275e-09
+Ratio: 4.0607089781301356e-10
 
 HOMOGRAPHY DISCARDED #645 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.47322067523e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #646 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.60873362737e-09
+Ratio: 2.861202182695222e-10
 
 HOMOGRAPHY DISCARDED #647 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.84478743464e-09
+Ratio: 1.0164419223644847e-09
 
 HOMOGRAPHY DISCARDED #648 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.69274914409e-11
+Ratio: 2.955392122907733e-09
 
 HOMOGRAPHY DISCARDED #649 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #650 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.28236250141e-10
+Ratio: 6.635461876730986e-10
 
 HOMOGRAPHY DISCARDED #651 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.64505317696e-09
+Ratio: 9.841970369834534e-11
 
 HOMOGRAPHY DISCARDED #652 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.53088215664e-10
+Ratio: 6.388307544854981e-10
 
 HOMOGRAPHY DISCARDED #653 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.2437714934252639e-09
 
 HOMOGRAPHY DISCARDED #654 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.83558563859e-10
+Ratio: 6.270906756253604e-10
 
-HOMOGRAPHY DISCARDED #655 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.76410044738e-09
+HOMOGRAPHY DISCARDED #655 (polygon out)
+Area out: 312707.9032692518
+Area polygon: 1465168.3756261803
+Ratio: 0.2134279639605294
 
 HOMOGRAPHY DISCARDED #656 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.24685852241e-09
+Ratio: 4.388885911206692e-09
 
 HOMOGRAPHY DISCARDED #657 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #658 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.17770310082e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #659 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.18467690191e-10
+Ratio: 2.7018877808688524e-09
 
 HOMOGRAPHY DISCARDED #660 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.25426291223e-09
+Ratio: 9.540751519040711e-09
 
 HOMOGRAPHY DISCARDED #661 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.82359589547e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #662 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.32726833433e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #663 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.498095406093843e-10
 
 HOMOGRAPHY DISCARDED #664 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.01639908224e-09
+Ratio: 4.291298357283333e-09
 
 HOMOGRAPHY DISCARDED #665 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.52422389639e-09
+Ratio: 6.81969824821771e-09
 
 HOMOGRAPHY DISCARDED #666 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.262000189128336e-09
 
 HOMOGRAPHY DISCARDED #667 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.91509530165e-10
+Ratio: 9.085791249242871e-10
 
 HOMOGRAPHY DISCARDED #668 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.04672810409e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #669 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.63178521778e-09
+Ratio: 1.0196370082777696e-10
 
 HOMOGRAPHY DISCARDED #670 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.92930977092e-09
+Ratio: 3.248431276841095e-09
 
 HOMOGRAPHY DISCARDED #671 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #672 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.63582435436e-10
+Ratio: 1.3940843455289159e-09
 
 HOMOGRAPHY DISCARDED #673 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.97962482888e-09
+Ratio: 2.7372614860824495e-10
 
 HOMOGRAPHY DISCARDED #674 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.59229048715e-09
+Ratio: 6.206310882639381e-10
 
 HOMOGRAPHY DISCARDED #675 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.86050046412e-09
+Ratio: 7.0771846439639915e-09
 
 HOMOGRAPHY DISCARDED #676 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.46247959028e-10
+Ratio: 2.7905109724482107e-09
 
 HOMOGRAPHY DISCARDED #677 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.3833100273e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #678 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.44312025e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #679 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.50110456722e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #680 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.41329748263e-09
+Ratio: 4.479891312550967e-10
 
 HOMOGRAPHY DISCARDED #681 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.17029571304e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #682 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #683 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.14961138963e-09
+Ratio: 2.5043520038448494e-09
 
 HOMOGRAPHY DISCARDED #684 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.83408233085e-11
+Ratio: 1.7732455977159125e-10
 
 HOMOGRAPHY DISCARDED #685 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 5.988269836282174e-10
 
 HOMOGRAPHY DISCARDED #686 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.291586635005102e-10
 
 HOMOGRAPHY DISCARDED #687 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.38301232235e-10
+Ratio: 1.8752869285811357e-09
 
 HOMOGRAPHY DISCARDED #688 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #689 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.31036591308e-10
+Ratio: 2.3536801146183875e-09
 
 HOMOGRAPHY DISCARDED #690 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.43673189904e-09
+Ratio: 6.458506917929276e-09
 
 HOMOGRAPHY DISCARDED #691 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.5341089668e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #692 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.4117513076e-09
+Ratio: 8.677752797029851e-09
 
-HOMOGRAPHY DISCARDED #693 (polygon out)
-Area out: 2914627.0101139825
-Area polygon: 6596741.128826104
-Ratio: 0.441828313889383
+HOMOGRAPHY DISCARDED #693 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #694 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.883646616590556e-11
 
 HOMOGRAPHY DISCARDED #695 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.046931940795779e-11
 
 HOMOGRAPHY DISCARDED #696 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.44862513187e-11
+Ratio: 1.4823498909490122e-09
 
 HOMOGRAPHY DISCARDED #697 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.55173628387e-11
+Ratio: 5.425032350275383e-10
 
 HOMOGRAPHY DISCARDED #698 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.233943938201255e-09
 
 HOMOGRAPHY DISCARDED #699 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1323174904336354e-09
 
 HOMOGRAPHY DISCARDED #700 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.89973945706e-11
+Ratio: 3.1381609694855275e-10
 
 HOMOGRAPHY DISCARDED #701 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.13664139711e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #702 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #703 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.62235622168e-10
+Ratio: 4.2870151422098255e-10
 
 HOMOGRAPHY DISCARDED #704 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.16504942331e-11
+Twisted homography
 
-HOMOGRAPHY DISCARDED #705 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 145.330657468
+HOMOGRAPHY DISCARDED #705 (polygon out)
+Area out: 203354.12210910523
+Area polygon: 655161.3734186701
+Ratio: 0.3103878378055037
 
 HOMOGRAPHY DISCARDED #706 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.99755307726e-10
+Ratio: 2.6107951350255777e-09
 
 HOMOGRAPHY DISCARDED #707 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.93365412615e-11
+Ratio: 1.5123728502712376e-09
 
 HOMOGRAPHY DISCARDED #708 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.59397001913e-10
+Ratio: 7.884310879166743e-10
 
 HOMOGRAPHY DISCARDED #709 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.82366495502e-09
+Ratio: 1.3761292706892937e-10
 
 HOMOGRAPHY DISCARDED #710 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.8492609924e-10
+Ratio: 2.7977121719287166e-09
 
 HOMOGRAPHY DISCARDED #711 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #712 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.58666969328e-09
+Ratio: 8.875915108659548e-09
 
 HOMOGRAPHY DISCARDED #713 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.576333742806889e-11
 
 HOMOGRAPHY DISCARDED #714 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.05351741354e-09
-
-HOMOGRAPHY DISCARDED #715 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #716 (degenerate homography)
+HOMOGRAPHY DISCARDED #715 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.82773649426e-09
+Ratio: 1.032314552590973e-09
+
+HOMOGRAPHY DISCARDED #716 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #717 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.99256920523e-10
+Ratio: 4.03724788973459e-11
 
 HOMOGRAPHY DISCARDED #718 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.0987525676e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #719 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.08973640926e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #720 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.087603488511287e-09
 
 HOMOGRAPHY DISCARDED #721 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.56319288046e-09
+Ratio: 2.2255828531153816e-09
 
 HOMOGRAPHY DISCARDED #722 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.85551595299e-09
+Ratio: 1.3718369374359774e-09
 
 HOMOGRAPHY DISCARDED #723 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 8.554874802546546e-09
 
 HOMOGRAPHY DISCARDED #724 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.8842852611e-10
+Twisted homography
 
-HOMOGRAPHY DISCARDED #725 (polygon out)
-Area out: 3110443.968214676
-Area polygon: 3838170.6946652234
-Ratio: 0.8103975085157014
+HOMOGRAPHY DISCARDED #725 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 7.93740634681137e-09
 
 HOMOGRAPHY DISCARDED #726 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.24994849223e-09
+Ratio: 4.450445430495825e-09
 
 HOMOGRAPHY DISCARDED #727 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.7229465044e-09
+Ratio: 5.959046414901976e-10
 
 HOMOGRAPHY DISCARDED #728 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 9.690180657862608e-09
 
 HOMOGRAPHY DISCARDED #729 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.9110111797e-11
+Ratio: 3.5656176864169615e-09
 
 HOMOGRAPHY DISCARDED #730 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 6.990517663360206e-10
+
+HOMOGRAPHY DISCARDED #731 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #731 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 147.602506744
-
-HOMOGRAPHY DISCARDED #732 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.46122461157e-09
+HOMOGRAPHY DISCARDED #732 (polygon out)
+Area out: 403369.30650867755
+Area polygon: 1563617.888375938
+Ratio: 0.2579717906192796
 
 HOMOGRAPHY DISCARDED #733 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.83265805734e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #734 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.97143898972e-10
+Ratio: 1.4197026904002838e-09
 
 HOMOGRAPHY DISCARDED #735 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.59734095731e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #736 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.99536462981e-09
+Ratio: 5.917672271361619e-12
 
 HOMOGRAPHY DISCARDED #737 (degenerate homography)
 Twisted homography
@@ -2727,376 +2716,403 @@ Twisted homography
 
 HOMOGRAPHY DISCARDED #739 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.4250360129e-09
+Ratio: 3.554043192444199e-10
 
 HOMOGRAPHY DISCARDED #740 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.27736289431e-10
+Ratio: 1.9901074805009817e-09
 
 HOMOGRAPHY DISCARDED #741 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.74220292042e-09
+Ratio: 1.699583019219362e-09
 
 HOMOGRAPHY DISCARDED #742 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 4.351258035714463e-09
 
 HOMOGRAPHY DISCARDED #743 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.04376992684e-10
+Ratio: 9.334375503105673e-09
 
 HOMOGRAPHY DISCARDED #744 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 3.141338500889174e-09
 
 HOMOGRAPHY DISCARDED #745 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.14761953956e-10
+Ratio: 8.038134955481387e-10
 
 HOMOGRAPHY DISCARDED #746 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.4326621123822235e-09
 
 HOMOGRAPHY DISCARDED #747 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.80721919555e-10
+Ratio: 5.022235884174183e-10
 
 HOMOGRAPHY DISCARDED #748 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.44887472094e-09
+Ratio: 3.089190262728895e-09
 
 HOMOGRAPHY DISCARDED #749 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.4767313507033536e-09
 
 HOMOGRAPHY DISCARDED #750 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.00657436311e-09
+Ratio: 3.696560314487147e-09
 
 HOMOGRAPHY DISCARDED #751 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.703929519554947e-10
 
 HOMOGRAPHY DISCARDED #752 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 6.071564401275836e-09
 
 HOMOGRAPHY DISCARDED #753 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.19694645774e-10
+Ratio: 6.29889796830909e-09
 
 HOMOGRAPHY DISCARDED #754 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.87586016272e-09
+Ratio: 1.9002131730808713e-09
 
 HOMOGRAPHY DISCARDED #755 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.73154493815e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #756 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.25530587982e-11
+Ratio: 2.638560340981232e-09
 
 HOMOGRAPHY DISCARDED #757 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.603896981948247e-10
 
 HOMOGRAPHY DISCARDED #758 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.36867527954e-09
+Ratio: 1.6462427060217435e-09
 
 HOMOGRAPHY DISCARDED #759 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.08846272554e-09
+Ratio: 1.4198559015193888e-09
 
 HOMOGRAPHY DISCARDED #760 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.39385130948e-09
+Ratio: 3.2171247030787997e-09
 
 HOMOGRAPHY DISCARDED #761 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.18804606885e-09
+Ratio: 9.570416484706214e-09
 
 HOMOGRAPHY DISCARDED #762 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.72778604234e-09
+Ratio: 4.208991407781377e-09
 
 HOMOGRAPHY DISCARDED #763 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.7932662840141914e-09
 
 HOMOGRAPHY DISCARDED #764 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.58910491498e-09
+Ratio: 7.309480288397153e-09
 
 HOMOGRAPHY DISCARDED #765 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.34283328572e-09
+Ratio: 2.76526450738377e-09
 
 HOMOGRAPHY DISCARDED #766 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.90591230234e-10
+Ratio: 1.649879887601489e-10
 
 HOMOGRAPHY DISCARDED #767 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.89293677638e-09
+Ratio: 6.210979735979427e-10
 
 HOMOGRAPHY DISCARDED #768 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.1462508437096175e-09
 
 HOMOGRAPHY DISCARDED #769 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.10592952171e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #770 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.06297401784e-10
+Ratio: 1.2688303967360336e-09
 
 HOMOGRAPHY DISCARDED #771 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.980369214e-09
+Ratio: 4.4628247782912354e-10
 
 HOMOGRAPHY DISCARDED #772 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.00095465712e-10
+Ratio: 4.0286806058714283e-11
 
 HOMOGRAPHY DISCARDED #773 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.7352427292e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #774 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #775 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 152.236657872
+HOMOGRAPHY DISCARDED #775 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.236628674771575e-10
 
 HOMOGRAPHY DISCARDED #776 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.8304234534e-09
+Ratio: 8.879672350853567e-10
 
-HOMOGRAPHY DISCARDED #777 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.86320796037e-10
+HOMOGRAPHY DISCARDED #777 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 146.935359937627
 
 HOMOGRAPHY DISCARDED #778 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.94563814375e-10
+Ratio: 2.5368000699981288e-09
 
-HOMOGRAPHY DISCARDED #779 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 141.880231181
+HOMOGRAPHY DISCARDED #779 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 4.39380346657358e-10
 
 HOMOGRAPHY DISCARDED #780 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.99175149875e-10
+Ratio: 1.0029472720401394e-09
 
-HOMOGRAPHY DISCARDED #781 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.27523728779e-09
+HOMOGRAPHY DISCARDED #781 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 141.4390328021229
 
 HOMOGRAPHY DISCARDED #782 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.48545762417e-09
+Ratio: 1.0301802796370952e-09
 
 HOMOGRAPHY DISCARDED #783 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.90289883585e-11
-
-HOMOGRAPHY DISCARDED #784 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #785 (degenerate homography)
+HOMOGRAPHY DISCARDED #784 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.56982176297e-09
+Ratio: 2.561357765137876e-09
+
+HOMOGRAPHY DISCARDED #785 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #786 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.56780220213e-10
+Ratio: 2.445008649758245e-09
 
 HOMOGRAPHY DISCARDED #787 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.93061679195e-09
+Ratio: 8.192627326005705e-10
 
 HOMOGRAPHY DISCARDED #788 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.06941159149e-10
+Ratio: 2.9941013658774298e-09
 
 HOMOGRAPHY DISCARDED #789 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.74568572012e-10
+Ratio: 5.3511813802495675e-09
 
 HOMOGRAPHY DISCARDED #790 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 4.05738200841e-10
+Ratio: 3.3722384303708774e-09
 
 HOMOGRAPHY DISCARDED #791 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 7.460297213628765e-12
 
 HOMOGRAPHY DISCARDED #792 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.13708117023e-09
+Ratio: 1.0125404318199919e-10
 
 HOMOGRAPHY DISCARDED #793 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.11675587484e-09
-
-HOMOGRAPHY DISCARDED #794 (degenerate homography)
 Twisted homography
 
-HOMOGRAPHY DISCARDED #795 (degenerate homography)
+HOMOGRAPHY DISCARDED #794 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.05622569067e-09
+Ratio: 7.185374511370708e-10
+
+HOMOGRAPHY DISCARDED #795 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #796 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.98938394792e-10
+Ratio: 3.8400159284241915e-11
 
 HOMOGRAPHY DISCARDED #797 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.49485499425e-09
+Ratio: 7.048217959568124e-10
 
 HOMOGRAPHY DISCARDED #798 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.87014942499e-12
+Ratio: 6.396904516043806e-11
 
 HOMOGRAPHY DISCARDED #799 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.20817608537e-10
+Ratio: 1.6572166071556158e-10
 
-HOMOGRAPHY DISCARDED #800 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 130.249760077
+HOMOGRAPHY DISCARDED #800 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 8.4009066067468e-09
 
 HOMOGRAPHY DISCARDED #801 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.58557505028e-10
+Ratio: 1.2996505139647884e-11
 
 HOMOGRAPHY DISCARDED #802 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.82390977889e-11
+Ratio: 9.236396304140175e-11
 
 HOMOGRAPHY DISCARDED #803 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.86430116557e-09
+Ratio: 3.294066629949857e-10
 
-HOMOGRAPHY DISCARDED #804 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 156.172981018
+HOMOGRAPHY DISCARDED #804 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 6.856646834438368e-09
 
 HOMOGRAPHY DISCARDED #805 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.74757098773e-09
+Ratio: 1.4753320312392285e-09
 
 HOMOGRAPHY DISCARDED #806 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.86688448598e-09
+Ratio: 1.485889244861433e-09
 
 HOMOGRAPHY DISCARDED #807 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.98147745339e-09
+Ratio: 1.9130836851594486e-10
 
 HOMOGRAPHY DISCARDED #808 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 9.98441116152e-11
+Ratio: 5.72254998843461e-09
 
 HOMOGRAPHY DISCARDED #809 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.81991295489e-10
+Ratio: 3.2684297936627497e-09
 
 HOMOGRAPHY DISCARDED #810 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.1525343991e-10
+Ratio: 4.1810460221932217e-10
 
 HOMOGRAPHY DISCARDED #811 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.78546627263e-09
+Twisted homography
 
 HOMOGRAPHY DISCARDED #812 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.02187115646e-11
+Ratio: 1.5578164473312862e-09
 
 HOMOGRAPHY DISCARDED #813 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.1513576004e-11
+Ratio: 8.405520782828209e-09
 
 HOMOGRAPHY DISCARDED #814 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.81299127958e-11
+Ratio: 4.716221830849048e-10
 
 HOMOGRAPHY DISCARDED #815 (degenerate homography)
 Twisted homography
 
 HOMOGRAPHY DISCARDED #816 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.38902570807e-11
+Twisted homography
 
 HOMOGRAPHY DISCARDED #817 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.17604140996e-11
+Ratio: 1.834326732945086e-10
 
 HOMOGRAPHY DISCARDED #818 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.8077098687e-10
+Ratio: 2.2709189966291682e-11
 
 HOMOGRAPHY DISCARDED #819 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.42074968226e-09
+Ratio: 1.5966520809168166e-09
 
 HOMOGRAPHY DISCARDED #820 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 7.57809698596e-10
+Ratio: 6.983660146981312e-10
 
 HOMOGRAPHY DISCARDED #821 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 2.38099419801e-09
+Ratio: 5.401790370420507e-09
 
 HOMOGRAPHY DISCARDED #822 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.1757490255913814e-09
 
 HOMOGRAPHY DISCARDED #823 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.44874076902e-09
+Ratio: 1.1137012411047046e-09
 
-HOMOGRAPHY DISCARDED #824 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 162.092566147
+HOMOGRAPHY DISCARDED #824 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 2.381483733971113e-09
 
 HOMOGRAPHY DISCARDED #825 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 1.3701298909058996e-10
 
 HOMOGRAPHY DISCARDED #826 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.43120413979e-10
+Twisted homography
 
 HOMOGRAPHY DISCARDED #827 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.23210761605e-10
+Ratio: 2.1354694931569288e-10
 
-HOMOGRAPHY DISCARDED #828 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 121.350731353
+HOMOGRAPHY DISCARDED #828 (degenerate homography)
+Twisted homography
 
 HOMOGRAPHY DISCARDED #829 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 3.02143906893e-12
+Ratio: 3.2379075774681254e-10
 
 HOMOGRAPHY DISCARDED #830 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 8.8219777808e-09
+Ratio: 4.652291279180193e-09
 
 HOMOGRAPHY DISCARDED #831 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 6.72023331713e-11
+Ratio: 1.4172616725506616e-09
 
 HOMOGRAPHY DISCARDED #832 (degenerate homography)
-Twisted homography
+Max ratio: 1e-08
+Ratio: 2.1670282917668662e-10
 
 HOMOGRAPHY DISCARDED #833 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.76183336845e-09
+Ratio: 5.444500353455036e-11
 
 HOMOGRAPHY DISCARDED #834 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.36386288839e-09
+Ratio: 6.2002938159337505e-09
 
 HOMOGRAPHY DISCARDED #835 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 1.48394698097e-09
+Ratio: 2.722938767516356e-10
 
 HOMOGRAPHY DISCARDED #836 (degenerate homography)
 Max ratio: 1e-08
-Ratio: 5.60540576434e-09
+Ratio: 7.461653840918641e-09
+
+HOMOGRAPHY DISCARDED #837 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.5766254506105819e-09
+
+HOMOGRAPHY DISCARDED #838 (degenerate homography)
+Twisted homography
+
+HOMOGRAPHY DISCARDED #839 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 3.3921229904922937e-10
+
+HOMOGRAPHY DISCARDED #840 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.260191284149969e-09
+
+HOMOGRAPHY DISCARDED #841 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 2.264931362288491e-10
+
+HOMOGRAPHY DISCARDED #842 (degenerate homography)
+Max ratio: 1e-08
+Ratio: 1.1058391528959555e-11
 
