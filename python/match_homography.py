@@ -228,8 +228,9 @@ discarded_homographies = [0,0,0,0]
 ## Initialize areas of founded homography
 areas = []
 
-## Initialize self similar per image counter
+## Initialize self similar per image and inliers per image counters
 self_similar_per_image = []
+inliers_per_image = []
 
 ## Initialize the buffer of temporary removed matches
 temporary_removed_matches = list()
@@ -489,6 +490,7 @@ while not end:
                                                                   self_similar_per_image)
                                         good_rescued_self_similar_mask = new_good_rescued_self_similar_mask
                                         
+                                        inliers_per_image.append(sum(matches_mask))
                                         discarded_cont_count = 0
                                         
                                         ## Search for the next template in the test image after a user command
@@ -533,7 +535,7 @@ print_discarded(discarded_homographies)
 print("Found " + str(len(areas)) + " homographies")
 
 ## Show self similar statistics
-print_self_similar_stats(self_similar_per_image, number_rescued_self_similar)
+print_self_similar_stats(inliers_per_image, self_similar_per_image, number_rescued_self_similar, flat_rescued_self_similar_mask)
 
 ## Close debug file
 discarded_file.close()
