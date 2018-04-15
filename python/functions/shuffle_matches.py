@@ -16,5 +16,4 @@ def shuffle_matches(matches, mask):
     for i,match in enumerate(matches):
         temp_matches.append(matches[indices[i]])
         temp_mask.append(mask[indices[i]])
-    matches = temp_matches
-    mask = temp_mask
+    return temp_matches, temp_mask
