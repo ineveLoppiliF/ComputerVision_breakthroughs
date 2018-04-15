@@ -14,8 +14,8 @@ def print_self_similar_stats(inliers_per_image, self_similar_per_image, number_r
     
     print('----------')
     print('Used '+str(sum(self_similar_per_image))+' of '+str(number_rescued_self_similar)+' rescued self similar as inliers')
-    print(str(number_rescued_self_similar-sum(flat_rescued_self_similar_mask))+" rescued self similar found inside extracted images")
-    print('Remain '+str(sum(flat_rescued_self_similar_mask))+" out of images")
+    print(str(int(number_rescued_self_similar-sum(flat_rescued_self_similar_mask)))+" rescued self similar found inside extracted images")
+    print('Remain '+str(int(sum(flat_rescued_self_similar_mask)))+" out of images")
     
     pos = np.arange(len(labels))    
     ax = plt.axes()
@@ -25,5 +25,3 @@ def print_self_similar_stats(inliers_per_image, self_similar_per_image, number_r
     plt.bar(pos+0.2, ss, 0.4, color='b')
     plt.bar(pos-0.2, inl, 0.4, color='r')
     plt.show()
-    
-    print('----------')
