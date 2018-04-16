@@ -252,7 +252,8 @@ end = False
 while not end:
     
     #Shuffle matches and related masks in order to randomize ransac
-    good_matches, flat_rescued_self_similar_mask = shuffle_matches(good_matches, flat_rescued_self_similar_mask)
+    #!!!!!!!! flat_rescued_self_similar_mask è una maschera su tutti, non sui good matches!!!!!!!
+    good_matches, good_rescued_self_similar_mask = shuffle_matches(good_matches, good_rescued_self_similar_mask)
     
     ## If have been discarded a large number of homograpies in a row, is likely that there aren't
     ## other good homograpies, and the algorithm ends 
