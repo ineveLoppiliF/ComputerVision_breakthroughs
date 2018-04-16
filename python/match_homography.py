@@ -233,7 +233,7 @@ self_similar_per_image = []
 inliers_per_image = []
 
 ## Initialize the buffer of temporary removed matches
-temporary_removed_matches = list()
+#temporary_removed_matches = list()
 
 ## Initialize the test image used to draw projected squares
 test_image_squares = test_image.copy()
@@ -252,7 +252,6 @@ end = False
 while not end:
     
     #Shuffle matches and related masks in order to randomize ransac
-    #!!!!!!!! flat_rescued_self_similar_mask è una maschera su tutti, non sui good matches!!!!!!!
     good_matches, good_rescued_self_similar_mask = shuffle_matches(good_matches, good_rescued_self_similar_mask)
     
     ## If have been discarded a large number of homograpies in a row, is likely that there aren't
@@ -414,8 +413,8 @@ while not end:
                                         plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), plt.title('Clustered matches'), plt.show()
                                         
                                         ## Put back, inside the good matches list, points temporary removed
-                                        good_matches.extend(temporary_removed_matches)
-                                        temporary_removed_matches.clear()
+                                        #good_matches.extend(temporary_removed_matches)
+                                        #temporary_removed_matches.clear()
                                         
                                         ## Remove all matches in the polygon
                                         keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
