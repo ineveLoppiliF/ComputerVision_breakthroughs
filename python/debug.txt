@@ -10,180 +10,157 @@ HOMOGRAPHY FOUNDED #5
 
 HOMOGRAPHY FOUNDED #6
 
-HOMOGRAPHY DISCARDED #1 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.8474436985890665e-10
+HOMOGRAPHY DISCARDED #1 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #2 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #2 (non valid polygon)
+HOMOGRAPHY DISCARDED #3 (non valid polygon)
+HOMOGRAPHY DISCARDED #4 (non valid polygon)
+HOMOGRAPHY DISCARDED #5 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 2
+Ratio: 0.2222222222222222
 
-HOMOGRAPHY DISCARDED #3 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #6 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #4 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #7 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #5 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.822731802696469e-09
+HOMOGRAPHY DISCARDED #8 (non valid polygon)
+HOMOGRAPHY DISCARDED #9 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 1
+Ratio: 0.1111111111111111
 
-HOMOGRAPHY DISCARDED #6 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.1726443137009966e-09
+HOMOGRAPHY DISCARDED #10 (non valid polygon)
+HOMOGRAPHY DISCARDED #11 (polygon out)
+Area out: 4408417.020107733
+Area polygon: 5206092.66948165
+Ratio: 0.8467803590877421
 
-HOMOGRAPHY DISCARDED #7 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #12 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #8 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.6484344762001604e-09
+HOMOGRAPHY DISCARDED #13 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #9 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #10 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #11 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #12 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.9603861826792507e-09
-
-HOMOGRAPHY DISCARDED #13 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #14 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #14 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
 HOMOGRAPHY DISCARDED #15 (polygon out)
-Area out: 14050603.849738464
-Area polygon: 17487293.89745544
-Ratio: 0.8034750220434596
+Area out: 461630.1906274152
+Area polygon: 3844825.4414366074
+Ratio: 0.12006531835029902
 
-HOMOGRAPHY DISCARDED #16 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #16 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #17 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #17 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #18 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #18 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 2
+Ratio: 0.2222222222222222
 
-HOMOGRAPHY DISCARDED #19 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 4.262072389382693e-09
+HOMOGRAPHY DISCARDED #19 (non valid polygon)
+HOMOGRAPHY DISCARDED #20 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #20 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.938825167098089e-10
+HOMOGRAPHY DISCARDED #21 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 2
+Ratio: 0.25
 
-HOMOGRAPHY DISCARDED #21 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.787275160676379e-10
+HOMOGRAPHY DISCARDED #22 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #22 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #23 (non valid polygon)
+HOMOGRAPHY DISCARDED #24 (non valid polygon)
+HOMOGRAPHY DISCARDED #25 (non valid polygon)
+HOMOGRAPHY DISCARDED #26 (non valid polygon)
+HOMOGRAPHY DISCARDED #27 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 2
+Ratio: 0.2222222222222222
 
-HOMOGRAPHY DISCARDED #23 (polygon out)
-Area out: 963244.5162082245
-Area polygon: 1473991.4195336252
-Ratio: 0.6534939779452702
+HOMOGRAPHY DISCARDED #28 (non valid polygon)
+HOMOGRAPHY DISCARDED #29 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #24 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #30 (non valid polygon)
+HOMOGRAPHY DISCARDED #31 (non valid polygon)
+HOMOGRAPHY DISCARDED #32 (non valid polygon)
+HOMOGRAPHY DISCARDED #33 (non valid polygon)
+HOMOGRAPHY DISCARDED #34 (non valid polygon)
+HOMOGRAPHY DISCARDED #35 (non valid polygon)
+HOMOGRAPHY DISCARDED #36 (non valid polygon)
+HOMOGRAPHY DISCARDED #37 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 2
+Ratio: 0.25
 
-HOMOGRAPHY DISCARDED #25 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #38 (non valid polygon)
+HOMOGRAPHY DISCARDED #39 (non valid polygon)
+HOMOGRAPHY DISCARDED #40 (non valid polygon)
+HOMOGRAPHY DISCARDED #41 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #26 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 1.5954937820100267e-09
+HOMOGRAPHY DISCARDED #42 (non valid polygon)
+HOMOGRAPHY DISCARDED #43 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #27 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #44 (non valid polygon)
+HOMOGRAPHY DISCARDED #45 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #28 (degenerate homography)
-Twisted homography
+HOMOGRAPHY DISCARDED #46 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #29 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 6.9983655928383546e-09
+HOMOGRAPHY DISCARDED #47 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 1
+Ratio: 0.125
 
-HOMOGRAPHY DISCARDED #30 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 160.0843527644098
+HOMOGRAPHY DISCARDED #48 (inliers outside polygon)
+Tot inliers: 8
+In polygon inliers: 2
+Ratio: 0.25
 
-HOMOGRAPHY DISCARDED #31 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 3.965892065353805e-09
-
-HOMOGRAPHY DISCARDED #32 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #33 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.1286838561948807e-10
-
-HOMOGRAPHY DISCARDED #34 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #35 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 9.291193418939666e-09
-
-HOMOGRAPHY DISCARDED #36 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #37 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 8.246729719332786e-10
-
-HOMOGRAPHY DISCARDED #38 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #39 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #40 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #41 (norm difference histogram median too big)
-Max treshold: 110.418239
-Median: 165.5294535724685
-
-HOMOGRAPHY DISCARDED #42 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #43 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.688763150314223e-10
-
-HOMOGRAPHY DISCARDED #44 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.2809490519719557e-09
-
-HOMOGRAPHY DISCARDED #45 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.386053969221383e-09
-
-HOMOGRAPHY DISCARDED #46 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 7.432796818647114e-10
-
-HOMOGRAPHY DISCARDED #47 (degenerate homography)
-Twisted homography
-
-HOMOGRAPHY DISCARDED #48 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.802154197136343e-09
-
-HOMOGRAPHY DISCARDED #49 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 5.0978226369463026e-09
-
-HOMOGRAPHY DISCARDED #50 (degenerate homography)
-Max ratio: 1e-08
-Ratio: 2.675863980450344e-09
+HOMOGRAPHY DISCARDED #49 (non valid polygon)
+HOMOGRAPHY DISCARDED #50 (polygon out)
+Area out: 44518.19272732508
+Area polygon: 192368.47428504657
+Ratio: 0.231421457662336
 

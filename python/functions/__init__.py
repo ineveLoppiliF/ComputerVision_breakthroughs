@@ -16,5 +16,6 @@ from .remove_temporarily_matches import remove_temporarily_matches
 from .validate_area import validate_area
 from .print_self_similar_stats import print_self_similar_stats
 from .shuffle_matches import shuffle_matches
+from .is_rank_full import is_rank_full
 
 from .self_similar_and_fingerprint_matches import *
