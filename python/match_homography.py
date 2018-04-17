@@ -535,7 +535,7 @@ print_discarded(discarded_homographies)
 print("Found " + str(len(areas)) + " homographies")
 
 ## Show self similar statistics
-print_self_similar_stats(inliers_per_image, self_similar_per_image, number_rescued_self_similar, flat_rescued_self_similar_mask)
+print_self_similar_stats(inliers_per_image, self_similar_per_image, number_rescued_self_similar, good_rescued_self_similar_mask)
 
 ## Close debug file
 discarded_file.close()
