@@ -13,7 +13,11 @@ from functions import (difference_norm_image_computation,
                        remove_temporarily_matches,
                        remove_mask,
                        self_matches_plot,
-                       self_similar_and_fingerprint_matches_extraction
+                       self_similar_and_fingerprint_matches_extraction,
+                       print_self_similar_stats,
+                       shuffle_matches,
+                       out_points_ratio,
+                       is_rank_full
                        )
                        #, validate_area)
 from matplotlib import pyplot as plt
@@ -25,7 +29,7 @@ import matplotlib
 import numpy as np
    
 def match_homography_excel_version(template,test):                    
-    #%% Initial initializations
+     #%% Initial initializations
     
     ## Constant parameters to be tuned
     MIN_MATCH_COUNT = 30 # search for the template whether there are at least
@@ -53,6 +57,8 @@ def match_homography_excel_version(template,test):
                              # print_random_matches iteration, in order to see
                              # better the matches connections
     ITERATIONS = 5 # number of iterations of print_random_matches
+    MAX_DISCARDED_CONTINUOUSLY = 50 # max number of homography discarded in a row before stopping 
+                                    # the algorithm
     
     ## Set the size of the figure to show
     matplotlib.rcParams["figure.figsize"]=(15,12)
@@ -216,10 +222,10 @@ def match_homography_excel_version(template,test):
     
     #%% Cluster good matches by fitting homographies through RANSAC
     
-    input("Press Enter to start finding homographies...")
+ 
     
     ## Initilalize discarded homograpies counters (see print_discarded for more info)
-    discarded_homographies = [0,0,0,0]
+    discarded_homographies = [0,0,0,0,0,0]
     
     ## Initialize areas of founded homography
     areas = []
@@ -241,7 +247,8 @@ def match_homography_excel_version(template,test):
     discarded_file = open("debug.txt","w")
     
     ## Counter of continuously discarded homography
-    discarded_cont_count = 0 
+    discarded_cont_count = []
+    discarded_cont_count.append(0)
     
     ## Continue to look for other homographies
     end = False
@@ -252,7 +259,7 @@ def match_homography_excel_version(template,test):
         
         ## If have been discarded a large number of homograpies in a row, is likely that there aren't
         ## other good homograpies, and the algorithm ends 
-        if discarded_cont_count < MAX_DISCARDED_CONTINUOUSLY:
+        if discarded_cont_count[0] < MAX_DISCARDED_CONTINUOUSLY:
             ## If the number of remaining matches is low, is likely that there aren't
             ## other good homograpies, and the algorithm ends
             if len(good_matches) >= MIN_MATCH_COUNT:
@@ -288,7 +295,7 @@ def match_homography_excel_version(template,test):
                     dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)  
                     
                     ## If the homography is degenerate, it is discarded
-                    if not is_homography_degenerate(inv(H), dst_vrtx, discarded_file, discarded_homographies):
+                    if is_rank_full(H, discarded_cont_count, discarded_homographies, discarded_file):
                         ## If the retrieved homography has been fitted using few matches, 
                         ## is likely that has poor performances and that there aren't other good homograpies, so the algorithm ends
                         if np.count_nonzero(matches_mask) >= MIN_MATCH_CURRENT:
@@ -300,11 +307,18 @@ def match_homography_excel_version(template,test):
                                     
                             ## Homography kept only if the projected polygon
                             ## is mostly inside the image
-                            if out_area_ratio(img_polygon,
-                                               polygon,
-                                               discarded_file,
-                                               OUT_OF_IMAGE_THRESHOLD,
-                                               discarded_homographies):
+                            if (out_points_ratio(dst_inliers, 
+                                                 polygon, 
+                                                 discarded_file, 
+                                                 IN_POLYGON_THRESHOLD, 
+                                                 discarded_homographies,
+                                                 discarded_cont_count) and out_area_ratio(img_polygon,
+                                                                                          polygon,
+                                                                                          discarded_file,
+                                                                                          OUT_OF_IMAGE_THRESHOLD,
+                                                                                          discarded_homographies,
+                                                                                          discarded_cont_count)):
+                                
                                 ## Create a mask over the left good matches of the 
                                 ## ones that are inliers
                                 inliers_mask = np.zeros(len(good_matches))
@@ -342,7 +356,7 @@ def match_homography_excel_version(template,test):
                                     dst_vrtx = cv2.perspectiveTransform(src_vrtx, H)
                                     
                                     ## If the homography is degenerate, it is discarded
-                                    if not is_homography_degenerate(inv(H), dst_vrtx, discarded_file, discarded_homographies):
+                                    if is_rank_full(H, discarded_cont_count, discarded_homographies, discarded_file):
                                         
                                         ## Create a polygon using the projected vertices
                                         polygon = Polygon([(dst_vrtx[0][0][0], dst_vrtx[0][0][1]),
@@ -381,7 +395,8 @@ def match_homography_excel_version(template,test):
                                         if pixelwise_difference_norm_check(diff_norm_image_central, 
                                                                            MEDIAN_THRESHOLD, 
                                                                            discarded_file,
-                                                                           discarded_homographies):
+                                                                           discarded_homographies,
+                                                                           discarded_cont_count):
                                         
                                         ## Area confidence test
                                         #if validate_area(ALPHA, areas, polygon.area, discarded_file, discarded_homographies): 
@@ -483,34 +498,20 @@ def match_homography_excel_version(template,test):
                                                                       good_rescued_self_similar_mask,
                                                                       new_good_rescued_self_similar_mask,
                                                                       1-keep_mask,
-                                                                      self_similar_per_image)
+                                                                      self_similar_per_image,
+                                                                      matches_mask,
+                                                                      index_inliers_matches,
+                                                                      inliers_per_image)
                                             good_rescued_self_similar_mask = new_good_rescued_self_similar_mask
                                             
-                                            inliers_per_image.append(sum(matches_mask))
-                                            discarded_cont_count = 0
-                                            
-                                            ## Search for the next template in the test image after a user command
-                                            input("Press Enter to find new homography...")
-                                        #else:
-                                        #    good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                                        else:
-                                            discarded_cont_count += 1
-                                            #good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
-                                    else:
-                                        discarded_cont_count += 1
-                                        #good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
+                                            discarded_cont_count[0] = 0
+                                           
                                 else:
                                     print("Not possible to find another homography")
                                     end = True
-                            else:
-                                discarded_cont_count += 1
-                                #good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                         else:
                             print("Not enough matches are found in the last homography - {}/{}".format(np.count_nonzero(matches_mask), MIN_MATCH_CURRENT))
                             end = True
-                    else:
-                        discarded_cont_count += 1
-                        #good_matches, temporary_removed_matches = remove_temporarily_matches(good_matches,temporary_removed_matches,dst_inliers,index_inliers)
                 else:
                     print("Not possible to find another homography")
                     end = True
@@ -518,7 +519,7 @@ def match_homography_excel_version(template,test):
                 print("Not enough matches are found - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
                 end = True
         else:
-           print("Discarded "+str(discarded_cont_count)+" homography in a row. Not able to find other homography")
+           print("Discarded "+str(discarded_cont_count[0])+" homography in a row. Not able to find other homography")
            end = True 
         
     ## Show the final image, in which all templates found are drawn
@@ -531,8 +532,8 @@ def match_homography_excel_version(template,test):
     print("Found " + str(len(areas)) + " homographies")
     
     ## Show self similar statistics
-    print_self_similar_stats(inliers_per_image, self_similar_per_image, number_rescued_self_similar, flat_rescued_self_similar_mask)
+    print_self_similar_stats(inliers_per_image, self_similar_per_image, number_rescued_self_similar, good_rescued_self_similar_mask)
     
     ## Close debug file
     discarded_file.close()
-    return (number_rescued_self_similar/len(good_matches), len(matches))
+    return (int(sum(self_similar_per_image)), number_rescued_self_similar -int(sum(self_similar_per_image)) )
