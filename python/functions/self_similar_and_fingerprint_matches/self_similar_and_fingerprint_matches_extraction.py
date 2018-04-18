@@ -43,7 +43,7 @@ def self_similar_and_fingerprint_matches_extraction(template_descriptors):
     matches =  flann_matcher.knnMatch(template_descriptors,template_descriptors,k=actual_knn) # there is no threshold, the k closest points are returned
     
     ## Show the number of features in template_descriptors image that have at least one match in template_descriptors image
-    print('found ' + str(len(matches)) + ' putative matches')
+    # print('Found ' + str(len(matches)) + ' putative matches')
     
     #%% Compute the description vector distances distribution
     
