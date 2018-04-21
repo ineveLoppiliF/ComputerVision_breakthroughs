@@ -1,4 +1,8 @@
 *.pyc
 __pycache__/
+<<<<<<< HEAD
 python/debug.txt
 python/debug.txt
+=======
+*.txt
+>>>>>>> 15b8c018ee21e98f2ed634c42bb4bfc9ddb209f7

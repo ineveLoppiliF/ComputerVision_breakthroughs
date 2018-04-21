@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.stats import norm
 
-ALPHA=0.95 # this constant allow us to determine the quantiles to be used to discriminate self-similar matches
+ALPHA=0.9 # this constant allow us to determine the quantiles to be used to discriminate self-similar matches
 
 ## This function discriminates between normal matches and fingerprint matches,
 ## i.e. matches between a feature and its nearest neighbour in which they are not similar

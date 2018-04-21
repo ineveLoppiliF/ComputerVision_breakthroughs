@@ -14,6 +14,7 @@ from functions import (difference_norm_image_computation,
                        remove_mask,
                        self_matches_plot,
                        self_similar_and_fingerprint_matches_extraction,
+                       print_self_similar_inliers_and_eliminated,
                        print_self_similar_stats,
                        shuffle_matches,
                        out_points_ratio,
@@ -33,7 +34,7 @@ import numpy as np
 ## Constant parameters to be tuned
 MIN_MATCH_COUNT = 30 # search for the template whether there are at least
                      # MIN_MATCH_CURENT good matches in the scene
-MIN_MATCH_CURRENT = 5 # stop when your matched homography has less than that features
+MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that features
 LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest
                      # match is lower than LOWE_THRESHOLD * the distance with
                      # the second best match
@@ -63,8 +64,8 @@ MAX_DISCARDED_CONTINUOUSLY = 100 # max number of homography discarded in a row b
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -429,7 +430,7 @@ while not end:
                                         
                                         ## Remove all matches in the polygon
                                         keep_mask = 1 - remove_mask(test_keypoints, good_matches, polygon)
-                                        good_matches = [good_matches[i] for i in range(len(keep_mask)) if keep_mask[i]]
+                                        new_good_matches = [good_matches[i] for i in range(len(keep_mask)) if keep_mask[i]]
                                         
                                         ## Keep the length of this mask compatible
                                         ## with good_matches length
@@ -455,9 +456,24 @@ while not end:
                                                                         None,
                                                                         **draw_params)
                                         
-                                        ## Show the rectified matches and image
+                                        ## Show the rectified matches
                                         plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), 
                                         plt.title('Rectified object matches'), plt.show()
+                                        
+                                        ## Show the rectified self-similar
+                                        ## inliers and the ones eliminated
+                                        print_self_similar_inliers_and_eliminated(rect_test_image, 
+                                                                                  object_test_keypoints,
+                                                                                  template_image,
+                                                                                  template_keypoints,
+                                                                                  inliers_matches,
+                                                                                  good_matches,
+                                                                                  1-keep_mask,
+                                                                                  matches_mask,
+                                                                                  good_rescued_self_similar_mask,
+                                                                                  index_inliers_matches)
+                                        
+                                        ## Show the rectified image
                                         rect_stacked_image = np.hstack((rect_test_image, template_image))
                                         plt.imshow(cv2.cvtColor(rect_stacked_image, cv2.COLOR_BGR2RGB)),
                                         plt.title('Rectified object image'), plt.show()
@@ -484,6 +500,7 @@ while not end:
                                         ## Show the number of discarded homographies until now
                                         print_discarded(discarded_homographies)
                                         
+                                        good_matches = new_good_matches
                                         ## Show the number of good matches left
                                         print('There remains: ' + str(len(good_matches)) + ' features')
                                         
@@ -518,10 +535,10 @@ while not end:
                 print("Not possible to find another homography")
                 end = True
         else:
-            print("Not enough matches are found - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
+            print("Not enough matches remain - {}/{}".format(len(good_matches), MIN_MATCH_COUNT))
             end = True
     else:
-       print("Discarded "+str(discarded_cont_count[0])+" homography in a row. Not able to find other homography")
+       print("Discarded "+str(discarded_cont_count[0])+" homography in a row. Not able to find other homographies")
        end = True 
     
 ## Show the final image, in which all templates found are drawn
