@@ -18,12 +18,10 @@ def rescued_self_similar_used(flat_rescued_self_similar_mask, good_rescued_self_
     rescued_self_similar_used_until_now = (np.count_nonzero(flat_rescued_self_similar_mask) - 
                                            np.count_nonzero(new_good_rescued_self_similar_mask))
     
-    #!!!!
     self_similar_inliers = np.zeros(len(matches_mask))
     for i in range(len(matches_mask)):
         if matches_mask[i] == good_rescued_self_similar_mask[index_inliers_matches[i]] == 1:
             self_similar_inliers[i]=1
-    #!!!!
             
     self_similar_per_image.append(sum(self_similar_inliers))
     inliers_per_image.append(sum(matches_mask))

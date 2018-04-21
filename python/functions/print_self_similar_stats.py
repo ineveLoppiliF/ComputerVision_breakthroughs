@@ -13,7 +13,7 @@ def print_self_similar_stats(inliers_per_image, self_similar_per_image, number_r
         inl.append(inliers_per_image[i])
     
     print('----------')
-    print('Used '+str(sum(self_similar_per_image))+' of '+str(number_rescued_self_similar)+' rescued self similar as inliers')
+    print('Used '+str(int(sum(self_similar_per_image)))+' of '+str(number_rescued_self_similar)+' rescued self similar as inliers')
     print(str(int(number_rescued_self_similar-sum(good_rescued_self_similar_mask)))+" rescued self similar found inside extracted images")
     print('Remain '+str(int(sum(good_rescued_self_similar_mask)))+" out of images")
     

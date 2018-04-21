@@ -46,7 +46,7 @@ OUT_OF_IMAGE_THRESHOLD = 0.1 # Homography kept only if the square is not
 IMAGE_RATIO_TO_CROP = 0.8 # after the computation of the image representing
                           # the pixelwise difference norm, a cropped version
                           # of it is computed, in which only the central part is keeped
-MEDIAN_THRESHOLD = np.multiply(441.672956,0.25) # threshold on the median, used to
+MEDIAN_THRESHOLD = np.multiply(441.672956,0.35) # threshold on the median, used to
                                              # discard wrong matches if the
                                              # cropped pixelwise difference norm 
                                              # have it greater than this.
@@ -56,15 +56,15 @@ RANDOM_MATCH_RATIO = 0.1 # number of randomly plotted matches at each
                          # print_random_matches iteration, in order to see
                          # better the matches connections
 ITERATIONS = 5 # number of iterations of print_random_matches
-MAX_DISCARDED_CONTINUOUSLY = 50 # max number of homography discarded in a row before stopping 
+MAX_DISCARDED_CONTINUOUSLY = 100 # max number of homography discarded in a row before stopping 
                                 # the algorithm
 
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings5.JPG', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/emirates-logo3.png', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/pressAds.png', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
