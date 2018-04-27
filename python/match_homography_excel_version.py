@@ -536,4 +536,5 @@ def match_homography_excel_version(template,test):
     
     ## Close debug file
     discarded_file.close()
-    return (int(sum(self_similar_per_image)), number_rescued_self_similar -int(sum(self_similar_per_image)) )
+   
+    return (int(sum(self_similar_per_image)), number_rescued_self_similar -int(sum(self_similar_per_image)),len(good_matches) )

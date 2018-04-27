@@ -1,134 +1,215 @@
+HOMOGRAPHY DISCARDED #1 (non valid polygon)
+HOMOGRAPHY DISCARDED #2 (non valid polygon)
 HOMOGRAPHY FOUNDED #1
+
+HOMOGRAPHY DISCARDED #3 (non valid polygon)
+HOMOGRAPHY DISCARDED #4 (non valid polygon)
+HOMOGRAPHY DISCARDED #5 (non valid polygon)
+HOMOGRAPHY DISCARDED #6 (non valid polygon)
+HOMOGRAPHY DISCARDED #7 (inliers outside polygon)
+Tot inliers: 17
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #8 (inliers outside polygon)
+Tot inliers: 20
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #9 (inliers outside polygon)
+Tot inliers: 15
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #10 (non valid polygon)
+HOMOGRAPHY DISCARDED #11 (inliers outside polygon)
+Tot inliers: 25
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #12 (inliers outside polygon)
+Tot inliers: 16
+In polygon inliers: 0
+Ratio: 0.0
 
 HOMOGRAPHY FOUNDED #2
 
+HOMOGRAPHY DISCARDED #13 (inliers outside polygon)
+Tot inliers: 13
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #14 (non valid polygon)
+HOMOGRAPHY DISCARDED #15 (inliers outside polygon)
+Tot inliers: 18
+In polygon inliers: 0
+Ratio: 0.0
+
 HOMOGRAPHY FOUNDED #3
+
+HOMOGRAPHY DISCARDED #16 (inliers outside polygon)
+Tot inliers: 15
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #17 (inliers outside polygon)
+Tot inliers: 18
+In polygon inliers: 0
+Ratio: 0.0
 
 HOMOGRAPHY FOUNDED #4
 
+HOMOGRAPHY DISCARDED #18 (non valid polygon)
+HOMOGRAPHY DISCARDED #19 (non valid polygon)
+HOMOGRAPHY DISCARDED #20 (non valid polygon)
 HOMOGRAPHY FOUNDED #5
 
 HOMOGRAPHY FOUNDED #6
 
-HOMOGRAPHY DISCARDED #1 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #2 (non valid polygon)
-HOMOGRAPHY DISCARDED #3 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #4 (non valid polygon)
-HOMOGRAPHY DISCARDED #5 (non valid polygon)
-HOMOGRAPHY DISCARDED #6 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #7 (non valid polygon)
-HOMOGRAPHY DISCARDED #8 (non valid polygon)
-HOMOGRAPHY DISCARDED #9 (non valid polygon)
-HOMOGRAPHY DISCARDED #10 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #11 (non valid polygon)
-HOMOGRAPHY DISCARDED #12 (non valid polygon)
-HOMOGRAPHY DISCARDED #13 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #14 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #15 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #16 (non valid polygon)
-HOMOGRAPHY DISCARDED #17 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #18 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #19 (non valid polygon)
-HOMOGRAPHY DISCARDED #20 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #21 (inliers outside polygon)
-Tot inliers: 10
-In polygon inliers: 0
-Ratio: 0.0
-
+HOMOGRAPHY DISCARDED #21 (non valid polygon)
 HOMOGRAPHY DISCARDED #22 (non valid polygon)
-HOMOGRAPHY DISCARDED #23 (non valid polygon)
+HOMOGRAPHY DISCARDED #23 (inliers outside polygon)
+Tot inliers: 14
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY FOUNDED #7
+
 HOMOGRAPHY DISCARDED #24 (non valid polygon)
-HOMOGRAPHY DISCARDED #25 (non valid polygon)
-HOMOGRAPHY DISCARDED #26 (non valid polygon)
-HOMOGRAPHY DISCARDED #27 (inliers outside polygon)
-Tot inliers: 8
+HOMOGRAPHY DISCARDED #25 (inliers outside polygon)
+Tot inliers: 14
 In polygon inliers: 0
 Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #28 (inliers outside polygon)
-Tot inliers: 9
+HOMOGRAPHY DISCARDED #26 (inliers outside polygon)
+Tot inliers: 15
 In polygon inliers: 0
 Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #29 (inliers outside polygon)
-Tot inliers: 9
-In polygon inliers: 0
-Ratio: 0.0
-
+HOMOGRAPHY DISCARDED #27 (non valid polygon)
+HOMOGRAPHY DISCARDED #28 (non valid polygon)
+HOMOGRAPHY DISCARDED #29 (non valid polygon)
 HOMOGRAPHY DISCARDED #30 (non valid polygon)
+HOMOGRAPHY FOUNDED #8
+
 HOMOGRAPHY DISCARDED #31 (non valid polygon)
 HOMOGRAPHY DISCARDED #32 (non valid polygon)
 HOMOGRAPHY DISCARDED #33 (non valid polygon)
 HOMOGRAPHY DISCARDED #34 (non valid polygon)
 HOMOGRAPHY DISCARDED #35 (non valid polygon)
 HOMOGRAPHY DISCARDED #36 (non valid polygon)
+HOMOGRAPHY FOUNDED #9
+
 HOMOGRAPHY DISCARDED #37 (non valid polygon)
-HOMOGRAPHY DISCARDED #38 (inliers outside polygon)
+HOMOGRAPHY DISCARDED #38 (non valid polygon)
+HOMOGRAPHY DISCARDED #39 (inliers outside polygon)
 Tot inliers: 9
 In polygon inliers: 0
 Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #39 (non valid polygon)
-HOMOGRAPHY DISCARDED #40 (non valid polygon)
+HOMOGRAPHY DISCARDED #40 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
 HOMOGRAPHY DISCARDED #41 (inliers outside polygon)
 Tot inliers: 9
 In polygon inliers: 0
 Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #42 (non valid polygon)
-HOMOGRAPHY DISCARDED #43 (non valid polygon)
-HOMOGRAPHY DISCARDED #44 (non valid polygon)
-HOMOGRAPHY DISCARDED #45 (non valid polygon)
-HOMOGRAPHY DISCARDED #46 (non valid polygon)
-HOMOGRAPHY DISCARDED #47 (inliers outside polygon)
+HOMOGRAPHY DISCARDED #42 (inliers outside polygon)
 Tot inliers: 9
 In polygon inliers: 0
 Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #48 (polygon out)
-Area out: 351083.6907873787
-Area polygon: 1755229.4267611355
-Ratio: 0.20002153874278497
+HOMOGRAPHY DISCARDED #43 (non valid polygon)
+HOMOGRAPHY DISCARDED #44 (non valid polygon)
+HOMOGRAPHY DISCARDED #45 (non valid polygon)
+HOMOGRAPHY DISCARDED #46 (non valid polygon)
+HOMOGRAPHY DISCARDED #47 (non valid polygon)
+HOMOGRAPHY DISCARDED #48 (inliers outside polygon)
+Tot inliers: 11
+In polygon inliers: 0
+Ratio: 0.0
 
-HOMOGRAPHY DISCARDED #49 (non valid polygon)
+HOMOGRAPHY DISCARDED #49 (inliers outside polygon)
+Tot inliers: 11
+In polygon inliers: 0
+Ratio: 0.0
+
 HOMOGRAPHY DISCARDED #50 (non valid polygon)
+HOMOGRAPHY DISCARDED #51 (non valid polygon)
+HOMOGRAPHY DISCARDED #52 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #53 (non valid polygon)
+HOMOGRAPHY DISCARDED #54 (inliers outside polygon)
+Tot inliers: 11
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #55 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #56 (non valid polygon)
+HOMOGRAPHY DISCARDED #57 (non valid polygon)
+HOMOGRAPHY DISCARDED #58 (inliers outside polygon)
+Tot inliers: 12
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #59 (non valid polygon)
+HOMOGRAPHY DISCARDED #60 (non valid polygon)
+HOMOGRAPHY DISCARDED #61 (non valid polygon)
+HOMOGRAPHY DISCARDED #62 (non valid polygon)
+HOMOGRAPHY DISCARDED #63 (inliers outside polygon)
+Tot inliers: 9
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #64 (non valid polygon)
+HOMOGRAPHY DISCARDED #65 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #66 (non valid polygon)
+HOMOGRAPHY DISCARDED #67 (norm difference histogram median too big)
+Max treshold: 110.418239
+Median: 118.5790874573604
+
+HOMOGRAPHY DISCARDED #68 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #69 (non valid polygon)
+HOMOGRAPHY DISCARDED #70 (non valid polygon)
+HOMOGRAPHY DISCARDED #71 (non valid polygon)
+HOMOGRAPHY DISCARDED #72 (non valid polygon)
+HOMOGRAPHY DISCARDED #73 (non valid polygon)
+HOMOGRAPHY DISCARDED #74 (non valid polygon)
+HOMOGRAPHY DISCARDED #75 (non valid polygon)
+HOMOGRAPHY DISCARDED #76 (non valid polygon)
+HOMOGRAPHY DISCARDED #77 (non valid polygon)
+HOMOGRAPHY DISCARDED #78 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #79 (non valid polygon)
+HOMOGRAPHY DISCARDED #80 (non valid polygon)
+HOMOGRAPHY DISCARDED #81 (inliers outside polygon)
+Tot inliers: 10
+In polygon inliers: 0
+Ratio: 0.0
+
+HOMOGRAPHY DISCARDED #82 (non valid polygon)
+HOMOGRAPHY DISCARDED #83 (non valid polygon)
+HOMOGRAPHY DISCARDED #84 (non valid polygon)
+HOMOGRAPHY DISCARDED #85 (non valid polygon)
+HOMOGRAPHY DISCARDED #86 (non valid polygon)
