@@ -64,8 +64,8 @@ MAX_DISCARDED_CONTINUOUSLY = 100 # max number of homography discarded in a row b
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/twinings4.JPG', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/cola_round_template.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/cola_round2.jpg', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()

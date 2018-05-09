@@ -8,10 +8,3 @@ HOMOGRAPHY FOUNDED #4
 
 HOMOGRAPHY FOUNDED #5
 
-HOMOGRAPHY DISCARDED #1 (inliers outside polygon)
-Tot inliers: 15
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY FOUNDED #6
-
