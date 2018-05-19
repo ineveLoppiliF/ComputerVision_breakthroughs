@@ -2,7 +2,7 @@
 from functions import (difference_norm_image_computation,
                        difference_plot_and_histogram, 
                        equalize_template_and_rectified_scene, 
-                       is_homography_degenerate,
+                       #is_homography_degenerate,
                        out_area_ratio,
                        pixelwise_difference_norm_check,
                        pixelwise_difference_plot_and_histogram,
@@ -10,7 +10,7 @@ from functions import (difference_norm_image_computation,
                        print_random_matches,
                        rescued_self_similar_used,
                        project_keypoints,
-                       remove_temporarily_matches,
+                       #remove_temporarily_matches,
                        remove_mask,
                        self_matches_plot,
                        self_similar_and_fingerprint_matches_extraction,
@@ -34,7 +34,7 @@ import numpy as np
 ## Constant parameters to be tuned
 MIN_MATCH_COUNT = 30 # search for the template whether there are at least
                      # MIN_MATCH_CURENT good matches in the scene
-MIN_MATCH_CURRENT = 10 # stop when your matched homography has less than that features
+MIN_MATCH_CURRENT = 5 # stop when your matched homography has less than that features
 LOWE_THRESHOLD = 0.8 # a match is kept only if the distance with the closest
                      # match is lower than LOWE_THRESHOLD * the distance with
                      # the second best match
@@ -57,15 +57,15 @@ RANDOM_MATCH_RATIO = 0.1 # number of randomly plotted matches at each
                          # print_random_matches iteration, in order to see
                          # better the matches connections
 ITERATIONS = 5 # number of iterations of print_random_matches
-MAX_DISCARDED_CONTINUOUSLY = 100 # max number of homography discarded in a row before stopping 
+MAX_DISCARDED_CONTINUOUSLY = 1000 # max number of homography discarded in a row before stopping 
                                 # the algorithm
 
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/lorem_template2.jpeg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/lorem2.jpeg', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/momath_template2.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/momath1.png', cv2.IMREAD_COLOR)  # test image
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
