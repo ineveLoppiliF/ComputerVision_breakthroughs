@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.stats import norm
 
-ALPHA=0.9 # this constant allow us to determine the quantiles to be used to discriminate self-similar matches
+ALPHA=0.8 # this constant allow us to determine the quantiles to be used to discriminate self-similar matches
 
 ## This function discriminates between normal matches and self-similar matches,
 ## i.e. matches that could be legitimately ambiguous (this matches could not pass the ratio test).
