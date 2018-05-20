@@ -1,4 +1,4 @@
-from .gaussian_computation_and_plot import gaussian_computation_and_plot
+from .histogram_computation_and_plot import histogram_computation_and_plot
 from .self_similar_matches_extraction import self_similar_matches_extraction
 from .fingerprint_matches_extraction import fingerprint_matches_extraction
 from .self_similar_distances_plot import self_similar_distances_plot

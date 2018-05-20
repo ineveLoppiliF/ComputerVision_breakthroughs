@@ -1,10 +1,9 @@
 ## Import libraries
 import numpy as np
 from matplotlib import pyplot as plt
-from scipy.stats import norm
-from math import ceil, floor
+from math import floor,ceil
 
-def self_similar_distances_plot(self_similar_list, template_descriptors, norm_parameters, interval, quantiles):
+def self_similar_distances_plot(self_similar_list, template_descriptors, interval, quantile):
     
     ## Unroll the list of self-similar matches
     unrolled_self_similar_list = [match for self_similar_matches in self_similar_list for match in self_similar_matches]
@@ -16,25 +15,13 @@ def self_similar_distances_plot(self_similar_list, template_descriptors, norm_pa
         template_descriptor2 = np.float32(template_descriptors[match.queryIdx])
         distances[i]=np.linalg.norm(template_descriptor1-template_descriptor2)
     
-    ## Generate the fitted distribution
-    fitted_pdf = norm.pdf(interval,loc=norm_parameters[0],scale=norm_parameters[1])
+    ## Plot the histogram of distances, together with quantiles    
+    plt.hist(distances,bins=range(floor(min(interval)),ceil(max(interval))),
+             density=False,color="blue",alpha=.2) #alpha, from 0 (transparent) to 1 (opaque)
+    plt.xlabel('Distances')
+    plt.ylabel('Number of matches')
     
-    ## Plot the distribution and the histogram of distances, together with quantiles
-    fig=plt.figure()
-    distribution_subpolt=fig.add_subplot(111, label="1")
-    distances_subplot=fig.add_subplot(111, label="2", frame_on=False)
+    plt.axvline(x=quantile, color='red', linewidth=0.5)
     
-    distribution_subpolt.plot(interval, fitted_pdf, "green", linewidth=4)
-    distribution_subpolt.set_xlabel("Distances")
-    distribution_subpolt.set_ylabel("Probabilities")
-    
-    distances_subplot.hist(distances,bins=range(floor(min(interval)),ceil(max(interval))),density=False,color="blue",alpha=.2) #alpha, from 0 (transparent) to 1 (opaque)
-    distances_subplot.xaxis.set_visible(False)
-    distances_subplot.yaxis.tick_right()
-    distances_subplot.set_ylabel('Number of matches')       
-    distances_subplot.yaxis.set_label_position('right')
-    
-    plt.axvline(x=quantiles[0], color='red', linewidth=0.5)
-    
-    plt.title("Self-similar matches distance on Gaussian dist")
+    plt.title("Self-similar matches distances")
     plt.show()
