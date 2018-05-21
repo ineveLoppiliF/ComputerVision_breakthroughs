@@ -1,8 +1,4 @@
-HOMOGRAPHY DISCARDED #1 (non valid polygon)
-HOMOGRAPHY DISCARDED #2 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
+HOMOGRAPHY FOUNDED #1
 
 HOMOGRAPHY DISCARDED #3 (inliers outside polygon)
 Tot inliers: 8
@@ -292,17 +288,10 @@ Ratio: 0.0
 
 HOMOGRAPHY FOUNDED #4
 
+HOMOGRAPHY DISCARDED #1 (non valid polygon)
 HOMOGRAPHY FOUNDED #5
 
-HOMOGRAPHY DISCARDED #95 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
-
-HOMOGRAPHY DISCARDED #96 (inliers outside polygon)
-Tot inliers: 8
-In polygon inliers: 0
-Ratio: 0.0
+HOMOGRAPHY FOUNDED #6
 
 HOMOGRAPHY DISCARDED #97 (inliers outside polygon)
 Tot inliers: 7
