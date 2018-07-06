@@ -2,7 +2,9 @@
 import matplotlib
 from matplotlib import pyplot as plt
 import cv2
-from functions import self_similar_and_fingerprint_matches_extraction, self_matches_plot
+from functions import (self_similar_and_fingerprint_matches_extraction,
+                       self_similar_features_plot,
+                       self_matches_plot)
 
 #%% Initialize constants
 
@@ -12,7 +14,7 @@ matplotlib.rcParams["figure.figsize"]=(15,12)
 #%% Load and show template image
 
 ## Load the template
-template_image = cv2.imread('../data/images/template/template_twinings.jpg', cv2.IMREAD_COLOR) # template image
+template_image = cv2.imread('../data/images/template/momath_template2.jpg', cv2.IMREAD_COLOR) # template image
 
 ## Show the loaded template
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -36,5 +38,6 @@ self_similar_list, fingerprint_list = self_similar_and_fingerprint_matches_extra
 
 #%% Plot self-similar matches and fingerprint matches
 
+self_similar_features_plot(template_image, template_keypoints, self_similar_list)
 self_matches_plot(template_image, template_keypoints, self_similar_list, 'Self-similar matches')
 self_matches_plot(template_image, template_keypoints, fingerprint_list, 'Fingerprint matches')

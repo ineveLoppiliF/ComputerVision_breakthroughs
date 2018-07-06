@@ -4,4 +4,5 @@ from .fingerprint_matches_extraction import fingerprint_matches_extraction
 from .self_similar_distances_plot import self_similar_distances_plot
 from .fingerprint_distances_plot import fingerprint_distances_plot
 from .self_similar_and_fingerprint_matches_extraction import self_similar_and_fingerprint_matches_extraction
+from .self_similar_features_plot import self_similar_features_plot
 from .self_matches_plot import self_matches_plot
