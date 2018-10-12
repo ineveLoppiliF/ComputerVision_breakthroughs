@@ -6,7 +6,7 @@ import numpy as np
 def difference_norm_image_computation(abs_diff_image, IMAGE_RATIO_TO_CROP):
 
     ## Compute the image representing the pixelwise difference norm
-    abs_diff_norm_image = np.linalg.norm(abs_diff_image, axis=2)
+    abs_diff_norm_image = np.linalg.norm(abs_diff_image, axis=2).astype(np.uint8)
     
     ## Crop the central part of the image representing
     ## the pixelwise difference norm

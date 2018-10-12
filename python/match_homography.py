@@ -1,24 +1,26 @@
 #%% Import libraries
 from functions import (difference_norm_image_computation,
-                       difference_plot_and_histogram, 
-                       equalize_template_and_rectified_scene, 
+                       difference_plot_and_histogram,
+                       global_image_creation_and_saving,
+                       intersection_over_union_computation,
                        #is_homography_degenerate,
+                       is_rank_full,
                        out_area_ratio,
+                       out_points_ratio,
                        pixelwise_difference_norm_check,
                        pixelwise_difference_plot_and_histogram,
                        print_discarded,
                        print_random_matches,
-                       rescued_self_similar_used,
+                       print_self_similar_inliers_and_eliminated,
+                       print_self_similar_stats,
                        project_keypoints,
                        #remove_temporarily_matches,
                        remove_mask,
+                       rescued_self_similar_used,
+                       rgb_histogram_matching,
                        self_matches_plot,
                        self_similar_and_fingerprint_matches_extraction,
-                       print_self_similar_inliers_and_eliminated,
-                       print_self_similar_stats,
-                       shuffle_matches,
-                       out_points_ratio,
-                       is_rank_full
+                       shuffle_matches
                        )
                        #, validate_area)
 from matplotlib import pyplot as plt
@@ -59,13 +61,49 @@ RANDOM_MATCH_RATIO = 0.1 # number of randomly plotted matches at each
 ITERATIONS = 5 # number of iterations of print_random_matches
 MAX_DISCARDED_CONTINUOUSLY = 1000 # max number of homography discarded in a row before stopping 
                                 # the algorithm
+TRUE_MASK_IMAGE_PATH = '../data/images/mask/golia_scene1_mask_0.jpg'
+SAVING_FOLDER = '../results/last_iteration_results'
 
 ## Set the size of the figure to show
 matplotlib.rcParams["figure.figsize"]=(15,12)
 
 ## Load images 
-template_image = cv2.imread('../data/images/template/momath_template2.jpg', cv2.IMREAD_COLOR) # template image
-test_image = cv2.imread('../data/images/test/momath1.png', cv2.IMREAD_COLOR)  # test image
+template_image = cv2.imread('../data/images/template/golia_template2.jpg', cv2.IMREAD_COLOR) # template image
+test_image = cv2.imread('../data/images/test/golia_scene1.jpg', cv2.IMREAD_COLOR)  # test image
+
+## Rescale the template image in order to keep proportions and have the
+## bigger dimension with 500 pixels
+height, width = template_image.shape[:2]
+if max([height, width])>500:
+    if height>width:
+        template_image = cv2.resize(template_image,
+                                    (int(500*(width/height)), 500),
+                                    interpolation = cv2.INTER_CUBIC)
+    elif height<width:
+        template_image = cv2.resize(template_image,
+                                    (500, int(500*(height/width))),
+                                    interpolation = cv2.INTER_CUBIC)
+    else:
+        template_image = cv2.resize(template_image,
+                                    (500, 500),
+                                    interpolation = cv2.INTER_CUBIC)
+        
+## Rescale the test image in order to keep proportions and have the
+## bigger dimension with 1000 pixels
+height, width = test_image.shape[:2]
+if max([height, width])>1000:
+    if height>width:
+        test_image = cv2.resize(test_image,
+                                (int(1000*(width/height)), 1000),
+                                interpolation = cv2.INTER_CUBIC)
+    elif height<width:
+        test_image = cv2.resize(test_image,
+                                (1000, int(1000*(height/width))),
+                                interpolation = cv2.INTER_CUBIC)
+    else:
+        test_image = cv2.resize(test_image,
+                                (1000, 1000),
+                                interpolation = cv2.INTER_CUBIC)
 
 ## Show the loaded images
 plt.imshow(cv2.cvtColor(template_image, cv2.COLOR_BGR2RGB)), plt.title('template'),plt.show()
@@ -88,6 +126,23 @@ print('found ' + str(len(test_keypoints)) + ' keypoints in the test image')
 #   kp[0].pt = location
 #   kp[0].angle = orientation
 #   kp[0].octave = scale information
+
+## Template and test keypoints represented in other images
+template_keypoints_image = cv2.drawKeypoints(template_image,
+                                             template_keypoints,
+                                             None)
+test_keypoints_image = cv2.drawKeypoints(test_image,
+                                         test_keypoints,
+                                         None)
+## Plot the keypoints
+plt.imshow(cv2.cvtColor(template_keypoints_image, cv2.COLOR_BGR2RGB))
+plt.title('Template keypoints')
+plt.savefig(SAVING_FOLDER + '/Template keypoints.png', dpi=400, format='png')
+plt.show()
+plt.imshow(cv2.cvtColor(test_keypoints_image, cv2.COLOR_BGR2RGB))
+plt.title('Test keypoints')
+plt.savefig(SAVING_FOLDER + '/Test keypoints.png', dpi=400, format='png')
+plt.show()
 
 #%% Initialize a flann_matcher object to match keypoint witn nearest neighborhood. 
 
@@ -196,7 +251,9 @@ matches_image = cv2.drawMatchesKnn(test_image, test_keypoints, template_image,
 
 ## Plot the good matches
 plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB))
-plt.title('All matches after ratio test'), plt.show()
+plt.title('All matches after ratio test')
+plt.savefig(SAVING_FOLDER + '/All matches after ratio test.png', dpi=400, format='png')
+plt.show()
 
 ## Plot rescued self-similar feature matches on the images
 ## Specify parameters
@@ -386,14 +443,13 @@ while not end:
                                         rect_test_image = cv2.warpPerspective(test_image,H_inv,(w,h))
                                         
                                         ## Equalize both template and rectified image
-                                        (equalized_template_image,
-                                         equalized_rect_test_image) = equalize_template_and_rectified_scene(template_image,
-                                                                                                            rect_test_image)
+                                        matched_rect_test_image = rgb_histogram_matching(rect_test_image,
+                                                                                         template_image)
                                         
                                         ## Compute the difference between equalized
                                         ## template and equalized rectified image
-                                        abs_diff_image = cv2.absdiff(equalized_template_image,
-                                                                     equalized_rect_test_image)
+                                        abs_diff_image = cv2.absdiff(template_image,
+                                                                     matched_rect_test_image)
                                         
                                         ## Compute the image representing the
                                         ## pixelwise difference norm, and the
@@ -449,7 +505,7 @@ while not end:
                                             ## Keep the length of this mask compatible
                                             ## with good_matches length
                                             new_good_rescued_self_similar_mask = [good_rescued_self_similar_mask[i] for i in
-                                                                              range(len(keep_mask)) if keep_mask[i]]
+                                                                                  range(len(keep_mask)) if keep_mask[i]]
                                             new_good_rescued_self_similar_mask = np.asarray(new_good_rescued_self_similar_mask)
                                             
                                             ## Apply the homography to all test_keypoints in order to plot them
@@ -462,16 +518,16 @@ while not end:
                                                                flags=2)
                                             
                                             ## Draw clustered rectified matches
-                                            matches_image = cv2.drawMatches(rect_test_image,
-                                                                            object_test_keypoints,
-                                                                            template_image,
-                                                                            template_keypoints,
-                                                                            inliers_matches,
-                                                                            None,
-                                                                            **draw_params)
+                                            rectified_matches_image = cv2.drawMatches(rect_test_image,
+                                                                                      object_test_keypoints,
+                                                                                      template_image,
+                                                                                      template_keypoints,
+                                                                                      inliers_matches,
+                                                                                      None,
+                                                                                      **draw_params)
                                             
                                             ## Show the rectified matches
-                                            plt.imshow(cv2.cvtColor(matches_image, cv2.COLOR_BGR2RGB)), 
+                                            plt.imshow(cv2.cvtColor(rectified_matches_image, cv2.COLOR_BGR2RGB)), 
                                             plt.title('Rectified object matches'), plt.show()
                                             
                                             ## Show the rectified self-similar
@@ -494,8 +550,8 @@ while not end:
                                             
                                             ## Plot the equalized template and
                                             ## rectified image
-                                            equalized_rect_stacked_image = np.hstack((equalized_rect_test_image,
-                                                                                      equalized_template_image))
+                                            equalized_rect_stacked_image = np.hstack((matched_rect_test_image,
+                                                                                      template_image))
                                             plt.imshow(cv2.cvtColor(equalized_rect_stacked_image, cv2.COLOR_BGR2RGB)), 
                                             plt.title('Equalized template and object image'), plt.show()
                                             
@@ -510,6 +566,26 @@ while not end:
                                             pixelwise_difference_plot_and_histogram(diff_norm_image,
                                                                                     diff_norm_image_central,
                                                                                     MEDIAN_THRESHOLD)
+                                            
+                                            ## "Intersection over Union" measure computation
+                                            iou_measure = intersection_over_union_computation(test_image,
+                                                                                              test_keypoints,
+                                                                                              dst_vrtx,
+                                                                                              TRUE_MASK_IMAGE_PATH)
+                                            
+                                            ## Plot the global image of the found object
+                                            global_image_creation_and_saving(test_image,
+                                                                             matches_image,
+                                                                             rectified_matches_image,
+                                                                             equalized_rect_stacked_image,
+                                                                             abs_diff_image,
+                                                                             diff_norm_image,
+                                                                             object_test_keypoints,
+                                                                             inliers_matches,
+                                                                             dst_vrtx,
+                                                                             len(areas)-1,
+                                                                             iou_measure,
+                                                                             SAVING_FOLDER)
             
                                             ## Show the number of discarded homographies until now
                                             print_discarded(discarded_homographies)

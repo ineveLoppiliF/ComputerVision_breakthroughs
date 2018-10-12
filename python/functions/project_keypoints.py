@@ -13,6 +13,9 @@ def project_keypoints(test_keypoints, H_inv):
     
     object_test_keypoints = list()
     for i,keypoint  in enumerate(object_test_keypoints_array):
-        object_test_keypoints.append(cv2.KeyPoint(keypoint[0][0], keypoint[0][1], test_keypoints[i].size))
+        object_test_keypoints.append(cv2.KeyPoint(keypoint[0][0], keypoint[0][1],
+                                                  test_keypoints[i].size, test_keypoints[i].angle,
+                                                  test_keypoints[i].response, test_keypoints[i].octave,
+                                                  test_keypoints[i].class_id))
         
     return object_test_keypoints
